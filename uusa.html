@@ -1,0 +1,1537 @@
+html
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Menu UI</title>
+    <style>
+        /* ==========================================
+           Z-INDEX MAP & RESET
+           ==========================================
+           -1  : Background blobs
+           50  : FOV Circles
+           9999: Menu Wrapper
+           10000: Hero Panel Overlay
+           10001: Toast Notifications
+           ========================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            background: var(--bg-app);
+            color: var(--text-primary);
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        /* ==========================================
+           CSS VARIABLES (THEMES)
+           ========================================== */
+        [data-theme="dark"] {
+            --bg-app: #0e0e12;
+            --bg-menu: rgba(20, 20, 28, 0.75);
+            --bg-card: rgba(30, 30, 42, 0.6);
+            --bg-card-hover: rgba(40, 40, 55, 0.8);
+            --bg-input: rgba(0, 0, 0, 0.3);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(255, 255, 255, 0.15);
+            --text-primary: #e0e0e6;
+            --text-secondary: #8e8e9a;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --accent: #3b82f6; /* Default blue */
+        }
+
+        [data-theme="light"] {
+            --bg-app: #f0f2f5;
+            --bg-menu: rgba(235, 235, 240, 0.65);
+            --bg-card: rgba(255, 255, 255, 0.7);
+            --bg-card-hover: rgba(255, 255, 255, 0.9);
+            --bg-input: rgba(0, 0, 0, 0.05);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-glow: rgba(0, 0, 0, 0.15);
+            --text-primary: #1a1a1e;
+            --text-secondary: #6e6e7a;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --accent: #3b82f6;
+        }
+
+        /* ==========================================
+           BACKGROUND & ATMOSPHERE
+           ========================================== */
+        .bg-scene {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg-app);
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .blob-1 { width: 600px; height: 600px; background: #4e00c2; top: -200px; left: -100px; animation-duration: 25s; }
+        .blob-2 { width: 500px; height: 500px; background: #c2005e; bottom: -150px; right: -100px; animation-duration: 20s; animation-delay: -5s; }
+        .blob-3 { width: 400px; height: 400px; background: #006ec2; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-duration: 30s; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(20px, 40px) scale(1.05); }
+        }
+
+        /* ==========================================
+           SVG FILTER (GLASS DISTORTION)
+           ========================================== */
+        .svg-filters { position: absolute; width: 0; height: 0; }
+        .glass-distort-layer {
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            filter: url(#glass-distort);
+            pointer-events: none;
+            z-index: 2;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);
+            mix-blend-mode: overlay;
+        }
+
+        /* ==========================================
+           MENU WRAPPER & SURFACE
+           ========================================== */
+        .menu-wrapper {
+            position: fixed;
+            z-index: 9999;
+        }
+
+        .menu-surface {
+            width: 800px;
+            height: 520px;
+            background: var(--bg-menu);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px var(--shadow-color);
+            
+            transform: scale(var(--ui-scale, 1));
+            opacity: var(--ui-opacity, 1);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease, filter 0.4s ease;
+        }
+
+        .menu-surface.closed {
+            transform: scale(calc(var(--ui-scale, 1) * 0.95));
+            opacity: 0;
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        .menu-surface.minimized .menu-body {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            border: none;
+        }
+
+        .light-reflection {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+            opacity: 0;
+            mix-blend-mode: overlay;
+        }
+
+        /* ==========================================
+           HEADER
+           ========================================== */
+        .menu-header {
+            height: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: grab;
+            position: relative;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .menu-header:active { cursor: grabbing; }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .fps-counter {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .header-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-btn:hover { color: var(--text-primary); }
+        .header-btn svg { width: 14px; height: 14px; }
+
+        /* ==========================================
+           LAYOUT (SIDEBAR & CONTENT)
+           ========================================== */
+        .menu-body {
+            display: flex;
+            flex: 1;
+            height: calc(100% - 48px);
+            opacity: 1;
+            transition: height 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sidebar {
+            width: 180px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16px 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        .nav-list {
+            list-style: none;
+            position: relative;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 0 4px 4px 0;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 6;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.2s;
+            position: relative;
+            z-index: 7;
+        }
+
+        .nav-item:hover { color: var(--text-primary); }
+        .nav-item.active { color: var(--text-primary); }
+        .nav-item svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+        .user-profile {
+            padding: 16px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-input);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        .user-info { display: flex; flex-direction: column; }
+        .user-name { font-size: 13px; font-weight: 500; }
+        .user-status { font-size: 11px; color: #10b981; display: flex; align-items: center; gap: 4px; }
+        .status-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; display: inline-block; }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .content::-webkit-scrollbar { display: none; }
+
+        .tab-pane { display: none; animation: fadeIn 0.3s ease; }
+        .tab-pane.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ==========================================
+           CARDS & TYPOGRAPHY
+           ========================================== */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: background 0.2s;
+        }
+
+        .card-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .card-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .card-row:last-child { margin-bottom: 0; }
+        .label { font-size: 13px; font-weight: 500; }
+        .label-sub { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+        /* ==========================================
+           REUSABLE: TOGGLE
+           ========================================== */
+        .toggle {
+            width: 36px;
+            height: 20px;
+            background: var(--bg-input);
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .toggle.active { background: var(--accent); }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .toggle.active::after { transform: translateX(16px); }
+
+        /* ==========================================
+           REUSABLE: SLIDER
+           ========================================== */
+        .slider-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .slider-container {
+            flex: 1;
+            position: relative;
+            height: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            outline: none;
+            background: linear-gradient(to right, var(--accent) 0%, var(--accent) calc(var(--val) * 1%), var(--bg-input) calc(var(--val) * 1%), var(--bg-input) 100%);
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+
+        .slider-badge {
+            min-width: 36px;
+            text-align: right;
+            font-size: 12px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================
+           REUSABLE: SEGMENTED CONTROL
+           ========================================== */
+        .segmented-ctrl {
+            display: flex;
+            background: var(--bg-input);
+            border-radius: 8px;
+            padding: 3px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .seg-btn {
+            flex: 1;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            z-index: 2;
+            transition: color 0.2s;
+            border-radius: 6px;
+        }
+
+        .seg-btn.active { color: var(--text-primary); }
+
+        .seg-indicator {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            height: calc(100% - 6px);
+            background: var(--bg-card-hover);
+            border-radius: 6px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            box-shadow: 0 1px 4px var(--shadow-color);
+        }
+
+        .segmented-ctrl.underline {
+            background: none;
+            padding: 0 0 2px 0;
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0;
+        }
+        .segmented-ctrl.underline .seg-btn { margin-bottom: 4px; }
+        .segmented-ctrl.underline .seg-indicator {
+            top: auto;
+            bottom: -2px;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px 2px 0 0;
+            box-shadow: none;
+        }
+
+        /* ==========================================
+           REUSABLE: CHIPS
+           ========================================== */
+        .chips-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .chip {
+            padding: 4px 12px;
+            font-size: 11px;
+            border-radius: 6px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+        .chip.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* ==========================================
+           REUSABLE: KEYBIND
+           ========================================== */
+        .keybind {
+            padding: 4px 10px;
+            font-size: 11px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            min-width: 50px;
+            text-align: center;
+        }
+        .keybind.listening {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+            animation: pulse 1s infinite;
+        }
+
+        /* ==========================================
+           REUSABLE: SWATCHES
+           ========================================== */
+        .swatches-group { display: flex; gap: 10px; margin-top: 8px; }
+        .swatch {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+        .swatch:hover { transform: scale(1.1); }
+        .swatch.active { border-color: var(--text-primary); }
+        .swatch.active::after {
+            content: '✓';
+            font-size: 12px;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* ==========================================
+           REUSABLE: COLLAPSIBLE
+           ========================================== */
+        .collapsible-wrapper {
+            display: grid;
+            grid-template-rows: 1fr;
+            transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease, margin 0.3s ease;
+            opacity: 1;
+            margin-top: 8px;
+        }
+        .collapsible-wrapper.collapsed {
+            grid-template-rows: 0fr;
+            opacity: 0;
+            margin-top: 0;
+        }
+        .collapsible-content { overflow: hidden; }
+
+        /* ==========================================
+           SPECIFIC: FOV CIRCLES
+           ========================================== */
+        .fov-circle {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 50;
+            background: none !important; /* Hollow - no fill */
+            border: 2px solid var(--fov-color, #3b82f6);
+            box-shadow: 0 0 15px var(--fov-color, #3b82f6), inset 0 0 15px var(--fov-color, #3b82f6);
+            opacity: 0;
+            transition: opacity 0.3s, width 0.1s, height 0.1s;
+        }
+        .fov-circle.visible { 
+            opacity: var(--fov-opacity, 0.8); 
+        }
+        #fov-normal { --fov-color: #3b82f6; --fov-opacity: 0.8; }
+        #fov-psilent { --fov-color: #ff00ff; --fov-opacity: 0.8; }
+
+        /* ==========================================
+           SPECIFIC: HEROES PANEL
+           ========================================== */
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+        }
+        .hero-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .hero-card:hover { background: var(--bg-card-hover); border-color: var(--border-glow); }
+        .hero-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+        }
+        .hero-name { font-size: 11px; color: var(--text-secondary); }
+
+        .hero-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .hero-overlay.active { display: flex; opacity: 1; }
+
+        .hero-panel {
+            width: 300px;
+            background: var(--bg-menu);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            transform: scale(0.2);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.2s;
+            overflow: hidden;
+        }
+        .hero-overlay.active .hero-panel { transform: scale(1); opacity: 1; }
+
+        .hero-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero-panel-close {
+            background: none; border: none; color: var(--text-secondary); cursor: pointer; transition: color 0.2s;
+        }
+        .hero-panel-close:hover { color: var(--text-primary); }
+        .hero-panel-body { padding: 16px; }
+
+        /* ==========================================
+           SPECIFIC: TOAST
+           ========================================== */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .toast {
+            padding: 12px 20px;
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 13px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            animation: slideIn 0.3s ease, fadeOut 0.3s ease 1.7s forwards;
+        }
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeOut { to { opacity: 0; transform: translateY(-10px); } }
+
+        .mb-md { margin-bottom: 12px; }
+        .btn-action {
+            width: 100%;
+            padding: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+            margin-bottom: 8px;
+        }
+        .btn-action:hover { background: var(--bg-card-hover); }
+        .search-input {
+            width: 100%;
+            padding: 8px 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 12px;
+        }
+        .search-input:focus { border-color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div class="bg-scene">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <svg class="svg-filters">
+        <defs>
+            <filter id="glass-distort">
+                <feTurbulence id="turbulence" type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div id="fov-normal" class="fov-circle"></div>
+    <div id="fov-psilent" class="fov-circle"></div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <div class="hero-overlay" id="hero-overlay">
+        <div class="hero-panel" id="hero-panel">
+            <div class="hero-panel-header">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <div class="hero-avatar" id="hp-avatar" style="width:32px; height:32px; font-size:14px;"></div>
+                    <div>
+                        <div style="font-size:14px; font-weight:500;" id="hp-name"></div>
+                        <div style="font-size:11px; color:var(--text-secondary);">Script Settings</div>
+                    </div>
+                </div>
+                <button class="hero-panel-close" onclick="closeHeroPanel()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="hero-panel-body" id="hp-body"></div>
+        </div>
+    </div>
+
+    <div class="menu-wrapper" id="menu-wrapper" style="top:50%; left:50%; transform:translate(-50%, -50%);">
+        <div class="menu-surface closed" id="menu-surface">
+            <div class="glass-distort-layer"></div>
+            <div class="light-reflection" id="light-reflection"></div>
+
+            <div class="menu-header" id="menu-header">
+                <div class="brand">
+                    <div class="brand-dot"></div>
+                    <span>NEXUS</span>
+                </div>
+                <div class="header-actions">
+                    <div class="fps-counter" id="fps-counter">144 FPS</div>
+                    <button class="header-btn" onclick="toggleMinimize()" title="Minimize">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M5 12h14"/></svg>
+                    </button>
+                    <button class="header-btn" onclick="toggleMenu()" title="Close">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-body">
+                <div class="sidebar">
+                    <ul class="nav-list" id="nav-list">
+                        <div class="nav-indicator" id="nav-indicator"></div>
+                        <li class="nav-item active" data-tab="aim">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+                            <span>Aim</span>
+                        </li>
+                        <li class="nav-item" data-tab="visuals">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            <span>Visuals</span>
+                        </li>
+                        <li class="nav-item" data-tab="heroes">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <span>Heroes</span>
+                        </li>
+                        <li class="nav-item" data-tab="misc">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                            <span>Misc</span>
+                        </li>
+                        <li class="nav-item" data-tab="settings">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                            <span>Settings</span>
+                        </li>
+                    </ul>
+                    <div class="user-profile">
+                        <div class="avatar">P</div>
+                        <div class="user-info">
+                            <div class="user-name">Player</div>
+                            <div class="user-status"><span class="status-dot"></span> Online</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content" id="content-area">
+                    <div class="tab-pane active" id="tab-aim">
+                        <div class="card">
+                            <div class="card-title">Main</div>
+                            <div class="card-row"><span class="label">Aim Assist</span><div class="toggle active" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Predict Movement</span><div class="toggle active" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Ignore Obstacles</span><div class="toggle" data-toggle></div></div>
+                        </div>
+
+                        <div class="segmented-ctrl underline mb-md" data-segment="aim-type">
+                            <div class="seg-indicator"></div>
+                            <div class="seg-btn active" data-seg-val="normal">Normal</div>
+                            <div class="seg-btn" data-seg-val="psilent">PSilent</div>
+                        </div>
+
+                        <div class="card" id="card-normal">
+                            <div class="card-title">Normal Aim</div>
+                            <div class="card-row"><span class="label">Enable</span><div class="toggle active" data-toggle></div></div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">FOV</span>
+                                <div class="slider-container"><input type="range" min="0" max="180" value="90" data-slider="fov-normal-val"></div>
+                                <span class="slider-badge">90°</span>
+                            </div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Smooth</span>
+                                <div class="slider-container"><input type="range" min="0" max="100" value="50" data-slider></div>
+                                <span class="slider-badge">50%</span>
+                            </div>
+                            <div class="card-row" style="margin-top: 12px;">
+                                <span class="label" style="font-size:12px">FOV Color</span>
+                                <div class="swatches-group" data-swatches="fov-normal-color" data-fov-target="fov-normal">
+                                    <div class="swatch active" style="background:#3b82f6" data-color="#3b82f6"></div>
+                                    <div class="swatch" style="background:#10b981" data-color="#10b981"></div>
+                                    <div class="swatch" style="background:#ef4444" data-color="#ef4444"></div>
+                                    <div class="swatch" style="background:#ffffff" data-color="#ffffff"></div>
+                                </div>
+                            </div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">FOV Opacity</span>
+                                <div class="slider-container"><input type="range" min="0" max="100" value="80" data-slider="fov-normal-opacity"></div>
+                                <span class="slider-badge">80%</span>
+                            </div>
+                            <button class="btn-action" onclick="toggleFov('fov-normal')">Show FOV</button>
+                        </div>
+
+                        <div class="card" id="card-psilent" style="display:none;">
+                            <div class="card-title">Perfect Silent</div>
+                            <div class="card-row"><span class="label">Enable</span><div class="toggle" data-toggle></div></div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">FOV</span>
+                                <div class="slider-container"><input type="range" min="0" max="180" value="45" data-slider="fov-psilent-val"></div>
+                                <span class="slider-badge">45°</span>
+                            </div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Hit Chance</span>
+                                <div class="slider-container"><input type="range" min="0" max="100" value="75" data-slider></div>
+                                <span class="slider-badge">75%</span>
+                            </div>
+                            <div class="card-row" style="margin-top: 12px;">
+                                <span class="label" style="font-size:12px">FOV Color</span>
+                                <div class="swatches-group" data-swatches="fov-psilent-color" data-fov-target="fov-psilent">
+                                    <div class="swatch active" style="background:#ff00ff" data-color="#ff00ff"></div>
+                                    <div class="swatch" style="background:#f59e0b" data-color="#f59e0b"></div>
+                                    <div class="swatch" style="background:#ec4899" data-color="#ec4899"></div>
+                                    <div class="swatch" style="background:#ffffff" data-color="#ffffff"></div>
+                                </div>
+                            </div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">FOV Opacity</span>
+                                <div class="slider-container"><input type="range" min="0" max="100" value="80" data-slider="fov-psilent-opacity"></div>
+                                <span class="slider-badge">80%</span>
+                            </div>
+                            <button class="btn-action" onclick="toggleFov('fov-psilent')">Show FOV</button>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-title">Targeting</div>
+                            <div class="segmented-ctrl mb-md" data-segment="target-prio">
+                                <div class="seg-indicator"></div>
+                                <div class="seg-btn active" data-seg-val="closest">Closest</div>
+                                <div class="seg-btn" data-seg-val="health">Health</div>
+                                <div class="seg-btn" data-seg-val="damage">Damage</div>
+                            </div>
+                            <span class="label" style="font-size:12px">Aim Points</span>
+                            <div class="chips-group" data-chips>
+                                <div class="chip active" data-chip="head">Head</div>
+                                <div class="chip" data-chip="neck">Neck</div>
+                                <div class="chip" data-chip="chest">Chest</div>
+                                <div class="chip" data-chip="arms">Arms</div>
+                                <div class="chip" data-chip="pelvis">Pelvis</div>
+                                <div class="chip" data-chip="legs">Legs</div>
+                            </div>
+                            <div class="card-row" style="margin-top:16px">
+                                <span class="label">Activation Key</span>
+                                <div class="keybind" data-keybind>MB4</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-row">
+                                <div>
+                                    <span class="label">HS Limit</span>
+                                    <div class="label-sub">Limit headshot percentage</div>
+                                </div>
+                                <div class="toggle" data-toggle="hs-limit-toggle"></div>
+                            </div>
+                            <div class="collapsible-wrapper collapsed" id="hs-limit-wrapper">
+                                <div class="collapsible-content">
+                                    <div class="slider-wrap">
+                                        <span class="label" style="font-size:12px">Limit</span>
+                                        <div class="slider-container"><input type="range" min="0" max="100" value="40" data-slider></div>
+                                        <span class="slider-badge">40%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-visuals">
+                        <div class="card">
+                            <div class="card-title">ESP</div>
+                            <div class="card-row"><span class="label">ESP</span><div class="toggle active" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Skeleton</span><div class="toggle active" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Health Bar</span><div class="toggle" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Name & Dist</span><div class="toggle active" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Chams</span><div class="toggle" data-toggle></div></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">Rendering</div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Outline Opacity</span>
+                                <div class="slider-container"><input type="range" min="0" max="100" value="100" data-slider></div>
+                                <span class="slider-badge">100%</span>
+                            </div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Draw Distance</span>
+                                <div class="slider-container"><input type="range" min="0" max="500" value="250" data-slider></div>
+                                <span class="slider-badge">250m</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">Colors</div>
+                            <span class="label" style="font-size:12px">Allies</span>
+                            <div class="swatches-group" data-swatches="ally-color">
+                                <div class="swatch active" style="background:#3b82f6" data-color="#3b82f6"></div>
+                                <div class="swatch" style="background:#10b981" data-color="#10b981"></div>
+                                <div class="swatch" style="background:#8b5cf6" data-color="#8b5cf6"></div>
+                            </div>
+                            <span class="label" style="font-size:12px; margin-top:12px; display:block;">Enemies</span>
+                            <div class="swatches-group" data-swatches="enemy-color">
+                                <div class="swatch active" style="background:#ef4444" data-color="#ef4444"></div>
+                                <div class="swatch" style="background:#f59e0b" data-color="#f59e0b"></div>
+                                <div class="swatch" style="background:#ec4899" data-color="#ec4899"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-heroes">
+                        <input type="text" class="search-input" placeholder="Search hero..." id="hero-search">
+                        <div class="heroes-grid" id="heroes-grid"></div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-misc">
+                        <div class="card">
+                            <div class="card-title">Exploits</div>
+                            <div class="card-row"><span class="label">Bunny Hop</span><div class="toggle active" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Auto Accept</span><div class="toggle" data-toggle></div></div>
+                            <div class="card-row"><span class="label">Fast Reload</span><div class="toggle" data-toggle></div></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">Network & Angles</div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Fake Lag</span>
+                                <div class="slider-container"><input type="range" min="0" max="100" value="20" data-slider></div>
+                                <span class="slider-badge">20ms</span>
+                            </div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Anti-Aim Angle</span>
+                                <div class="slider-container"><input type="range" min="0" max="180" value="90" data-slider></div>
+                                <span class="slider-badge">90°</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">Anti-Aim Mode</div>
+                            <div class="segmented-ctrl" data-segment="aa-mode">
+                                <div class="seg-indicator"></div>
+                                <div class="seg-btn active" data-seg-val="static">Static</div>
+                                <div class="seg-btn" data-seg-val="spin">Spin</div>
+                                <div class="seg-btn" data-seg-val="random">Random</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-settings">
+                        <div class="card">
+                            <div class="card-title">Interface</div>
+                            <div class="card-row">
+                                <span class="label">Theme</span>
+                                <div class="segmented-ctrl" data-segment="theme" style="width:140px; margin:0;">
+                                    <div class="seg-indicator"></div>
+                                    <div class="seg-btn active" data-seg-val="dark">Dark</div>
+                                    <div class="seg-btn" data-seg-val="light">Light</div>
+                                </div>
+                            </div>
+                            <div class="card-row">
+                                <span class="label">Menu Key</span>
+                                <div class="keybind" data-keybind="menu-key">INSERT</div>
+                            </div>
+                            <div class="card-row"><span class="label">UI Animations</span><div class="toggle active" data-toggle></div></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">Scaling & Opacity</div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">UI Scale</span>
+                                <div class="slider-container"><input type="range" min="70" max="130" value="100" data-slider="ui-scale"></div>
+                                <span class="slider-badge">100%</span>
+                            </div>
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Menu Opacity</span>
+                                <div class="slider-container"><input type="range" min="30" max="100" value="100" data-slider="menu-opacity"></div>
+                                <span class="slider-badge">100%</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">Accent Color</div>
+                            <div class="swatches-group" data-swatches="accent-color" data-is-accent="true">
+                                <div class="swatch active" style="background:#3b82f6" data-color="#3b82f6"></div>
+                                <div class="swatch" style="background:#10b981" data-color="#10b981"></div>
+                                <div class="swatch" style="background:#8b5cf6" data-color="#8b5cf6"></div>
+                                <div class="swatch" style="background:#ef4444" data-color="#ef4444"></div>
+                                <div class="swatch" style="background:#f59e0b" data-color="#f59e0b"></div>
+                            </div>
+                        </div>
+                        <button class="btn-action" onclick="resetSettings()">Reset Settings</button>
+                        <button class="btn-action" onclick="showToast('Config saved successfully!')">Save Config</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const surface = document.getElementById('menu-surface');
+    const wrapper = document.getElementById('menu-wrapper');
+    const header = document.getElementById('menu-header');
+    const lightRef = document.getElementById('light-reflection');
+    const turbulence = document.getElementById('turbulence');
+    const fpsCounter = document.getElementById('fps-counter');
+    
+    let isDragging = false;
+    let dragStartX, dragStartY, wrapperStartX, wrapperStartY;
+    let activeKeybind = null;
+    let menuKey = 'Insert';
+
+    initToggles();
+    initSliders();
+    initSegments();
+    initChips();
+    initKeybinds();
+    initSwatches();
+    initNav();
+    initDrag();
+    initMenuKey();
+    initHeroGrid();
+    initSvgFilterAnimation();
+    initMouseLightReflection();
+    initFpsCounter();
+    initSettingsSliders();
+
+    setTimeout(() => surface.classList.remove('closed'), 100);
+
+    function initToggles() {
+        document.querySelectorAll('[data-toggle]').forEach(t => {
+            t.addEventListener('click', (e) => {
+                e.stopPropagation();
+                t.classList.toggle('active');
+                if(t.dataset.toggle === 'hs-limit-toggle') {
+                    document.getElementById('hs-limit-wrapper').classList.toggle('collapsed', !t.classList.contains('active'));
+                }
+            });
+        });
+    }
+
+    function initSliders() {
+        document.querySelectorAll('input[type="range"]').forEach(s => {
+            updateSliderVisual(s);
+            s.addEventListener('input', () => {
+                updateSliderVisual(s);
+                updateFovCircles(s);
+                updateSettingsSliders(s);
+            });
+        });
+    }
+
+    function updateSliderVisual(s) {
+        const min = s.min || 0;
+        const max = s.max || 100;
+        const val = ((s.value - min) / (max - min)) * 100;
+        s.style.setProperty('--val', val);
+        
+        const badge = s.closest('.slider-wrap')?.querySelector('.slider-badge');
+        if(badge) {
+            let unit = '';
+            if(s.dataset.slider === 'fov-normal-val' || s.dataset.slider === 'fov-psilent-val' || s.max === '180') unit = '°';
+            else if(s.value >= 0 && s.max === '100') unit = '%';
+            else if(s.max === '500') unit = 'm';
+            else if(s.max === '100' && s.closest('.card-title')?.textContent === 'Network & Angles') unit = 'ms';
+            badge.textContent = `${s.value}${unit}`;
+        }
+    }
+
+    function initSegments() {
+        document.querySelectorAll('[data-segment]').forEach(ctrl => {
+            const indicator = ctrl.querySelector('.seg-indicator');
+            const btns = ctrl.querySelectorAll('.seg-btn');
+            
+            const setIndicator = (btn) => {
+                if(!btn || !indicator) return;
+                if(ctrl.classList.contains('underline')) {
+                    indicator.style.width = `${btn.offsetWidth}px`;
+                    indicator.style.transform = `translateX(${btn.offsetLeft - ctrl.offsetLeft}px)`;
+                } else {
+                    indicator.style.width = `${btn.offsetWidth}px`;
+                    indicator.style.transform = `translateX(${btn.offsetLeft - ctrl.offsetLeft - 3}px)`;
+                }
+            };
+
+            setTimeout(() => setIndicator(ctrl.querySelector('.seg-btn.active')), 50);
+            window.addEventListener('resize', () => setIndicator(ctrl.querySelector('.seg-btn.active')));
+
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    setIndicator(btn);
+                    handleSegmentLogic(ctrl.dataset.segment, btn.dataset.segVal);
+                });
+            });
+        });
+    }
+
+    function handleSegmentLogic(type, val) {
+        if(type === 'aim-type') {
+            document.getElementById('card-normal').style.display = val === 'normal' ? 'block' : 'none';
+            document.getElementById('card-psilent').style.display = val === 'psilent' ? 'block' : 'none';
+        }
+        if(type === 'theme') {
+            document.documentElement.setAttribute('data-theme', val);
+        }
+        closeHeroPanel();
+    }
+
+    function initChips() {
+        document.querySelectorAll('[data-chips]').forEach(group => {
+            group.querySelectorAll('.chip').forEach(chip => {
+                chip.addEventListener('click', () => chip.classList.toggle('active'));
+            });
+        });
+    }
+
+    function initKeybinds() {
+        document.querySelectorAll('[data-keybind]').forEach(kb => {
+            kb.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if(activeKeybind) activeKeybind.classList.remove('listening');
+                kb.classList.add('listening');
+                kb.textContent = '...';
+                activeKeybind = kb;
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if(activeKeybind) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if(e.key === 'Escape') {
+                    activeKeybind.textContent = '–';
+                    if(activeKeybind.dataset.keybind === 'menu-key') menuKey = null;
+                } else {
+                    const keyName = e.code.replace('Key', '').replace('Digit', '');
+                    activeKeybind.textContent = keyName;
+                    if(activeKeybind.dataset.keybind === 'menu-key') menuKey = e.code;
+                }
+                
+                activeKeybind.classList.remove('listening');
+                activeKeybind = null;
+                return; 
+            }
+            
+            if(e.code === menuKey || e.key === 'Insert' || e.keyCode === 45) {
+                toggleMenu();
+            }
+        });
+
+        document.addEventListener('mousedown', (e) => {
+            if (activeKeybind) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                let btnName = '';
+                if (e.button === 0) btnName = 'MB1';
+                else if (e.button === 1) btnName = 'MB3';
+                else if (e.button === 2) btnName = 'MB2';
+                
+                if (btnName) {
+                    activeKeybind.textContent = btnName;
+                    if(activeKeybind.dataset.keybind === 'menu-key') menuKey = btnName;
+                    activeKeybind.classList.remove('listening');
+                    activeKeybind = null;
+                }
+            }
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            if (activeKeybind) e.preventDefault();
+        });
+    }
+
+    function initSwatches() {
+        document.querySelectorAll('[data-swatches]').forEach(group => {
+            group.querySelectorAll('.swatch').forEach(s => {
+                s.addEventListener('click', () => {
+                    group.querySelectorAll('.swatch').forEach(sw => sw.classList.remove('active'));
+                    s.classList.add('active');
+                    if(group.dataset.isAccent === 'true') {
+                        document.documentElement.style.setProperty('--accent', s.dataset.color);
+                    }
+                    // Apply custom color to FOV circles
+                    if(group.dataset.fovTarget) {
+                        const circle = document.getElementById(group.dataset.fovTarget);
+                        if(circle) circle.style.setProperty('--fov-color', s.dataset.color);
+                    }
+                });
+            });
+        });
+    }
+
+    function initNav() {
+        const navItems = document.querySelectorAll('.nav-item');
+        const indicator = document.getElementById('nav-indicator');
+        const panes = document.querySelectorAll('.tab-pane');
+
+        const moveIndicator = (item) => {
+            indicator.style.transform = `translateY(${item.offsetTop}px)`;
+        };
+
+        setTimeout(() => moveIndicator(document.querySelector('.nav-item.active')), 50);
+        window.addEventListener('resize', () => moveIndicator(document.querySelector('.nav-item.active')));
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                moveIndicator(item);
+                
+                panes.forEach(p => p.classList.remove('active'));
+                document.getElementById(`tab-${item.dataset.tab}`).classList.add('active');
+                closeHeroPanel();
+            });
+        });
+    }
+
+    function initDrag() {
+        header.addEventListener('mousedown', (e) => {
+            if(e.target.closest('.header-btn') || e.target.closest('[data-keybind]')) return;
+            isDragging = true;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            
+            const rect = wrapper.getBoundingClientRect();
+            wrapperStartX = rect.left;
+            wrapperStartY = rect.top;
+            
+            wrapper.style.transform = 'none';
+            wrapper.style.left = `${wrapperStartX}px`;
+            wrapper.style.top = `${wrapperStartY}px`;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if(!isDragging) return;
+            const dx = e.clientX - dragStartX;
+            const dy = e.clientY - dragStartY;
+            wrapper.style.left = `${wrapperStartX + dx}px`;
+            wrapper.style.top = `${wrapperStartY + dy}px`;
+        });
+
+        document.addEventListener('mouseup', () => isDragging = false);
+    }
+
+    function initMenuKey() {}
+
+    window.toggleMenu = function() {
+        surface.classList.toggle('closed');
+    };
+
+    window.toggleMinimize = function() {
+        surface.classList.toggle('minimized');
+    };
+
+    function updateFovCircles(slider) {
+        if(slider.dataset.slider === 'fov-normal-val') {
+            const size = slider.value * 4;
+            const circle = document.getElementById('fov-normal');
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+        }
+        if(slider.dataset.slider === 'fov-psilent-val') {
+            const size = slider.value * 4;
+            const circle = document.getElementById('fov-psilent');
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+        }
+        // Apply Opacity
+        if(slider.dataset.slider === 'fov-normal-opacity') {
+            const circle = document.getElementById('fov-normal');
+            circle.style.setProperty('--fov-opacity', slider.value / 100);
+        }
+        if(slider.dataset.slider === 'fov-psilent-opacity') {
+            const circle = document.getElementById('fov-psilent');
+            circle.style.setProperty('--fov-opacity', slider.value / 100);
+        }
+    }
+
+    window.toggleFov = function(id) {
+        document.getElementById(id).classList.toggle('visible');
+    };
+
+    const fovNSlider = document.querySelector('[data-slider="fov-normal-val"]');
+    const fovPSlider = document.querySelector('[data-slider="fov-psilent-val"]');
+    if(fovNSlider) updateFovCircles(fovNSlider);
+    if(fovPSlider) updateFovCircles(fovPSlider);
+
+    function initHeroGrid() {
+        const grid = document.getElementById('heroes-grid');
+        const colors = ['#3b82f6', '#10b981', '#8b5cf6', '#ef4444', '#f59e0b', '#ec4899', '#14b8a6', '#f97316', '#6366f1', '#84cc16', '#06b6d4', '#e11d48'];
+        
+        for(let i=1; i<=12; i++) {
+            const card = document.createElement('div');
+            card.className = 'hero-card';
+            card.dataset.name = `Hero ${String(i).padStart(2, '0')}`;
+            card.innerHTML = `
+                <div class="hero-avatar" style="background:${colors[i-1]}">H</div>
+                <div class="hero-name">${card.dataset.name}</div>
+            `;
+            card.addEventListener('click', (e) => openHeroPanel(e, card, colors[i-1]));
+            grid.appendChild(card);
+        }
+
+        document.getElementById('hero-search').addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            grid.querySelectorAll('.hero-card').forEach(c => {
+                c.style.display = c.dataset.name.toLowerCase().includes(val) ? 'flex' : 'none';
+            });
+        });
+
+        document.getElementById('hero-overlay').addEventListener('click', (e) => {
+            if(e.target === e.currentTarget) closeHeroPanel();
+        });
+    }
+
+    function openHeroPanel(e, card, color) {
+        const overlay = document.getElementById('hero-overlay');
+        const panel = document.getElementById('hero-panel');
+        const name = card.dataset.name;
+
+        const gridRect = document.getElementById('heroes-grid').getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const originX = cardRect.left - gridRect.left + cardRect.width/2;
+        const originY = cardRect.top - gridRect.top + cardRect.height/2;
+        
+        panel.style.transformOrigin = `${originX}px ${originY}px`;
+        
+        document.getElementById('hp-avatar').style.background = color;
+        document.getElementById('hp-name').textContent = name;
+
+        const body = document.getElementById('hp-body');
+        body.innerHTML = '';
+        for(let i=1; i<=4; i++) {
+            const isUlt = i === 4;
+            const isOff = i === 3;
+            const id = `ability-${i}-${Date.now()}`;
+            
+            body.innerHTML += `
+                <div class="card" style="margin-bottom:8px;">
+                    <div class="card-row">
+                        <span class="label">Ability ${i} ${isUlt ? '(Ult)' : ''}</span>
+                        <div class="toggle ${isOff ? '' : 'active'}" data-toggle="ability-toggle-${i}" onclick="this.classList.toggle('active'); document.getElementById('wrap-${id}').classList.toggle('collapsed', !this.classList.contains('active'))"></div>
+                    </div>
+                    <div class="collapsible-wrapper ${isOff ? 'collapsed' : ''}" id="wrap-${id}">
+                        <div class="collapsible-content">
+                            <div class="slider-wrap">
+                                <span class="label" style="font-size:12px">Aim Smoothing</span>
+                                <div class="slider-container"><input type="range" min="0" max="100" value="50" data-slider></div>
+                                <span class="slider-badge">50%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        body.querySelectorAll('input[type="range"]').forEach(s => {
+            updateSliderVisual(s);
+            s.addEventListener('input', () => updateSliderVisual(s));
+        });
+
+        overlay.classList.add('active');
+    }
+
+    window.closeHeroPanel = function() {
+        document.getElementById('hero-overlay').classList.remove('active');
+    };
+
+    function initSettingsSliders() {
+        const scaleSlider = document.querySelector('[data-slider="ui-scale"]');
+        const opSlider = document.querySelector('[data-slider="menu-opacity"]');
+        if(scaleSlider) updateSettingsSliders(scaleSlider);
+        if(opSlider) updateSettingsSliders(opSlider);
+    }
+
+    function updateSettingsSliders(s) {
+        if(s.dataset.slider === 'ui-scale') {
+            surface.style.setProperty('--ui-scale', s.value / 100);
+        }
+        if(s.dataset.slider === 'menu-opacity') {
+            surface.style.setProperty('--ui-opacity', s.value / 100);
+        }
+    }
+
+    window.resetSettings = function() {
+        document.documentElement.style.setProperty('--accent', '#3b82f6');
+        document.documentElement.setAttribute('data-theme', 'dark');
+        surface.style.removeProperty('--ui-scale');
+        surface.style.removeProperty('--ui-opacity');
+        
+        document.querySelectorAll('input[type="range"]').forEach(s => {
+            s.value = s.defaultValue;
+            updateSliderVisual(s);
+            updateFovCircles(s);
+            updateSettingsSliders(s);
+        });
+
+        // Reset FOV custom properties
+        document.getElementById('fov-normal').style.setProperty('--fov-color', '#3b82f6');
+        document.getElementById('fov-normal').style.setProperty('--fov-opacity', '0.8');
+        document.getElementById('fov-psilent').style.setProperty('--fov-color', '#ff00ff');
+        document.getElementById('fov-psilent').style.setProperty('--fov-opacity', '0.8');
+
+        document.querySelectorAll('[data-segment="theme"] .seg-btn').forEach(b => {
+            b.classList.toggle('active', b.dataset.segVal === 'dark');
+        });
+
+        showToast('Settings reset to defaults');
+    };
+
+    window.showToast = function(msg) {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = msg;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+    };
+
+    function initSvgFilterAnimation() {
+        let base = 0.015;
+        let step = 0.00005;
+        let dir = 1;
+        function animateFilter() {
+            base += step * dir;
+            if(base > 0.02) dir = -1;
+            if(base < 0.01) dir = 1;
+            turbulence.setAttribute('baseFrequency', base);
+            requestAnimationFrame(animateFilter);
+        }
+        animateFilter();
+    }
+
+    function initMouseLightReflection() {
+        surface.addEventListener('mousemove', (e) => {
+            const rect = surface.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            lightRef.style.left = `${x}px`;
+            lightRef.style.top = `${y}px`;
+            lightRef.style.opacity = '1';
+        });
+
+        surface.addEventListener('mouseleave', () => {
+            lightRef.style.opacity = '0';
+        });
+    }
+
+    function initFpsCounter() {
+        setInterval(() => {
+            const fps = Math.floor(Math.random() * 20) + 135;
+            fpsCounter.textContent = `${fps} FPS`;
+        }, 1000);
+    }
+});
+</script>
+</body>
+</html>
