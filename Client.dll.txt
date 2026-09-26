@@ -1,0 +1,6473 @@
+CScriptComponent
+  m_scriptClassName - 0x30
+C_BaseEntity
+  m_CBodyComponent - 0x38
+  m_NetworkTransmitComponent - 0x40
+  m_nLastThinkTick - 0x300
+  m_pGameSceneNode - 0x308
+  m_pRenderComponent - 0x310
+  m_pCollision - 0x318
+  m_pModifierProp - 0x320
+  m_iMaxHealth - 0x328
+  m_iHealth - 0x32c
+  m_lifeState - 0x330
+  m_bTakesDamage - 0x331
+  m_nTakeDamageFlags - 0x338
+  m_bIsPlatform - 0x340
+  m_ubInterpolationFrame - 0x341
+  m_hSceneObjectController - 0x344
+  m_nNoInterpolationTick - 0x348
+  m_nVisibilityNoInterpolationTick - 0x34c
+  m_flProxyRandomValue - 0x350
+  m_iEFlags - 0x354
+  m_nWaterType - 0x358
+  m_bInterpolateEvenWithNoModel - 0x359
+  m_bPredictionEligible - 0x35a
+  m_bApplyLayerMatchIDToModel - 0x35b
+  m_tokLayerMatchID - 0x35c
+  m_nSubclassID - 0x360
+  m_nSimulationTick - 0x370
+  m_iCurrentThinkContext - 0x374
+  m_aThinkFunctions - 0x378
+  m_bDisabledContextThinks - 0x390
+  m_flAnimTime - 0x394
+  m_flSimulationTime - 0x398
+  m_nSceneObjectOverrideFlags - 0x39c
+  m_bHasSuccessfullyInterpolated - 0x39d
+  m_bHasAddedVarsToInterpolation - 0x39e
+  m_bRenderEvenWhenNotSuccessfullyInterpolated - 0x39f
+  m_nInterpolationLatchDirtyFlags - 0x3a0
+  m_ListEntry - 0x3a8
+  m_flCreateTime - 0x3c4
+  m_flSpeed - 0x3c8
+  m_EntClientFlags - 0x3cc
+  m_bClientSideRagdoll - 0x3ce
+  m_iTeamNum - 0x3cf
+  m_spawnflags - 0x3d0
+  m_nNextThinkTick - 0x3d4
+  m_fFlags - 0x3d8
+  m_vecAbsVelocity - 0x3dc
+  m_vecVelocity - 0x3e8
+  m_hEffectEntity - 0x418
+  m_hOwnerEntity - 0x41c
+  m_MoveCollide - 0x420
+  m_MoveType - 0x421
+  m_nActualMoveType - 0x422
+  m_flWaterLevel - 0x424
+  m_fEffects - 0x428
+  m_hGroundEntity - 0x42c
+  m_nGroundBodyIndex - 0x430
+  m_flFriction - 0x434
+  m_flElasticity - 0x438
+  m_flGravityScale - 0x43c
+  m_flTimeScale - 0x440
+  m_bAnimatedEveryTick - 0x444
+  m_flNavIgnoreUntilTime - 0x448
+  m_hThink - 0x44c
+  m_fBBoxVisFlags - 0x458
+  m_bPredictable - 0x459
+  m_bRenderWithViewModels - 0x45a
+  m_nSplitUserPlayerPredictionSlot - 0x45c
+  m_nFirstPredictableCommand - 0x460
+  m_nLastPredictableCommand - 0x464
+  m_hOldMoveParent - 0x468
+  m_Particles - 0x470
+  m_vecPredictedScriptFloats - 0x498
+  m_vecPredictedScriptFloatIDs - 0x4b0
+  m_nNextScriptVarRecordID - 0x4e0
+  m_vecAngVelocity - 0x4f0
+  m_DataChangeEventRef - 0x4fc
+  m_dependencies - 0x500
+  m_nCreationTick - 0x518
+  m_bAnimTimeChanged - 0x525
+  m_bSimulationTimeChanged - 0x526
+  m_sUniqueHammerID - 0x530
+CountdownTimer
+  m_duration - 0x8
+  m_timestamp - 0xc
+  m_timescale - 0x10
+  m_nWorldGroupId - 0x14
+CEntityIdentity
+  m_nameStringableIndex - 0x14
+  m_name - 0x18
+  m_designerName - 0x20
+  m_flags - 0x30
+  m_worldGroupId - 0x38
+  m_fDataObjectTypes - 0x3c
+  m_PathIndex - 0x40
+  m_pPrev - 0x58
+  m_pNext - 0x60
+  m_pPrevByClass - 0x68
+  m_pNextByClass - 0x70
+CEntityInstance
+  m_iszPrivateVScripts - 0x8
+  m_pEntity - 0x10
+  m_CScriptComponent - 0x28
+  m_bVisibleinPVS - 0x30
+CGameSceneNode
+  m_nodeToWorld - 0x10
+  m_pOwner - 0x30
+  m_pParent - 0x38
+  m_pChild - 0x40
+  m_pNextSibling - 0x48
+  m_hParent - 0x78
+  m_vecOrigin - 0x88
+  m_angRotation - 0xc0
+  m_flScale - 0xcc
+  m_vecAbsOrigin - 0xd0
+  m_angAbsRotation - 0xdc
+  m_flAbsScale - 0xe8
+  m_nParentAttachmentOrBone - 0xec
+  m_bDebugAbsOriginChanges - 0xee
+  m_bDormant - 0xef
+  m_bForceParentToBeNetworked - 0xf0
+  m_bDirtyHierarchy - 0x0
+  m_bDirtyBoneMergeInfo - 0x0
+  m_bNetworkedPositionChanged - 0x0
+  m_bNetworkedAnglesChanged - 0x0
+  m_bNetworkedScaleChanged - 0x0
+  m_bWillBeCallingPostDataUpdate - 0x0
+  m_bBoneMergeFlex - 0x0
+  m_nLatchAbsOrigin - 0x0
+  m_bDirtyBoneMergeBoneToRoot - 0x0
+  m_nHierarchicalDepth - 0xf3
+  m_nHierarchyType - 0xf4
+  m_nDoNotSetAnimTimeInInvalidatePhysicsCount - 0xf5
+  m_name - 0xf8
+  m_hierarchyAttachName - 0x138
+  m_flZOffset - 0x13c
+  m_flClientLocalScale - 0x140
+  m_vRenderOrigin - 0x144
+CBodyComponent
+  m_pSceneNode - 0x8
+  __m_pChainEntity - 0x20
+CBodyComponentPoint
+  m_sceneNode - 0x50
+CSkeletonInstance
+  m_modelState - 0x170
+  m_bIsAnimationEnabled - 0x3a0
+  m_bUseParentRenderBounds - 0x3a1
+  m_bDisableSolidCollisionsForHierarchy - 0x3a2
+  m_bDirtyMotionType - 0x0
+  m_bIsGeneratingLatchedParentSpaceState - 0x0
+  m_materialGroup - 0x3a4
+  m_nHitboxSet - 0x3a8
+CBodyComponentSkeletonInstance
+  m_skeletonInstance - 0x50
+CHitboxComponent
+  m_bvDisabledHitGroups - 0x24
+CLightComponent
+  __m_pChainEntity - 0x38
+  m_Color - 0x7c
+  m_SecondaryColor - 0x80
+  m_flBrightness - 0x84
+  m_flBrightnessScale - 0x88
+  m_flBrightnessMult - 0x8c
+  m_flRange - 0x90
+  m_flFalloff - 0x94
+  m_flAttenuation0 - 0x98
+  m_flAttenuation1 - 0x9c
+  m_flAttenuation2 - 0xa0
+  m_flTheta - 0xa4
+  m_flPhi - 0xa8
+  m_hLightCookie - 0xb0
+  m_nCascades - 0xb8
+  m_nCastShadows - 0xbc
+  m_nShadowWidth - 0xc0
+  m_nShadowHeight - 0xc4
+  m_bRenderDiffuse - 0xc8
+  m_nRenderSpecular - 0xcc
+  m_bRenderTransmissive - 0xd0
+  m_flOrthoLightWidth - 0xd4
+  m_flOrthoLightHeight - 0xd8
+  m_nStyle - 0xdc
+  m_Pattern - 0xe0
+  m_nCascadeRenderStaticObjects - 0xe8
+  m_flShadowCascadeCrossFade - 0xec
+  m_flShadowCascadeDistanceFade - 0xf0
+  m_flShadowCascadeDistance0 - 0xf4
+  m_flShadowCascadeDistance1 - 0xf8
+  m_flShadowCascadeDistance2 - 0xfc
+  m_flShadowCascadeDistance3 - 0x100
+  m_nShadowCascadeResolution0 - 0x104
+  m_nShadowCascadeResolution1 - 0x108
+  m_nShadowCascadeResolution2 - 0x10c
+  m_nShadowCascadeResolution3 - 0x110
+  m_bUsesBakedShadowing - 0x114
+  m_nShadowPriority - 0x118
+  m_nBakedShadowIndex - 0x11c
+  m_bRenderToCubemaps - 0x120
+  m_nDirectLight - 0x124
+  m_nIndirectLight - 0x128
+  m_flFadeMinDist - 0x12c
+  m_flFadeMaxDist - 0x130
+  m_flShadowFadeMinDist - 0x134
+  m_flShadowFadeMaxDist - 0x138
+  m_bEnabled - 0x13c
+  m_bFlicker - 0x13d
+  m_bPrecomputedFieldsValid - 0x13e
+  m_vPrecomputedBoundsMins - 0x140
+  m_vPrecomputedBoundsMaxs - 0x14c
+  m_vPrecomputedOBBOrigin - 0x158
+  m_vPrecomputedOBBAngles - 0x164
+  m_vPrecomputedOBBExtent - 0x170
+  m_flPrecomputedMaxRange - 0x17c
+  m_nFogLightingMode - 0x180
+  m_flFogContributionStength - 0x184
+  m_flNearClipPlane - 0x188
+  m_SkyColor - 0x18c
+  m_flSkyIntensity - 0x190
+  m_SkyAmbientBounce - 0x194
+  m_bUseSecondaryColor - 0x198
+  m_bMixedShadows - 0x199
+  m_flLightStyleStartTime - 0x19c
+  m_flCapsuleLength - 0x1a0
+  m_flMinRoughness - 0x1a4
+CRenderComponent
+  __m_pChainEntity - 0x10
+  m_bIsRenderingWithViewModels - 0x50
+  m_nSplitscreenFlags - 0x54
+  m_bEnableRendering - 0x60
+  m_bInterpolationReadyToDraw - 0xb0
+CPropDataComponent
+  m_flDmgModBullet - 0x10
+  m_flDmgModClub - 0x14
+  m_flDmgModExplosive - 0x18
+  m_flDmgModFire - 0x1c
+  m_iszPhysicsDamageTableName - 0x20
+  m_iszBasePropData - 0x28
+  m_nInteractions - 0x30
+  m_bSpawnMotionDisabled - 0x34
+  m_nDisableTakePhysicsDamageSpawnFlag - 0x38
+  m_nMotionDisabledSpawnFlag - 0x3c
+CBuoyancyHelper
+  m_flFluidDensity - 0x18
+C_CommandContext
+  needsprocessing - 0x0
+  command_number - 0x88
+ViewAngleServerChange_t
+  nType - 0x30
+  qAngle - 0x34
+  nIndex - 0x40
+audioparams_t
+  localSound - 0x8
+  soundscapeIndex - 0x68
+  localBits - 0x6c
+  soundscapeEntityListIndex - 0x70
+  soundEventHash - 0x74
+C_fogplayerparams_t
+  m_hCtrl - 0x8
+  m_flTransitionTime - 0xc
+  m_OldColor - 0x10
+  m_flOldStart - 0x14
+  m_flOldEnd - 0x18
+  m_flOldMaxDensity - 0x1c
+  m_flOldHDRColorScale - 0x20
+  m_flOldFarZ - 0x24
+  m_NewColor - 0x28
+  m_flNewStart - 0x2c
+  m_flNewEnd - 0x30
+  m_flNewMaxDensity - 0x34
+  m_flNewHDRColorScale - 0x38
+  m_flNewFarZ - 0x3c
+C_ColorCorrection
+  m_vecOrigin - 0x538
+  m_MinFalloff - 0x544
+  m_MaxFalloff - 0x548
+  m_flFadeInDuration - 0x54c
+  m_flFadeOutDuration - 0x550
+  m_flMaxWeight - 0x554
+  m_flCurWeight - 0x558
+  m_netlookupFilename - 0x55c
+  m_bEnabled - 0x75c
+  m_bMaster - 0x75d
+  m_bClientSide - 0x75e
+  m_bExclusive - 0x75f
+  m_bEnabledOnClient - 0x760
+  m_flCurWeightOnClient - 0x764
+  m_bFadingIn - 0x768
+  m_flFadeStartWeight - 0x76c
+  m_flFadeStartTime - 0x770
+  m_flFadeDuration - 0x774
+C_TonemapController2
+  m_flAutoExposureMin - 0x538
+  m_flAutoExposureMax - 0x53c
+  m_flTonemapPercentTarget - 0x540
+  m_flTonemapPercentBrightPixels - 0x544
+  m_flTonemapMinAvgLum - 0x548
+  m_flExposureAdaptationSpeedUp - 0x54c
+  m_flExposureAdaptationSpeedDown - 0x550
+  m_flTonemapEVSmoothingRange - 0x554
+C_PostProcessingVolume
+  m_hPostSettings - 0x808
+  m_flFadeDuration - 0x810
+  m_flMinLogExposure - 0x814
+  m_flMaxLogExposure - 0x818
+  m_flMinExposure - 0x81c
+  m_flMaxExposure - 0x820
+  m_flExposureCompensation - 0x824
+  m_flExposureFadeSpeedUp - 0x828
+  m_flExposureFadeSpeedDown - 0x82c
+  m_flTonemapEVSmoothingRange - 0x830
+  m_bMaster - 0x834
+  m_bExposureControl - 0x835
+fogparams_t
+  dirPrimary - 0x8
+  colorPrimary - 0x14
+  colorSecondary - 0x18
+  colorPrimaryLerpTo - 0x1c
+  colorSecondaryLerpTo - 0x20
+  start - 0x24
+  end - 0x28
+  farz - 0x2c
+  maxdensity - 0x30
+  exponent - 0x34
+  HDRColorScale - 0x38
+  skyboxFogFactor - 0x3c
+  skyboxFogFactorLerpTo - 0x40
+  startLerpTo - 0x44
+  endLerpTo - 0x48
+  maxdensityLerpTo - 0x4c
+  lerptime - 0x50
+  duration - 0x54
+  blendtobackground - 0x58
+  scattering - 0x5c
+  locallightscale - 0x60
+  enable - 0x64
+  blend - 0x65
+  m_bNoReflectionFog - 0x66
+  m_bPadding - 0x67
+C_FogController
+  m_fog - 0x538
+  m_bUseAngles - 0x5a0
+  m_iChangedVariables - 0x5a4
+CPlayer_CameraServices
+  m_vecPunchAngle - 0x40
+  m_vecPunchAngleVel - 0x58
+  m_nPunchAngleJoltTickClientSide - 0x70
+  m_nPunchAngleJoltTick - 0x74
+  m_PlayerFog - 0x78
+  m_hColorCorrectionCtrl - 0xb8
+  m_hViewEntity - 0xbc
+  m_hTonemapController - 0xc0
+  m_audio - 0xc8
+  m_PostProcessingVolumes - 0x140
+  m_flOldPlayerZ - 0x158
+  m_flOldPlayerViewOffsetZ - 0x15c
+  m_CurrentFog - 0x160
+  m_hOldFogController - 0x1c8
+  m_bOverrideFogColor - 0x1cc
+  m_OverrideFogColor - 0x1d1
+  m_bOverrideFogStartEnd - 0x1e5
+  m_fOverrideFogStart - 0x1ec
+  m_fOverrideFogEnd - 0x200
+  m_hActivePostProcessingVolume - 0x214
+  m_angDemoViewAngles - 0x218
+CPlayer_MovementServices
+  m_nImpulse - 0x40
+  m_nButtons - 0x48
+  m_nQueuedButtonDownMask - 0x68
+  m_nQueuedButtonChangeMask - 0x70
+  m_nButtonDoublePressed - 0x78
+  m_pButtonPressedCmdNumber - 0x80
+  m_nLastCommandNumberProcessed - 0x180
+  m_nToggleButtonDownMask - 0x188
+  m_flMaxspeed - 0x198
+  m_arrForceSubtickMoveWhen - 0x19c
+  m_flForwardMove - 0x1ac
+  m_flLeftMove - 0x1b0
+  m_flUpMove - 0x1b4
+  m_vecLastMovementImpulses - 0x1b8
+  m_vecOldViewAngles - 0x1c4
+CPlayer_MovementServices_Humanoid
+  m_flStepSoundTime - 0x1d8
+  m_flFallVelocity - 0x1dc
+  m_bInCrouch - 0x1e0
+  m_nCrouchState - 0x1e4
+  m_flCrouchTransitionStartTime - 0x1e8
+  m_bDucked - 0x1ec
+  m_bDucking - 0x1ed
+  m_bInDuckJump - 0x1ee
+  m_groundNormal - 0x1f0
+  m_flSurfaceFriction - 0x1fc
+  m_surfaceProps - 0x200
+  m_nStepside - 0x210
+CPlayer_ObserverServices
+  m_iObserverMode - 0x40
+  m_hObserverTarget - 0x44
+  m_iObserverLastMode - 0x48
+  m_bForcedObserverMode - 0x4c
+  m_flObserverChaseDistance - 0x50
+  m_flObserverChaseDistanceCalcTime - 0x54
+C_BasePlayerWeapon
+  m_nNextPrimaryAttackTick - 0x9f8
+  m_flNextPrimaryAttackTickRatio - 0x9fc
+  m_nNextSecondaryAttackTick - 0xa00
+  m_flNextSecondaryAttackTickRatio - 0xa04
+  m_iClip1 - 0xa08
+  m_iClip2 - 0xa0c
+  m_pReserveAmmo - 0xa10
+CPlayer_WeaponServices
+  m_hMyWeapons - 0x40
+  m_hActiveWeapon - 0x58
+  m_hLastWeapon - 0x5c
+  m_iAmmo - 0x60
+CBasePlayerWeaponVData
+  m_szClassName - 0x10
+  m_szWorldModel - 0x18
+  m_bBuiltRightHanded - 0xf8
+  m_bAllowFlipping - 0xf9
+  m_sMuzzleAttachment - 0x100
+  m_szMuzzleFlashParticle - 0x108
+  m_vecIntrinsicModifiers - 0x1e8
+  m_iFlags - 0x200
+  m_nPrimaryAmmoType - 0x201
+  m_nSecondaryAmmoType - 0x202
+  m_iMaxClip1 - 0x204
+  m_iMaxClip2 - 0x208
+  m_iDefaultClip1 - 0x20c
+  m_iDefaultClip2 - 0x210
+  m_iWeight - 0x214
+  m_bAutoSwitchTo - 0x218
+  m_bAutoSwitchFrom - 0x219
+  m_iRumbleEffect - 0x21c
+  m_bLinkedCooldowns - 0x220
+  m_aShootSounds - 0x228
+  m_iSlot - 0x250
+  m_iPosition - 0x254
+CBaseAnimGraphController
+  m_animGraphNetworkedVars - 0x18
+  m_bSequenceFinished - 0x14a8
+  m_flSoundSyncTime - 0x14ac
+  m_nActiveIKChainMask - 0x14b0
+  m_hSequence - 0x14b4
+  m_flSeqStartTime - 0x14b8
+  m_flSeqFixedCycle - 0x14bc
+  m_nAnimLoopMode - 0x14c0
+  m_flPlaybackRate - 0x14c4
+  m_nNotifyState - 0x14d0
+  m_bNetworkedAnimationInputsChanged - 0x14d2
+  m_bNetworkedSequenceChanged - 0x14d3
+  m_bLastUpdateSkipped - 0x14d4
+  m_flPrevAnimUpdateTime - 0x14d8
+CBodyComponentBaseAnimGraph
+  m_animationController - 0x460
+EntityRenderAttribute_t
+  m_ID - 0x30
+  m_Values - 0x34
+C_BaseModelEntity
+  m_CRenderComponent - 0x538
+  m_CHitboxComponent - 0x540
+  m_bInitModelEffects - 0x588
+  m_bIsStaticProp - 0x589
+  m_nLastAddDecal - 0x58c
+  m_nDecalsAdded - 0x590
+  m_iOldHealth - 0x594
+  m_nRenderMode - 0x598
+  m_nRenderFX - 0x599
+  m_szAddModifier - 0x5a0
+  m_bAllowFadeInView - 0x5a8
+  m_bHasCollision - 0x5a9
+  m_vSupport - 0x5ac
+  m_clrRender - 0x5b8
+  m_vecRenderAttributes - 0x5c0
+  m_bRenderToCubemaps - 0x628
+  m_Collision - 0x630
+  m_Glow - 0x6e0
+  m_flGlowBackfaceMult - 0x738
+  m_fadeMinDist - 0x73c
+  m_fadeMaxDist - 0x740
+  m_flFadeScale - 0x744
+  m_flShadowStrength - 0x748
+  m_nObjectCulling - 0x74c
+  m_nAddDecal - 0x750
+  m_vDecalPosition - 0x754
+  m_vDecalForwardAxis - 0x760
+  m_flDecalHealBloodRate - 0x76c
+  m_flDecalHealHeightRate - 0x770
+  m_ConfigEntitiesToPropagateMaterialDecalsTo - 0x778
+  m_vecViewOffset - 0x790
+  m_pClientAlphaProperty - 0x7c0
+  m_ClientOverrideTint - 0x7c8
+  m_bUseClientOverrideTint - 0x7cc
+ActiveModelConfig_t
+  m_Handle - 0x28
+  m_Name - 0x30
+  m_AssociatedEntities - 0x38
+  m_AssociatedEntityNames - 0x50
+CGameSceneNodeHandle
+  m_hOwner - 0x8
+  m_name - 0xc
+SequenceHistory_t
+  m_hSequence - 0x0
+  m_flSeqStartTime - 0x4
+  m_flSeqFixedCycle - 0x8
+  m_nSeqLoopMode - 0xc
+  m_flPlaybackRate - 0x10
+  m_flCyclesPerSecond - 0x14
+CNetworkedSequenceOperation
+  m_hSequence - 0x8
+  m_flPrevCycle - 0xc
+  m_flCycle - 0x10
+  m_flWeight - 0x14
+  m_bSequenceChangeNetworked - 0x1c
+  m_bDiscontinuity - 0x1d
+  m_flPrevCycleFromDiscontinuity - 0x20
+  m_flPrevCycleForAnimEventDetection - 0x24
+CModelState
+  m_hModel - 0xa0
+  m_ModelName - 0xa8
+  m_bClientClothCreationSuppressed - 0xe8
+  m_MeshGroupMask - 0x198
+  m_nIdealMotionType - 0x21a
+  m_nForceLOD - 0x21b
+  m_nClothUpdateFlags - 0x21c
+IntervalTimer
+  m_timestamp - 0x8
+  m_nWorldGroupId - 0xc
+EngineCountdownTimer
+  m_duration - 0x8
+  m_timestamp - 0xc
+  m_timescale - 0x10
+CTimeline
+  m_flValues - 0x10
+  m_nValueCounts - 0x110
+  m_nBucketCount - 0x210
+  m_flInterval - 0x214
+  m_flFinalValue - 0x218
+  m_nCompressionType - 0x21c
+  m_bStopped - 0x220
+CAnimGraphNetworkedVariables
+  m_PredNetBoolVariables - 0x8
+  m_PredNetByteVariables - 0x20
+  m_PredNetUInt16Variables - 0x38
+  m_PredNetIntVariables - 0x50
+  m_PredNetUInt32Variables - 0x68
+  m_PredNetUInt64Variables - 0x80
+  m_PredNetFloatVariables - 0x98
+  m_PredNetVectorVariables - 0xb0
+  m_PredNetQuaternionVariables - 0xc8
+  m_PredNetGlobalSymbolVariables - 0xe0
+  m_OwnerOnlyPredNetBoolVariables - 0xf8
+  m_OwnerOnlyPredNetByteVariables - 0x110
+  m_OwnerOnlyPredNetUInt16Variables - 0x128
+  m_OwnerOnlyPredNetIntVariables - 0x140
+  m_OwnerOnlyPredNetUInt32Variables - 0x158
+  m_OwnerOnlyPredNetUInt64Variables - 0x170
+  m_OwnerOnlyPredNetFloatVariables - 0x188
+  m_OwnerOnlyPredNetVectorVariables - 0x1a0
+  m_OwnerOnlyPredNetQuaternionVariables - 0x1b8
+  m_OwnerOnlyPredNetGlobalSymbolVariables - 0x1d0
+  m_nBoolVariablesCount - 0x1e8
+  m_nOwnerOnlyBoolVariablesCount - 0x1ec
+  m_nRandomSeedOffset - 0x1f0
+  m_flLastTeleportTime - 0x1f4
+CCollisionProperty
+  m_collisionAttribute - 0x10
+  m_vecMins - 0x40
+  m_vecMaxs - 0x4c
+  m_usSolidFlags - 0x5a
+  m_nSolidType - 0x5b
+  m_triggerBloat - 0x5c
+  m_nSurroundType - 0x5d
+  m_CollisionGroup - 0x5e
+  m_nEnablePhysics - 0x5f
+  m_flBoundingRadius - 0x60
+  m_vecSpecifiedSurroundingMins - 0x64
+  m_vecSpecifiedSurroundingMaxs - 0x70
+  m_vecSurroundingMaxs - 0x7c
+  m_vecSurroundingMins - 0x88
+  m_vCapsuleCenter1 - 0x94
+  m_vCapsuleCenter2 - 0xa0
+  m_flCapsuleRadius - 0xac
+CModifierProperty
+  __m_pChainEntity - 0x8
+  m_hOwner - 0x30
+  m_nProviderVisitedFlags - 0x189
+  m_bModifierStatesDirty - 0x18a
+  m_bPredictedOwner - 0x18b
+  m_iLockRefCount - 0x18c
+  m_hHandle - 0x18e
+  m_nBroadcastEventListenerMask - 0x190
+  m_vecProviders - 0x1a0
+  m_nDisabledGroups - 0x1b8
+  m_bvEnabledStateMask - 0x1bc
+  m_bvDisabledStateMask - 0x1d0
+  m_bvEnabledPredictedStateMask - 0x1e4
+CBasePlayerController
+  m_nFinalPredictedTick - 0x540
+  m_CommandContext - 0x548
+  m_nInButtonsWhichAreToggles - 0x5d8
+  m_nTickBase - 0x5e0
+  m_hPawn - 0x5e4
+  m_bKnownTeamMismatch - 0x5e8
+  m_hPredictedPawn - 0x5ec
+  m_nSplitScreenSlot - 0x5f0
+  m_hSplitOwner - 0x5f4
+  m_hSplitScreenPlayers - 0x5f8
+  m_bIsHLTV - 0x610
+  m_iConnected - 0x614
+  m_iszPlayerName - 0x618
+  m_steamID - 0x6a0
+  m_bIsLocalPlayerController - 0x6a8
+  m_iDesiredFOV - 0x6ac
+C_BaseFlex::Emphasized_Phoneme
+  m_sClassName - 0x0
+  m_flAmount - 0x18
+  m_bRequired - 0x1c
+  m_bBasechecked - 0x1d
+  m_bValid - 0x1e
+C_EnvWindShared
+  m_flStartTime - 0x8
+  m_iWindSeed - 0xc
+  m_iMinWind - 0x10
+  m_iMaxWind - 0x12
+  m_windRadius - 0x14
+  m_iMinGust - 0x18
+  m_iMaxGust - 0x1a
+  m_flMinGustDelay - 0x1c
+  m_flMaxGustDelay - 0x20
+  m_flGustDuration - 0x24
+  m_iGustDirChange - 0x28
+  m_location - 0x2c
+  m_iszGustSound - 0x38
+  m_iWindDir - 0x3c
+  m_flWindSpeed - 0x40
+  m_currentWindVector - 0x44
+  m_CurrentSwayVector - 0x50
+  m_PrevSwayVector - 0x5c
+  m_iInitialWindDir - 0x68
+  m_flInitialWindSpeed - 0x6c
+  m_flVariationTime - 0x70
+  m_flSwayTime - 0x74
+  m_flSimTime - 0x78
+  m_flSwitchTime - 0x7c
+  m_flAveWindSpeed - 0x80
+  m_bGusting - 0x84
+  m_flWindAngleVariation - 0x88
+  m_flWindSpeedVariation - 0x8c
+  m_iEntIndex - 0x90
+C_EnvWindClientside
+  m_EnvWindShared - 0x538
+C_EntityFlame
+  m_hEntAttached - 0x538
+  m_hOldAttached - 0x560
+  m_bCheapEffect - 0x564
+CProjectedTextureBase
+  m_hTargetEntity - 0xc
+  m_bState - 0x10
+  m_bAlwaysUpdate - 0x11
+  m_flLightFOV - 0x14
+  m_bEnableShadows - 0x18
+  m_bSimpleProjection - 0x19
+  m_bLightOnlyTarget - 0x1a
+  m_bLightWorld - 0x1b
+  m_bCameraSpace - 0x1c
+  m_flBrightnessScale - 0x20
+  m_LightColor - 0x24
+  m_flIntensity - 0x28
+  m_flLinearAttenuation - 0x2c
+  m_flQuadraticAttenuation - 0x30
+  m_bVolumetric - 0x34
+  m_flVolumetricIntensity - 0x38
+  m_flNoiseStrength - 0x3c
+  m_flFlashlightTime - 0x40
+  m_nNumPlanes - 0x44
+  m_flPlaneOffset - 0x48
+  m_flColorTransitionTime - 0x4c
+  m_flAmbient - 0x50
+  m_SpotlightTextureName - 0x54
+  m_nSpotlightTextureFrame - 0x254
+  m_nShadowQuality - 0x258
+  m_flNearZ - 0x25c
+  m_flFarZ - 0x260
+  m_flProjectionSize - 0x264
+  m_flRotation - 0x268
+  m_bFlipHorizontal - 0x26c
+C_BaseFire
+  m_flScale - 0x538
+  m_flStartScale - 0x53c
+  m_flScaleTime - 0x540
+  m_nFlags - 0x544
+TimedEvent
+  m_TimeBetweenEvents - 0x0
+  m_fNextEvent - 0x4
+CFireOverlay
+  m_pOwner - 0xd0
+  m_vBaseColors - 0xd8
+  m_flScale - 0x108
+  m_nGUID - 0x10c
+C_FireSmoke
+  m_nFlameModelIndex - 0x548
+  m_nFlameFromAboveModelIndex - 0x54c
+  m_flScaleRegister - 0x550
+  m_flScaleStart - 0x554
+  m_flScaleEnd - 0x558
+  m_flScaleTimeStart - 0x55c
+  m_flScaleTimeEnd - 0x560
+  m_flChildFlameSpread - 0x564
+  m_flClipPerc - 0x578
+  m_bClipTested - 0x57c
+  m_bFadingOut - 0x57d
+  m_tParticleSpawn - 0x580
+  m_pFireOverlay - 0x588
+C_RopeKeyframe
+  m_LinksTouchingSomething - 0x7f8
+  m_nLinksTouchingSomething - 0x7fc
+  m_bApplyWind - 0x800
+  m_fPrevLockedPoints - 0x804
+  m_iForcePointMoveCounter - 0x808
+  m_bPrevEndPointPos - 0x80c
+  m_vPrevEndPointPos - 0x810
+  m_flCurScroll - 0x828
+  m_flScrollSpeed - 0x82c
+  m_RopeFlags - 0x830
+  m_iRopeMaterialModelIndex - 0x838
+  m_LightValues - 0xab0
+  m_nSegments - 0xb28
+  m_hStartPoint - 0xb2c
+  m_hEndPoint - 0xb30
+  m_iStartAttachment - 0xb34
+  m_iEndAttachment - 0xb35
+  m_Subdiv - 0xb36
+  m_RopeLength - 0xb38
+  m_Slack - 0xb3a
+  m_TextureScale - 0xb3c
+  m_fLockedPoints - 0xb40
+  m_nChangeCount - 0xb41
+  m_Width - 0xb44
+  m_PhysicsDelegate - 0xb48
+  m_hMaterial - 0xb58
+  m_TextureHeight - 0xb60
+  m_vecImpulse - 0xb64
+  m_vecPreviousImpulse - 0xb70
+  m_flCurrentGustTimer - 0xb7c
+  m_flCurrentGustLifetime - 0xb80
+  m_flTimeToNextGust - 0xb84
+  m_vWindDir - 0xb88
+  m_vColorMod - 0xb94
+  m_vCachedEndPointAttachmentPos - 0xba0
+  m_vCachedEndPointAttachmentAngle - 0xbb8
+  m_bConstrainBetweenEndpoints - 0xbd0
+  m_bEndPointAttachmentPositionsDirty - 0x0
+  m_bEndPointAttachmentAnglesDirty - 0x0
+  m_bNewDataThisFrame - 0x0
+  m_bPhysicsInitted - 0x0
+C_RopeKeyframe::CPhysicsDelegate
+  m_pKeyframe - 0x8
+C_SceneEntity::QueuedEvents_t
+  starttime - 0x0
+CFlashlightEffect
+  m_bIsOn - 0x10
+  m_bMuzzleFlashEnabled - 0x20
+  m_flMuzzleFlashBrightness - 0x24
+  m_quatMuzzleFlashOrientation - 0x30
+  m_vecMuzzleFlashOrigin - 0x40
+  m_flFov - 0x4c
+  m_flFarZ - 0x50
+  m_flLinearAtten - 0x54
+  m_bCastsShadows - 0x58
+  m_flCurrentPullBackDist - 0x5c
+  m_FlashlightTexture - 0x60
+  m_MuzzleFlashTexture - 0x68
+  m_textureName - 0x70
+CInterpolatedValue
+  m_flStartTime - 0x0
+  m_flEndTime - 0x4
+  m_flStartValue - 0x8
+  m_flEndValue - 0xc
+  m_nInterpType - 0x10
+CGlowSprite
+  m_vColor - 0x0
+  m_flHorzSize - 0xc
+  m_flVertSize - 0x10
+  m_hMaterial - 0x18
+CGlowOverlay
+  m_vPos - 0x8
+  m_bDirectional - 0x14
+  m_vDirection - 0x18
+  m_bInSky - 0x24
+  m_skyObstructionScale - 0x28
+  m_Sprites - 0x30
+  m_nSprites - 0xb0
+  m_flProxyRadius - 0xb4
+  m_flHDRColorScale - 0xb8
+  m_flGlowObstructionScale - 0xbc
+  m_bCacheGlowObstruction - 0xc0
+  m_bCacheSkyObstruction - 0xc1
+  m_bActivated - 0xc2
+  m_ListIndex - 0xc4
+  m_queryHandle - 0xc8
+C_SkyCamera
+  m_skyboxData - 0x538
+  m_skyboxSlotToken - 0x5c8
+  m_bUseAngles - 0x5cc
+  m_pNext - 0x5d0
+CSkyboxReference
+  m_worldGroupId - 0x538
+  m_hSkyCamera - 0x53c
+sky3dparams_t
+  scale - 0x8
+  origin - 0xc
+  bClip3DSkyBoxNearToWorldFar - 0x18
+  flClip3DSkyBoxNearToWorldFarOffset - 0x1c
+  fog - 0x20
+  m_nWorldGroupID - 0x88
+VPhysicsCollisionAttribute_t
+  m_nInteractsAs - 0x8
+  m_nInteractsWith - 0x10
+  m_nInteractsExclude - 0x18
+  m_nEntityId - 0x20
+  m_nOwnerId - 0x24
+  m_nHierarchyId - 0x28
+  m_nCollisionGroup - 0x2a
+  m_nCollisionFunctionMask - 0x2b
+CDecalInfo
+  m_flAnimationScale - 0x0
+  m_flAnimationLifeSpan - 0x4
+  m_flPlaceTime - 0x8
+  m_flFadeStartTime - 0xc
+  m_flFadeDuration - 0x10
+  m_nVBSlot - 0x14
+  m_nBoneIndex - 0x18
+  m_pNext - 0x28
+  m_pPrev - 0x30
+  m_nDecalMaterialIndex - 0x98
+CEffectData
+  m_vOrigin - 0x8
+  m_vStart - 0x14
+  m_vNormal - 0x20
+  m_vAngles - 0x2c
+  m_hEntity - 0x38
+  m_hOtherEntity - 0x3c
+  m_flScale - 0x40
+  m_flMagnitude - 0x44
+  m_flRadius - 0x48
+  m_nSurfaceProp - 0x4c
+  m_nEffectIndex - 0x50
+  m_nDamageType - 0x58
+  m_nPenetrate - 0x5c
+  m_nMaterial - 0x5e
+  m_nHitBox - 0x60
+  m_nColor - 0x62
+  m_fFlags - 0x63
+  m_nAttachmentIndex - 0x64
+  m_nAttachmentName - 0x68
+  m_iEffectName - 0x6c
+  m_nExplosionType - 0x6e
+C_EnvDetailController
+  m_flFadeStartDist - 0x538
+  m_flFadeEndDist - 0x53c
+C_EnvWindShared::WindAveEvent_t
+  m_flStartWindSpeed - 0x0
+  m_flAveWindSpeed - 0x4
+C_EnvWindShared::WindVariationEvent_t
+  m_flWindAngleVariation - 0x0
+  m_flWindSpeedVariation - 0x4
+shard_model_desc_t
+  m_nModelID - 0x8
+  m_hMaterial - 0x10
+  m_solid - 0x18
+  m_ShatterPanelMode - 0x19
+  m_vecPanelSize - 0x1c
+  m_vecStressPositionA - 0x24
+  m_vecStressPositionB - 0x2c
+  m_vecPanelVertices - 0x38
+  m_flGlassHalfThickness - 0x50
+  m_bHasParent - 0x54
+  m_bParentFrozen - 0x55
+  m_SurfacePropStringToken - 0x58
+C_GameRules
+  __m_pChainEntity - 0x8
+  m_nTotalPausedTicks - 0x30
+  m_nPauseStartTick - 0x34
+  m_bGamePaused - 0x38
+CGlowProperty
+  m_fGlowColor - 0x8
+  m_iGlowType - 0x30
+  m_iGlowTeam - 0x34
+  m_nGlowRange - 0x38
+  m_nGlowRangeMin - 0x3c
+  m_glowColorOverride - 0x40
+  m_bFlashing - 0x44
+  m_flGlowTime - 0x48
+  m_flGlowStartTime - 0x4c
+  m_bGlowing - 0x50
+PhysicsRagdollPose_t
+  __m_pChainEntity - 0x8
+  m_Transforms - 0x30
+  m_hOwner - 0x48
+  m_bDirty - 0x68
+C_SoundOpvarSetPointBase
+  m_iszStackName - 0x538
+  m_iszOperatorName - 0x540
+  m_iszOpvarName - 0x548
+  m_iOpvarIndex - 0x550
+  m_bUseAutoCompare - 0x554
+C_TeamRoundTimer
+  m_bTimerPaused - 0x538
+  m_flTimeRemaining - 0x53c
+  m_flTimerEndTime - 0x540
+  m_bIsDisabled - 0x544
+  m_bShowInHUD - 0x545
+  m_nTimerLength - 0x548
+  m_nTimerInitialLength - 0x54c
+  m_nTimerMaxLength - 0x550
+  m_bAutoCountdown - 0x554
+  m_nSetupTimeLength - 0x558
+  m_nState - 0x55c
+  m_bStartPaused - 0x560
+  m_bInCaptureWatchState - 0x561
+  m_flTotalTime - 0x564
+  m_bStopWatchTimer - 0x568
+  m_bFireFinished - 0x569
+  m_bFire5MinRemain - 0x56a
+  m_bFire4MinRemain - 0x56b
+  m_bFire3MinRemain - 0x56c
+  m_bFire2MinRemain - 0x56d
+  m_bFire1MinRemain - 0x56e
+  m_bFire30SecRemain - 0x56f
+  m_bFire10SecRemain - 0x570
+  m_bFire5SecRemain - 0x571
+  m_bFire4SecRemain - 0x572
+  m_bFire3SecRemain - 0x573
+  m_bFire2SecRemain - 0x574
+  m_bFire1SecRemain - 0x575
+  m_nOldTimerLength - 0x578
+  m_nOldTimerState - 0x57c
+CAI_BaseNPCVData
+  m_sModelName - 0x28
+  m_hFootstepSounds - 0x108
+  m_vecNavLinkMovementNames - 0x110
+  m_nMaxHealth - 0x128
+  m_vecIntrinsicModifiers - 0x130
+  m_statusEffectMap - 0x148
+  m_vecAttachments - 0x150
+  m_flHeadDamageMultiplier - 0x168
+  m_flChestDamageMultiplier - 0x178
+  m_flStomachDamageMultiplier - 0x188
+  m_flArmDamageMultiplier - 0x198
+  m_flLegDamageMultiplier - 0x1a8
+  m_nMaxAdditionalAmmoBalancingShots - 0x1b8
+  m_bTakesDamage - 0x1c8
+  m_bAllowNonZUpMovement - 0x1c9
+  m_bRequestCapsuleCollision - 0x1ca
+  m_flCapsuleRadiusOverride - 0x1cc
+  m_flCapsuleHeightOverride - 0x1d0
+  m_vecActionDesiredShared - 0x1d8
+  m_sPlayerKilledNpcSound - 0x1f0
+CPathAccompany
+  m_vecNodes - 0x538
+CModifierVData
+  m_flDuration - 0x28
+  m_bKeepMaximumDurationOnRefresh - 0x38
+  m_strParticleEffect - 0x40
+  m_strParticleEffectConfig - 0x120
+  m_strParticleStatusEffect - 0x128
+  m_strParticleStatusEffectConfig - 0x208
+  m_strScreenParticleEffect - 0x210
+  m_strScreenParticleEffectConfig - 0x2f0
+  m_nStatusEffectPriority - 0x2f8
+  m_vecRenderAttributes - 0x300
+  m_sStartSound - 0x318
+  m_sAmbientLoopingSound - 0x328
+  m_nAmbientLoopingSoundRecipients - 0x338
+  m_sEndSound - 0x340
+  m_nEnabledStateMask - 0x350
+  m_nDisabledStateMask - 0x364
+  m_nAttributes - 0x378
+  m_vecScriptValues - 0x380
+  m_vecScriptEventHandlers - 0x398
+  m_nDisableGroupsMask - 0x3b0
+  m_bPrivateAccess - 0x3b4
+  m_bIsHidden - 0x3b5
+  m_eHiddenType - 0x3b8
+  m_sLocalizationName - 0x3c0
+  m_eDebuffType - 0x3c8
+  m_bAutomaticallyDecayStacks - 0x3cc
+CModifierHandleBase
+  m_hStableHandle - 0x8
+CBaseModifier
+  m_nSerialNumber - 0x28
+  m_flLastAppliedTime - 0x2c
+  m_flCreationTime - 0x30
+  m_flDuration - 0x34
+  m_hCaster - 0x38
+  m_hAbility - 0x3c
+  m_hAuraProvider - 0x40
+  m_nAbilitySubclassID - 0x58
+  m_iAttributes - 0x5c
+  m_iTeam - 0x5d
+  m_iStackCount - 0x5e
+  m_iMaxStackCount - 0x60
+  m_pVecStackDecayTimes - 0x68
+  m_eDestroyReason - 0x70
+  m_bDisabled - 0x71
+  m_bSuppressSendModifier - 0x72
+  m_flThinkInterval - 0x74
+  m_flThinkIntervalStartTime - 0x78
+  m_flTimeScale - 0x7c
+  m_pVecTrackedObjects - 0x80
+  m_hModifierListHandle - 0x88
+  m_nDebugHelperFlags - 0x8c
+CPointModifierThinker
+  m_hModifier - 0x538
+  m_bSendToClients - 0x550
+STrooperFOWEntity
+  m_nEntIndex - 0x30
+  m_nTeam - 0x34
+  m_nPositionXY - 0x36
+CCitadelTrooperMinimap
+  m_timeLastUpdate - 0x538
+  m_vecFOWEntities - 0x540
+C_CitadelGameRules
+  m_bFreezePeriod - 0x58
+  m_fLevelStartTime - 0x5c
+  m_flGameStartTime - 0x60
+  m_flRoundStartTime - 0x64
+  m_eGameState - 0x68
+  m_hTowerAmber - 0x6c
+  m_hTowerSapphire - 0x70
+  m_bEnemyInAmberBase - 0x74
+  m_bEnemyInSapphireBase - 0x75
+  m_flCombineZiplineSpeedMultiplier - 0x78
+  m_flRebelZiplineSpeedMultiplier - 0x7c
+  m_vMinimapMins - 0x80
+  m_vMinimapMaxs - 0x8c
+  m_bNoDeathEnabled - 0x98
+  m_bFastCooldownsEnabled - 0x99
+  m_bInfiniteResourcesEnabled - 0x9a
+  m_bFlexSlotsForcedUnlocked - 0x9b
+  m_hTrooperMinimap - 0x9c
+  m_hCurrentHeroDrafterRebels - 0xa0
+  m_hCurrentHeroDrafterCombine - 0xa4
+  m_bDontUploadStats - 0xa8
+  m_bServerPaused - 0x9df8
+  m_iPauseTeam - 0x9dfc
+  m_flPauseTime - 0x9e00
+  m_pausingPlayerId - 0x9e08
+  m_unpausingPlayerId - 0x9e0c
+  m_fPauseRawTime - 0x9e10
+  m_fPauseCurTime - 0x9e14
+  m_fUnpauseRawTime - 0x9e18
+  m_fUnpauseCurTime - 0x9e1c
+  m_bRequiresReportCardDismissal - 0x9e48
+  m_flPreGameWaitEndTime - 0x9e4c
+  m_flReportCardDismissalWaitStart - 0x9e50
+  m_nLastPreGameCount - 0x9e54
+  m_eGGTeam - 0x9e58
+  m_flGGEndsAtTime - 0x9e5c
+  m_unMatchID - 0x9e60
+  m_nPlayerDeathEventID - 0x9e68
+  m_nReplayChangedEvent - 0x9e6c
+  m_flHeroDiedTime - 0x9e90
+C_CitadelGameRulesProxy
+  m_pGameRules - 0x538
+CCitadelPlayer_CameraServices
+  m_hPrevPostProcessingVolume - 0x230
+CCitadelPlayer_MovementServices
+  m_vPositionDeltaVelocity - 0x218
+  m_vecPogoVelocity - 0x248
+  m_vecSupport - 0x254
+  m_bColliding - 0x260
+  m_bLandedOnGround - 0x261
+  m_bInExtraInfo - 0x262
+  m_bInShowScoreboard - 0x263
+CCitadelPlayer_ObserverServices
+  m_nLastLocalPlayerObservedTeam - 0x58
+  m_nLastObservedTeam - 0x5c
+  m_nCurrentObservedTeam - 0x60
+  m_hLastObserverTarget - 0x64
+  m_hPreviousTeamTarget - 0x68
+  m_angTargetCamera - 0x6c
+  m_vTargetCameraPos - 0x78
+  m_hOverrideObserverTarget - 0x84
+  m_iOverrideObserverMode - 0x88
+CCitadelObserver_MovementServices
+  m_flRoamingSpeed - 0x1d8
+  m_bInExtraInfo - 0x1dc
+  m_bInShowScoreboard - 0x1dd
+CCitadelBulletTimeWarpVData
+  m_TimeWallHitParticle - 0x28
+  m_TimeWallHitTimerParticle - 0x108
+WeakPoint_t
+  m_bRegistered - 0x3c
+  m_hOuter - 0x40
+  m_nCritHitGroup - 0x44
+  m_nBodyGroup - 0x48
+  m_bPermanentlyBroken - 0x4c
+  m_nBrokenBodygroupIndex - 0x50
+CCitadelHeroComponent
+  m_nHeroID - 0x14
+  m_nHeroLoading - 0x18
+CitadelHeroData_t
+  m_vecAnimGraphDefaultValueOverrides - 0x8
+  m_HeroID - 0x28
+  m_hDamageTakenParticle - 0x30
+  m_hGroundDamageTakenParticle - 0x110
+  m_hDeathParticle - 0x1f0
+  m_hLowHealthParticle - 0x2d0
+  m_strSelectionImage - 0x3b0
+  m_strIconImageSmall - 0x3c0
+  m_strIconHeroCard - 0x3d0
+  m_strMinimapImage - 0x3e0
+  m_strTopBarImage - 0x3f0
+  m_strTopBarVertical - 0x400
+  m_hRespawnParticle - 0x410
+  m_colorUI - 0x4f0
+  m_hAmbientParticle - 0x4f8
+  m_vecAmbientParticleSettings - 0x5d8
+  m_colorGlowFriendly - 0x5f0
+  m_colorGlowEnemy - 0x5f4
+  m_colorGlowTeam1 - 0x5f8
+  m_colorGlowTeam2 - 0x5fc
+  m_strModelName - 0x600
+  m_nModelSkin - 0x6e0
+  m_strPublicModelName - 0x6e8
+  m_strWIPModelName - 0x7c8
+  m_strUIAnimGraph - 0x8a8
+  m_strUIPortraitMap - 0x988
+  m_heroStatsUI - 0x990
+  m_heroStatsDisplay - 0x9c0
+  m_cameraSequenceAwaitingTether - 0xa50
+  m_cameraSequenceLatched - 0xad0
+  m_cameraSequenceAttached - 0xb50
+  m_cameraSequenceClear - 0xbd0
+  m_strDeathSound - 0xc50
+  m_strRosterSelectedSound - 0xc60
+  m_strRosterRemovedSound - 0xc70
+  m_strFootstepSoundEventDefault - 0xc80
+  m_strLowHealthSound - 0xc90
+  m_strHeroSpecificLowHealthSound - 0xca0
+  m_hFootstepSounds - 0xcb0
+  m_hGameSoundEventScript - 0xcb8
+  m_hVOEventScript - 0xd98
+  m_hGeneratedVOEventScript - 0xe78
+  m_flFootstepSoundTravelDistanceMeters - 0xf58
+  m_flStealthSpeedMetersPerSecond - 0xf5c
+  m_flStepSoundTime - 0xf60
+  m_flStepSoundTimeSprinting - 0xf64
+  m_flCollisionRadius - 0xf68
+  m_flCollisionHeight - 0xf6c
+  m_flStepHeight - 0xf70
+  m_bInDevelopment - 0xf74
+  m_bAssignedPlayersOnly - 0xf75
+  m_bBotSelectable - 0xf76
+  m_bNewPlayerRecommended - 0xf77
+  m_bLaneTestingRecommended - 0xf78
+  m_bNeedsTesting - 0xf79
+  m_bLimitedTesting - 0xf7a
+  m_bDisabled - 0xf7b
+  m_bPlayerSelectable - 0xf7c
+  m_nComplexity - 0xf80
+  m_nReadability - 0xf84
+  m_flMinLowHealthPercentage - 0xf88
+  m_flMaxLowHealthPercentage - 0xf8c
+  m_flMinMidHealthPercentage - 0xf90
+  m_flMaxMidHealthPercentage - 0xf94
+  m_flMinHealthForThreshold - 0xf98
+  m_flMaxHealthForThreshold - 0xf9c
+  m_mapStartingStats - 0xfa0
+  m_mapScalingStats - 0xfc8
+  m_mapBoundAbilities - 0x1008
+  m_mapWIPAbilities - 0x1030
+  m_mapItemSlotInfo - 0x1058
+  m_RecommendedUpgrades - 0x1080
+  m_eAbilityResourceType - 0x1108
+  m_mapStandardLevelUpUpgrades - 0x1128
+  m_mapLevelInfo - 0x1150
+  m_mapPurchaseBonuses - 0x1178
+ItemImbuementPair_t
+  m_SourceItemID - 0x30
+  m_TargetAbilityID - 0x34
+DynamicAbilityValues_t
+  m_SourceAbilityID - 0x30
+  m_TargetAbilityID - 0x34
+  m_eValType - 0x38
+  m_flValue - 0x3c
+PlayerDataGlobal_t
+  m_iLevel - 0x8
+  m_iMaxAmmo - 0xc
+  m_iHealthMax - 0x10
+  m_flHealthRegen - 0x14
+  m_flRespawnTime - 0x18
+  m_nHeroID - 0x1c
+  m_iGoldNetWorth - 0x20
+  m_iAPNetWorth - 0x24
+  m_iCreepGold - 0x28
+  m_iCreepGoldSoloBonus - 0x2c
+  m_iCreepGoldKill - 0x30
+  m_iCreepGoldAirOrb - 0x34
+  m_iCreepGoldGroundOrb - 0x38
+  m_iCreepGoldDeny - 0x3c
+  m_iCreepGoldNeutral - 0x40
+  m_iFarmBaseline - 0x44
+  m_iHealth - 0x48
+  m_iPlayerKills - 0x4c
+  m_iPlayerAssists - 0x50
+  m_iDeaths - 0x54
+  m_iDenies - 0x58
+  m_iLastHits - 0x5c
+  m_bAlive - 0x60
+  m_nHeroDraftPosition - 0x64
+  m_bUltimateTrained - 0x68
+  m_flUltimateCooldownStart - 0x6c
+  m_flUltimateCooldownEnd - 0x70
+  m_bHasRejuvenator - 0x74
+  m_bHasRebirth - 0x75
+  m_iHeroDamage - 0x78
+  m_iHeroHealing - 0x7c
+  m_iObjectiveDamage - 0x80
+  m_nHeroAbilityUpgradeBits - 0x84
+  m_vecUpgrades - 0x98
+  m_vecBonusCounterAbilities - 0xb0
+  m_vecBonusCounterValues - 0xc8
+  m_vecImbuements - 0xe0
+  m_vecDynamicAbilityValues - 0x130
+C_HeroPreview
+  m_CCitadelHeroComponent - 0x538
+CCitadel_XPOrbVData
+  m_bIsObjective - 0x28
+  m_strOrbClaimed - 0x30
+  m_strOrbClaimedTeammate - 0x40
+  m_strOrbDenied - 0x50
+  m_strOrbDeniedPlayer - 0x60
+  m_sOrbModel - 0x70
+  m_sFriendlyGlowParticle - 0x150
+  m_sEnemyGlowParticle - 0x230
+  m_sGoldReceivedParticle - 0x310
+  m_sFriendlyOrbDeniedParticle - 0x3f0
+  m_sEnemyOrbDeniedParticle - 0x4d0
+  m_sFriendlyOrbEarnedParticle - 0x5b0
+  m_sEnemyOrbEarnedParticle - 0x690
+  m_flOrbSpawnDelayMin - 0x770
+  m_flOrbSpawnDelayMax - 0x774
+  m_flOrbSpawnOffsetZ - 0x778
+  m_flOrbSpawnOffsetRandomXYZ - 0x77c
+  m_flGravityScale - 0x780
+  m_flLateralSpeedMin - 0x784
+  m_flLateralSpeedMax - 0x788
+  m_flUpSpeedMin - 0x78c
+  m_flUpSpeedMax - 0x790
+  m_flBurstSpeedMultiplier - 0x794
+  m_flBurstSpeedDuration - 0x798
+  m_flOscillateFrequency - 0x79c
+  m_flLifeTime - 0x7a0
+  m_flCollisionRadius - 0x7a4
+STeamFOWEntity
+  m_nEntIndex - 0x30
+  m_nTeam - 0x34
+  m_eClass - 0x38
+  m_iLane - 0x3c
+  m_eHeight - 0x40
+  m_bVisibleOnMap - 0x41
+  m_bBackdoorProtectionActive - 0x42
+  m_nTickHidden - 0x44
+  m_nHealthPercent - 0x48
+  m_nPositionX - 0x49
+  m_nPositionY - 0x4a
+CitadelPingWheelMessagesVDATA_t
+  m_mapPingMessages - 0x0
+CCitadelSpectateDirectedCamera
+  m_flCameraDist - 0x53c
+  m_flCameraPitch - 0x540
+  m_flCameraHeight - 0x544
+  m_hTarget - 0x548
+CCitadel_BreakablePropVData
+  m_bBreakOnDodgeTouch - 0x28
+  m_bRenderAfterDeath - 0x29
+  m_bSolidAfterDeath - 0x2a
+  m_bIsPermanent - 0x2b
+  m_bDamagedByBullets - 0x2c
+  m_bDamagedByMelee - 0x2d
+  m_bDamagedByAbilities - 0x2e
+  m_bIsNeutralVault - 0x2f
+  m_flRetaliateDamage - 0x30
+  m_retaliateParticle - 0x38
+  m_hModel - 0x118
+  m_sAnimgraphParamDamageReceived - 0x1f8
+  m_sAnimgraphParamOnHit - 0x200
+  m_sAnimgraphParamOnRespawn - 0x208
+  m_sBreakSound - 0x210
+  m_sDamageSound - 0x220
+  m_sHeavyDamageSound - 0x230
+  m_sHitIndicatorSound - 0x240
+  m_iHealth - 0x250
+  m_flRespawnTime - 0x254
+  m_bIsMantleable - 0x258
+  m_flPrimaryDropChance - 0x25c
+  m_flSecondaryDropChance - 0x260
+  m_vecPrimaryPickups - 0x268
+  m_vecSecondaryPickups - 0x280
+AbilityResource_t
+  m_flCurrentValue - 0x8
+  m_flPrevRegenRate - 0xc
+  m_flLatchTime - 0x10
+  m_flLatchValue - 0x14
+CCitadelAbilityComponent
+  m_vecAbilities - 0x70
+  m_vecUniversalItems - 0x88
+  m_arPendingAsyncAbilityReservationSlots - 0xa0
+  m_arPendingAsyncAbilityReservationAbilityIDs - 0xb8
+  m_hSelectedAbility - 0xd0
+  m_hPreviouslySelectedAbility - 0xd4
+  m_bPreviousAbilityQueued - 0xd8
+  m_flTimeScale - 0xdc
+  m_flParticleTimeScale - 0xe0
+  m_bInInterruptState - 0xe4
+  m_ResourceStamina - 0xe8
+  m_ResourceAbility - 0x100
+  m_nExecuteAbilityMask - 0x160
+CAI_CitadelNPCVData
+  m_mapBoundAbilities - 0x200
+  m_flSightRangePlayers - 0x228
+  m_flSightRangeNPCs - 0x22c
+  m_MeleeAnimName - 0x230
+  m_flMeleeRange - 0x238
+  m_flMaxHealthBarDrawDistance - 0x23c
+  m_flWalkSpeed - 0x240
+  m_flRunSpeed - 0x244
+  m_flTurnRate - 0x248
+  m_flAcceleration - 0x24c
+  m_flStepHeight - 0x250
+  m_navHull - 0x254
+  m_bFaceTargetEvenWhenMoving - 0x255
+  m_BeamStartSound - 0x258
+  m_BeamStopSound - 0x268
+  m_BeamPointStartLoopSound - 0x278
+  m_BeamPointEndLoopSound - 0x288
+  m_BeamPointClosestLoopSound - 0x298
+  m_strAmbientLoopSound - 0x2a8
+  m_DeathSound - 0x2b8
+  m_MeleeHitSound - 0x2c8
+  m_MeleeHitPlayerSound - 0x2d8
+  m_sDefaultMaterialGroupName - 0x2e8
+  m_sEnemyMaterialGroupName - 0x2f0
+  m_sTeam1MaterialGroupName - 0x2f8
+  m_sTeam2MaterialGroupName - 0x300
+  m_MeleeSwingParticle - 0x308
+  m_MeleeActivateParticle - 0x3e8
+  m_flModelScale - 0x4c8
+  m_DeathParticle - 0x4d0
+  m_HealthBarParticle - 0x5b0
+  m_sHealthBarAttachment - 0x690
+  m_HealthBarColorFriend - 0x698
+  m_HealthBarColorEnemy - 0x69c
+  m_HealthBarColorTeam1 - 0x6a0
+  m_HealthBarColorTeam2 - 0x6a4
+  m_HealthBarColorTeamNeutral - 0x6a8
+  m_flHealthBarOffset - 0x6ac
+  m_flBeamWeaponWidth - 0x6b0
+  m_flBeamTurnRate - 0x6b4
+  m_BeamWeaponParticle - 0x6b8
+  m_flPhysicsImpulseMultiplier - 0x798
+  m_WeaponInfo - 0x7a0
+CNPC_TrooperNeutralVData
+  m_eTrooperType - 0xdf8
+  m_flGoldReward - 0xdfc
+  m_flGoldRewardBonusPercentPerMinute - 0xe00
+  m_bGiveGoldOnHit - 0xe04
+  m_bOrbDropper - 0xe05
+  m_bCapSimultanousAttackers - 0xe06
+  m_flShieldReactivateDelay - 0xe08
+  m_flDyingDuration - 0xe0c
+  m_bDamagedByBullets - 0xe10
+  m_bDamagedByMelee - 0xe11
+  m_bDamagedByAbilities - 0xe12
+  m_bFixedMeleeDamage - 0xe13
+  m_ShieldParticle - 0xe18
+  m_flRetaliateDamage - 0xef8
+  m_flRetaliateCooldown - 0xefc
+  m_retaliateParticle - 0xf00
+  m_bHasAOEAttack - 0xfe0
+  m_flAOERadius - 0xfe4
+  m_flAOEDamage - 0xfe8
+  m_flAOEAttackCooldown - 0xfec
+  m_AOEParticle - 0xff0
+  m_AOEDebuffToApply - 0x10d0
+  m_AOEInitiateSound - 0x10e0
+  m_AOESound - 0x10f0
+  m_AOEDebuffDuration - 0x1100
+  m_vecRandomBodyGroup - 0x1108
+  m_vecRandomSkin - 0x1120
+  m_flHullCapsuleRadius - 0x1138
+  m_flHullCapsuleHeight - 0x113c
+  m_bFaceEnemyWhileIdle - 0x1140
+  m_IdleLoopSound - 0x1148
+  m_MoveType - 0x1158
+CNPC_TrooperNeutralNodeMoverVData
+  m_bEnableMovementToNodes - 0x1160
+  m_flExposedDuration - 0x1164
+  m_flHideDuration - 0x116c
+  m_HidingModifier - 0x1178
+CNPC_MidBossVData
+  m_iStartingHealth - 0xdf8
+  m_iHealthGainPerMinute - 0xdfc
+  m_flAggroTime - 0xe00
+  m_DyingSmallExplosion - 0xe08
+  m_DyingFinalExplosion - 0xee8
+  m_flDyingDuration - 0xfc8
+  m_KnockbackAura - 0xfd0
+  m_AggroEnemy - 0xfe0
+LockonTarget_t
+  m_flGainRate - 0x30
+  m_flDrainRate - 0x34
+  m_flMaxValue - 0x38
+  m_nPrevFullStacks - 0x3c
+  m_flLatchedValue - 0x40
+  m_flLatchedTime - 0x44
+  m_eLockonState - 0x48
+  m_hTarget - 0x4c
+CNPC_SimpleAnimatingAIVData
+  m_sModelName - 0x28
+CCitadelAutoScaledTime
+  m_flTime - 0x8
+CFuncFoliageVData
+  m_BulletImpactParticle - 0x28
+  m_BulletExitParticle - 0x108
+CScaleFunctionVData
+  m_eSpecificStatScaleType - 0x28
+  m_flStatScale - 0x2c
+  m_bFunctionDisabled - 0x30
+CScaleFunctionAbilityPropertyMultiStatsVData
+  m_vecScalingStats - 0x40
+CCitadelModifierVData
+  m_bIsBuildup - 0x3e0
+  m_vecAutoRegisterModifierValueFromAbilityPropertyName - 0x3e8
+  m_bCasterCountsAsAssister - 0x400
+  m_flLingeringAssistWindow - 0x404
+  m_bDurationCanBeTimeScaled - 0x408
+  m_bDurationReducible - 0x409
+  m_eTimeScaleSource - 0x40c
+  m_bDurationAffectedByEffectiveness - 0x410
+  m_vecSetAndTrackedAnimGraphParams - 0x418
+  m_vecSetAndTrackedBodyGroups - 0x430
+  m_eDrawOverheadStatus - 0x448
+  m_bReverseHudProgressBar - 0x44c
+  m_strSmallIconCssClass - 0x450
+  m_strHintText - 0x458
+  m_eHudDisplayLocation - 0x460
+  m_strHudMessageText - 0x468
+  m_bIsHiddenOverhead - 0x470
+  m_vecAlwaysShowInStatModifierUI - 0x478
+  m_OnCreateResponse - 0x490
+  m_cameraSequenceCreated - 0x4c8
+  m_bEndCreatedSequenceOnRemove - 0x548
+  m_cameraSequenceRemoved - 0x550
+CCitadel_Modifier_Basic_HealthRegen
+  m_flHealthRegen - 0xc0
+CCitadel_Modifier_Basic_RangedArmorBonus
+  m_flBulletResistancePctMin - 0xc0
+  m_flBulletResistancePctMax - 0xc4
+  m_flRangeMin - 0xc8
+  m_flRangeMax - 0xcc
+  m_flInvulnRange - 0xd0
+CCitadel_Modifier_TossUp
+  m_bForceApplied - 0xc0
+  m_bLandedOnGround - 0xc1
+  m_vTossUpForce - 0xc4
+  m_flCurrentVelocityScale - 0xd0
+CCitadel_Modifier_TurnCameraToTarget
+  m_hTarget - 0xc0
+CCitadel_Modifier_ZiplineSpeedVData
+  m_flPercentageMultiplierStart - 0x5d0
+  m_flPercentageMultiplierEnd - 0x5d4
+  m_flRampUpTime - 0x5d8
+CCitadel_Modifier_ZiplineSpeed
+  m_iLane - 0xc0
+  m_flStartTime - 0xc4
+CCitadel_Modifier_Base_BuildupVData
+  m_bUseBaseWeaponCycleTimeForDelay - 0x5d0
+  m_flCycleTimeDelayAdd - 0x5d4
+  m_flBuildUpDecayDelay - 0x5d8
+  m_eBuildupMode - 0x5dc
+  m_bBuildupAffectedByEffectiveness - 0x5e0
+  m_bPassBuildupEffectivenessToFillModifier - 0x5e1
+CCitadel_Modifier_Base_Buildup
+  m_flLastBuildupAppliedTime - 0xc0
+  m_flDelayedDieTimeRemaining - 0xc4
+  m_bInDelayTime - 0xc8
+  m_flBuildUpDecayDelayFromWeaponCycleTime - 0xcc
+CCitadel_Modifier_BaseEventProcVData
+  m_bProcChanceAffectedByEffectiveness - 0x5d0
+  m_bShouldApplyAbilityCooldown - 0x5d1
+  m_bCanProcMultipleTimesOnOneTarget - 0x5d2
+  m_bCanProcByOtherObjects - 0x5d3
+  m_nAbilityTargetTypes - 0x5d4
+  m_nAbilityTargetFlags - 0x5d8
+  m_vecProcDamageTypes - 0x5e0
+  m_nRequiredDamageFlags - 0x5f8
+CCitadel_Modifier_BaseEventProc
+  m_vecProcdUnitsThisShot - 0xc0
+  m_vecTrackedUnitsThisFrame - 0xd8
+  m_nLastShotId - 0xf0
+CCitadel_Modifier_BaseBulletPreRollProcVData
+  m_bRollOnceForAllBulletsInAShot - 0x600
+  m_flMaxBulletsToProcInShot - 0x604
+  m_bCanProcMultipleTimesFromSameShot - 0x608
+  m_bRequiresTargetFilter - 0x609
+  m_TracerAdditionParticle - 0x610
+CCitadel_Modifier_BaseBulletPreRollProc
+  m_nSuppressProcShotID - 0x168
+  m_vecProcdBulletIDs - 0x170
+CCitadel_Modifier_PreMatchWait
+  m_vSpawnPoint - 0xc0
+CCitadel_Modifier_InvisVData
+  m_InvisLoopParticle - 0x5d0
+  m_InvisDetectRadiusParticle - 0x6b0
+  m_InvisRevealedParticle - 0x790
+  m_strInvisRevealedSound - 0x870
+  m_bFadeInsteadOfRemoveOnBulletFire - 0x880
+  m_bFadeInsteadOfRemoveOnAbilityUse - 0x881
+  m_bFadeToVisibleAtEndOfDuration - 0x882
+CCitadel_Modifier_Invis
+  m_bInvis - 0x248
+  m_flStartInvisTime - 0x24c
+  m_bFullyInvis - 0x250
+  m_flLastDamageTaken - 0x254
+  m_flLastSpotted - 0x258
+  m_nDetectionRangeRing - 0x25c
+  m_nFullInvisEffect - 0x260
+CModifierObscuredVData
+  m_flHideDuration - 0x5d0
+  m_flRevealDuration - 0x5d4
+CCitadel_Modifier_Obscured
+  m_flStartObscuredAmount - 0xc0
+  m_AmbientParticles - 0xc8
+CCitadel_Modifier_Hero_Clone
+  m_bMimicOwner - 0xc0
+CCitadel_Modifier_ReloadSpeedVData
+  m_flReloadSpeedPercent - 0x5d0
+  m_bDestroyAfterReload - 0x5d4
+CCitadel_Modifier_ReloadSpeed
+  m_flReloadSpeed - 0xc0
+CCitadel_Modifier_StatStealBaseVData
+  m_StatStolenDebuffModifier - 0x5d0
+  m_StatStolenBuffModifier - 0x5e0
+C_CitadelPlayerPawn
+  m_angEyeAngles - 0xe38
+  m_angClientCamera - 0xe50
+  m_eZipLineLaneColor - 0xe5c
+  m_nLevel - 0xe60
+  m_nCurrencies - 0xe64
+  m_nSpentCurrencies - 0xe74
+  m_flRespawnTime - 0xe84
+  m_bInRegenerationZone - 0xe88
+  m_bInItemShopZone - 0xe89
+  m_timeRevealedOnMinimapByNPC - 0xe8c
+  m_vecFullSellPriceItems - 0xe90
+  m_vecFullSellPriceAbilityUpgrades - 0xea8
+  m_bNetworkDisconnected - 0xec0
+  m_bHasIncomingThreats - 0xec1
+  m_bLearningAbility - 0xec2
+  m_nFlashStartTick - 0xec4
+  m_nFlashMaxStartTick - 0xec8
+  m_nFlashFadeStartTick - 0xecc
+  m_nFlashEndTick - 0xed0
+  m_nFlashMaxAlpha - 0xed4
+  m_nDeducedLane - 0xed8
+  m_bDismissedReportCard - 0xedc
+  m_flCurrentHealingAmount - 0xee0
+  m_angLockedEyeAngles - 0xee4
+  m_CCitadelAbilityComponent - 0xef0
+  m_CCitadelHeroComponent - 0x1080
+  m_flRichPresenceUpdateInterval - 0x1140
+  m_bAnimGraphMovementClipped - 0x1238
+  m_bAnimGraphMovementDisableGravity - 0x1239
+  m_bAnimGraphMovementDirectAirControl - 0x123a
+  m_bLastMoveWasAnimGraph - 0x123b
+  m_flPredTimeSlowedStart - 0x123c
+  m_flPredTimeSlowedEnd - 0x1240
+  m_flPredSlowSpeed - 0x1244
+  m_flTimeSlowedStart - 0x1248
+  m_flTimeSlowedEnd - 0x1258
+  m_flSlowSpeed - 0x1268
+  m_flSprintAnimSuppressEndTime - 0x1278
+  m_iCurSlowSlot - 0x127c
+CCitadel_Modifier_HeroUpgradeBonuses
+  m_pOwningPlayer - 0xc0
+  m_flWeaponPower - 0xc8
+  m_flArmorPower - 0xcc
+  m_flTechPower - 0xd0
+CCitadel_Modifier_NearDeathFXVData
+  m_EnemyNearDeathParticle - 0x5d0
+  m_FriendlyNearDeathParticle - 0x6b0
+  m_sSelfDestructStart - 0x790
+  m_sSelfDestructEnd - 0x7a0
+CModifierHoldingGoldenIdolVData
+  m_IdolParticle - 0x5d0
+  m_NewIdolParticle - 0x6b0
+  m_flSlowOnDamageDuration - 0x790
+  m_flSlowOnDamageAmount - 0x7a0
+CCitadel_Modifier_HoldingGoldenIdol
+  m_nGoldValue - 0xc0
+CCitadel_Modifier_RespawnCreditVData
+  m_flBonusClipSize - 0x5d0
+  m_flBonusFirerate - 0x5d4
+  m_flBonusHealth - 0x5d8
+  m_flBonusMoveSpeedMeterPerSecond - 0x5dc
+  m_sExpireSound - 0x5e0
+CCitadel_Modifier_LearningHeroAbility
+  m_sDescription - 0xc0
+CCitadel_Modifier_BlastPush
+  m_vPush - 0xc0
+  m_flPushVelocity - 0xcc
+  m_flMaxPushVelocity - 0xd0
+  m_flMaxPushVelocitySqr - 0xd4
+CCitadel_Modifier_TrooperDisabledInvulnerability
+  m_flBulletResistancePctMax - 0xc0
+  m_bShieldUp - 0xc4
+  m_flShieldUpTime - 0xc8
+  m_trackInfo - 0xcc
+CCitadel_Modifier_DebuffImmunityVData
+  m_ShieldParticle - 0x5d0
+  m_PlayerShieldParticle - 0x6b0
+CCitadel_Modifier_UnstoppableVData
+  m_ShieldParticle - 0x5d0
+  m_PlayerShieldParticle - 0x6b0
+CCitadel_Modifier_Unstoppable
+  m_vecCheckedModifiers - 0xc0
+CCitadel_Modifier_DamageResistanceVData
+  m_flDamageResistancePerSecond - 0x5d0
+  m_flTickInterval - 0x5d4
+  m_flDamageResistanceBonusPerGameMinute - 0x5d8
+CCitadel_Modifier_DamageResistance
+  m_flShieldHealth - 0xc0
+CCitadel_Modifier_AttachTarget
+  m_hTarget - 0xc0
+  m_vecOffset - 0xc4
+CCitadelModifierProjectilePitchingLoopSoundThinkerVData
+  m_speedToPitchRemap - 0x5d0
+CCitadel_Modifier_Neutral_Debuff_PushbackVData
+  m_flPushSpeed - 0x5d0
+  m_flPushRange - 0x5d4
+CCitadel_Modifier_DiminishingSlow
+  m_flSlowPercent - 0xc0
+CCitadel_Modifier_TeleportToObjectiveVData
+  m_TeleportOriginParticle - 0x5d0
+  m_TeleportDestinationParticle - 0x6b0
+  m_TeleportStartSound - 0x790
+  m_TeleportCompleteSound - 0x7a0
+  m_TeleportArriveSound - 0x7b0
+CCitadel_Modifier_TeleportToObjective
+  m_vDest - 0xc0
+  m_angDestAngles - 0xcc
+  m_vDestVelocity - 0xd8
+CCitadel_Modifier_BulletResistReductionStackVData
+  m_bSelfish - 0x5d0
+CCitadel_Modifier_BonusDamagePercentVData
+  m_bSelfish - 0x5d0
+CCitadel_Modifier_ApplyDebuff_ProcVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_TeamRelativeParticleVData
+  m_ParentViewParticle - 0x5d0
+  m_OtherPlayerViewParticle - 0x6b0
+CCitadel_Modifier_Push
+  m_vPushForce - 0xc0
+  m_flDecayRate - 0xcc
+  m_TimeDestroy - 0xd0
+CCitadel_Modifier_Backdoor_ProtectionVData
+  m_flBackdoorProtectionNearbyTrooperRange - 0x5d0
+  m_flBackdoorProtectionNearbyTrooperThinkInterval - 0x5d4
+  m_flBackdoorProtectionNearbyTrooperRemovalDuration - 0x5d8
+  m_flBackdoorProtectionDamageMitigationFromPlayers - 0x5dc
+  m_flHealthPerSecondRegen - 0x5e0
+  m_flOutOfCombatHealthRegen - 0x5e4
+  m_flOutOfCombatRegenDelay - 0x5e8
+  m_flEffectsLingerTime - 0x5ec
+  m_ShieldImpactParticle - 0x5f0
+  m_ShieldActiveParticle - 0x6d0
+  m_strActiveEffectConfigName - 0x7b0
+  flShieldImpactDirectionOffset - 0x7b8
+CCitadel_Modifier_Objective_RegenVData
+  m_flOutOfCombatHealthRegen - 0x5d0
+  m_flOutOfCombatRegenDelay - 0x5d4
+CCitadel_Modifier_ShieldTracker_BaseVData
+  m_flShieldImpactEffectDuration - 0x5d0
+  m_ShieldImpactParticle - 0x5d8
+  m_ShieldImpactModifier - 0x6b8
+  eShieldType - 0x6c8
+  flCooldownOnDamage - 0x6cc
+  flCooldownOnBreak - 0x6d0
+  flRegenDuration - 0x6d4
+CCitadel_Modifier_ShieldTracker_Base
+  m_vecShield - 0xc0
+  m_flShieldDamageTime - 0xcc
+  m_flShieldBreakTime - 0xd0
+  m_flShieldBreakHealAmount - 0xd4
+  m_flShieldBreakHealDone - 0xd8
+  m_bShieldHealingAfterBreak - 0xdc
+CCitadel_Modifier_ShieldImpactVData
+  m_ShieldBreakParticle - 0x5d0
+  m_ShieldBreakSound - 0x6b0
+CCitadel_Modifier_BulletShieldImpact
+  m_AmbientEffect - 0xc0
+CCitadel_Modifier_TechShieldImpact
+  m_AmbientEffect - 0xc0
+CitadelAbilityVData
+  m_eAbilityType - 0x28
+  m_eItemSlotType - 0x29
+  m_bDisabled - 0x2a
+  m_bInDevelopment - 0x2b
+  m_bStartTrained - 0x2c
+  m_iMaxLevel - 0x30
+  m_nAbilityPointsCost - 0x34
+  m_nAbillityUnlocksCost - 0x38
+  m_iUpdateTime - 0x40
+  m_nAbilityBehaviors - 0x50
+  m_eAbilityTargetingLocation - 0x58
+  m_eAbilityTargetingShape - 0x5c
+  m_flTargetingConeAngle - 0x60
+  m_flTargetingConeHalfWidth - 0x64
+  m_eAbilityActivation - 0x68
+  m_TriggerButtonPreReqButton - 0x70
+  m_TriggerButtonOverride - 0x78
+  m_eAbilitySpectatePriority - 0x80
+  m_bitsInterruptingStates - 0x84
+  m_IncompatibleFilter - 0x98
+  m_nAbilityTargetTypes - 0xa8
+  m_nAbilityTargetFlags - 0xac
+  m_bitsPostCastEnabledStateMask - 0xb0
+  m_TargetAbilityEffectsToApply - 0xc4
+  m_bShowTargetingPreviewWhileChanneling - 0xc8
+  m_bShowTargetingPreviewWhileCasting - 0xc9
+  m_WeaponInfo - 0xd0
+  m_projectileInfo - 0x728
+  m_deploymentInfo - 0xa98
+  m_mapAbilityProperties - 0xc78
+  m_vecDependentAbilities - 0xca0
+  m_vecAbilityUpgrades - 0xcb8
+  m_strCastAnimGraphParam - 0xcf0
+  m_strSelectionNameOverride - 0xcf8
+  m_strCastAnimSequenceName - 0xd00
+  m_AbilityTooltipDetails - 0xd08
+  m_strCSSClass - 0xd38
+  m_strAbilityImage - 0xd40
+  m_strMoviePreviewPath - 0xd50
+  m_HUDPanel - 0xd58
+  m_bShowInPassiveItemsArea - 0xd90
+  m_bForceShowHUDPanel - 0xd91
+  m_additionalAbilities - 0xd98
+  m_strCancelAbilityKey - 0xdb8
+  m_strSecondaryStatName - 0xdc0
+  m_cameraSequenceCastStart - 0xdc8
+  m_bEndCastStartSequenceOnCastComplete - 0xe48
+  m_cameraSequenceCastComplete - 0xe50
+  m_cameraSequenceChannelStart - 0xed0
+  m_bEndChannelStartSequenceOnChannelComplete - 0xf50
+  m_flCameraPreviewOffset - 0xf54
+  m_flCameraPreviewDistance - 0xf58
+  m_flCameraPreviewSpeed - 0xf5c
+  m_previewParticle - 0xf60
+  m_PreviewPathParticle - 0x1040
+  m_mapCastEventParticles - 0x1120
+  m_skillshotHitParticle - 0x1148
+  m_skillshotMissParticle - 0x1228
+  m_TargetingPreviewParticle - 0x1308
+  m_strSelectedSound - 0x13e8
+  m_strUnselectedSound - 0x13f8
+  m_strSelectedLoopSound - 0x1408
+  m_strCastSound - 0x1418
+  m_strChannelSound - 0x1428
+  m_strChannelLoopSound - 0x1438
+  m_strCastDelaySound - 0x1448
+  m_strCastDelayLoopSound - 0x1458
+  m_strHitConfirmationSound - 0x1468
+  m_strDamageTakenSound - 0x1478
+  m_strAbilityOffCooldownSound - 0x1488
+  m_strAbilityChargeReadySound - 0x1498
+  m_AutoChannelModifier - 0x14a8
+  m_AutoCastDelayModifier - 0x14b8
+  m_AutoIntrinsicModifiers - 0x14c8
+CitadelItemVData
+  m_iItemTier - 0x14e4
+  m_nUpgradeSlotCost - 0x14e5
+  m_bWarnIfNoAffectedAbilities - 0x14e6
+  m_bRequiresChargedAbility - 0x14e7
+  m_bRequiresChanelledAbility - 0x14e8
+  m_vecComponentItems - 0x14f0
+  m_bShowTextDescription - 0x1508
+  m_bIsDefensiveItem - 0x1509
+  m_eShopFilters - 0x150a
+  m_vecTooltipSectionInfo - 0x1510
+C_CitadelBaseAbility
+  m_vecIntrinsicModifiers - 0x600
+  m_pCastDelayAutoModifier - 0x618
+  m_pChannelAutoModifier - 0x630
+  m_strUsedCastGraphParam - 0x648
+  m_nCastParamNeedsResetTick - 0x650
+  m_bIsCoolingDownInternal - 0x654
+  m_bChanneling - 0x670
+  m_bInCastDelay - 0x671
+  m_vecImbuedByAbilitiyIDs - 0x678
+  m_nUpgradeBits - 0x690
+  m_iBucketID - 0x694
+  m_bToggleState - 0x698
+  m_flToggledTime - 0x69c
+  m_flCooldownStart - 0x6a0
+  m_flCooldownEnd - 0x6a4
+  m_flChannelStartTime - 0x6a8
+  m_flCastDelayStartTime - 0x6ac
+  m_eAbilitySlot - 0x6b0
+  m_flPostCastDelayEndTime - 0x6b4
+  m_iRemainingCharges - 0x6b8
+  m_flChargeRechargeStart - 0x6bc
+  m_flChargeRechargeEnd - 0x6c0
+  m_flMovementControlActiveTime - 0x6c4
+  m_flSelectedChangedTime - 0x6c8
+  m_flAltCastHoldStartTime - 0x6cc
+  m_nImbuedAbilityID - 0x6d0
+CAbilitySprintVData
+  m_SprintParticle - 0x14e0
+  m_strSprintSound - 0x15c0
+  m_flInCombatDuration - 0x15d0
+  m_flSprintAccMS - 0x15d4
+CCitadel_Ability_Sprint
+  m_nSprintParticle - 0xc28
+  m_bSprinting - 0xc2c
+  m_flInCombatStartTime - 0xc30
+  m_flInCombatEndTime - 0xc34
+  m_flSprintStartTime - 0xc38
+  m_bInCombat - 0xc3c
+CAbilityDashVData
+  m_DashParticle - 0x14e0
+  m_strArriveSound - 0x15c0
+  m_strStaminaDrainedSound - 0x15d0
+  m_cameraSequenceGroundDashActivate - 0x15e0
+  m_cameraSequenceAirDashActivate - 0x1660
+  m_flMaxAngDiff - 0x16e0
+  m_flDurationScaleForSpeed - 0x16e4
+  m_flSlideEarlyOutWindow - 0x16e8
+  m_flSlideLockoutTime - 0x16ec
+  m_flGroundDashAirbornDrag - 0x16f0
+  m_flGroundDashAirbornSpeedClamp - 0x16f4
+  m_strGroundDashActivate - 0x16f8
+  m_curvePosition - 0x1708
+  m_flGroundDashDuration - 0x1748
+  m_flGroundDashDistanceInMeters - 0x174c
+  m_flMaxMoveIterationScale - 0x1750
+  m_flAirDashEndVelocityScale - 0x1754
+  m_flAirDashAccPct - 0x1758
+  m_flDuringDrag - 0x175c
+  m_flPostDrag - 0x1760
+  m_flPostDragDuration - 0x1764
+  m_strDashActivate - 0x1768
+CCitadel_Ability_Jump
+  m_flLastTimeOnZipLine - 0xc28
+  m_flLastOnGroundTime - 0xc2c
+  m_flPhaseStartTime - 0xc30
+  m_flJumpTime - 0xc34
+  m_bLastJumpWasDashJump - 0xc38
+  m_bShouldCreateAirJumpEffects - 0xc39
+  m_flDoubleJumpFailTime - 0xc3c
+  m_eDoubleJumpFailReason - 0xc40
+  m_flGroundDashJumpStartTime - 0xd60
+  m_flGroundDashJumpEndTime - 0xd78
+  m_vecLeapVelocity - 0xd90
+  m_bJumped - 0xd9c
+  m_bCanDashJump - 0xd9d
+  m_nDesiredAirJumpCount - 0xda0
+  m_nExecutedAirJumpCount - 0xda4
+  m_bInSlideJump - 0xda8
+  m_nConsecutiveAirJumps - 0xda9
+CCitadel_Ability_Dash
+  m_flDashAngle - 0xc28
+  m_GroundDashExecuteTime - 0xc2c
+  m_nLastGroundDashTick - 0xc30
+  m_flGroundDashCastTime - 0xc34
+  m_bTagCanActivateGroundDash - 0xc38
+  m_flGroundDashEndTime - 0xc40
+  m_flAirDashCastTime - 0xc58
+  m_flAirDashDragStartTime - 0xc5c
+  m_nConsecutiveAirMoves - 0xc60
+  m_hJumpAbility - 0xe18
+CAbilityMantleVData
+  m_vecMantleTypes - 0x14e0
+CCitadel_Ability_Mantle
+  m_flVertOffset - 0xc28
+  m_flHorizGap - 0xc2c
+  m_vStartPos - 0xc30
+  m_vTargetPos - 0xc3c
+  m_angFacing - 0xc48
+  m_nMantleTypeIndex - 0xc54
+  m_flStartTime - 0xc58
+CAbilityJumpVData
+  m_flShootingLockoutAfterJump - 0x14e0
+  m_DashJumpParticle - 0x14e8
+  m_AirJumpParticle - 0x15c8
+  m_AirJumpExecutedSound - 0x16a8
+  m_flMantleRefundWindow - 0x16b8
+  m_flZiplineRefundWindow - 0x16bc
+  m_flLateJumpGraceWindow - 0x16c0
+  m_strDashJumpActivate - 0x16c8
+  m_flDashJumpStartTime - 0x16d8
+  m_flDashJumpEndTime - 0x16dc
+  m_flDashJumpDistanceInMeters - 0x16e0
+  m_flDashJumpVerticalSpeed - 0x16e8
+  m_flDashJumpMissMaxSpeed - 0x16ec
+  m_flDashJumpMantleDisableTime - 0x16f0
+CAbilityMedicHealVData
+  m_HealBeamParticle - 0x14e0
+  m_HealTargetParticle - 0x15c0
+  m_strHealCastSound - 0x16a0
+CCitadel_Ability_SuperNeutralCharge
+  m_bPreparing - 0xde8
+  m_bTackling - 0xde9
+  m_flTackleStartTime - 0xdec
+  m_flTackleDuration - 0xdf0
+  m_vecTackleDir - 0xdf4
+  m_vecLastPosition - 0xe00
+  m_nStuckFramesCount - 0xe0c
+  m_vecHitEnemies - 0xe10
+  m_flPrepareStartTime - 0xe28
+  m_nDistancePreview - 0xe2c
+CCitadel_Ability_Tier2Boss_RocketBarrageVData
+  m_ExplosionParticle - 0x14e0
+  m_ExplosionSound - 0x15c0
+  m_RocketFireSound - 0x15d0
+  m_AuraModifier - 0x15e0
+CCitadel_Ability_Tier2Boss_RocketBarrage
+  m_nGrenadesLeft - 0xc28
+CCitadel_Modifier_Tier2Boss_LaserBeam
+  m_bPreview - 0x130
+  m_flSoundStartTime - 0x13c
+  m_vStart - 0x144
+  m_vEnd - 0x150
+  m_vPrevEnd - 0x15c
+  m_flAngleBetweenTrace - 0x168
+  m_flDamagePerTick - 0x16c
+  m_flCreepDamagePerTick - 0x170
+  m_flNextDamageTick - 0x174
+  m_vecEntitiesHit - 0x178
+  m_flDamageTickRate - 0x190
+  m_flLastShakeTime - 0x194
+  m_bSweepRightFirst - 0x198
+  m_angBeamAim - 0x19c
+  m_vecBeamTarget - 0x1a8
+  m_flLastBeamUpdateTime - 0x1b4
+  m_flTargetingTaskStartTime - 0x1d0
+  m_flTrackVel - 0x1d4
+CCitadel_Modifier_Tier3Boss_LaserBeam
+  m_flSoundStartTime - 0xc8
+  m_vStart - 0xd0
+  m_vEnd - 0xdc
+  m_vPrevEnd - 0xe8
+  m_flAngleBetweenTrace - 0xf4
+  m_flPlayerDamagePerTick - 0xf8
+  m_flNPCDamagePerTick - 0xfc
+  m_flNextDamageTick - 0x100
+  m_vecEntitiesHit - 0x108
+  m_flDamageTickRate - 0x120
+  m_flLastShakeTime - 0x124
+  m_bSweepRightFirst - 0x128
+  m_vecBeamTarget - 0x12c
+  m_flLastBeamUpdateTime - 0x138
+  m_vecEnemyPosition - 0x13c
+  m_nTrackingIndex - 0x148
+  m_bPreviewMode - 0x14c
+  m_hAttachment - 0x14d
+CCitadel_Item_TrackingProjectileApplyModifierVData
+  m_ProjectileImpactParticle - 0x1528
+  m_TargetModifier - 0x1608
+  m_FriendlyOnlyModifier - 0x1618
+CCitadel_Item_SelfBuffModifierVData
+  m_BuffModifier - 0x1528
+CModifierContainmentVictimVData
+  m_AreaParticle - 0x5d0
+  m_ChainedParticle - 0x6b0
+  m_DebuffParticle - 0x790
+CCitadel_Modifier_Containment_Victim
+  m_flTetherRadius - 0xc0
+  m_vecOrigin - 0xc4
+CItem_WitheringWhip_VData
+  m_DebuffModifier - 0x1628
+CCitadel_Item_BubbleVData
+  m_CastParticle - 0x1528
+  m_CastTargetSound - 0x1608
+  m_BubbleModifier - 0x1618
+CCitadel_Item_Stasis_BombVData
+  m_AuraModifier - 0x1628
+CModifierQuarantineVData
+  m_BubbleParticle - 0x5d0
+  m_BubbleExplodeParticle - 0x6b0
+  m_SilenceModifier - 0x790
+CCitadel_Modifier_Succor_Move
+  m_bHasPulled - 0xc0
+  m_bIsPulling - 0xc1
+CCitadel_Modifier_RescueBeamVData
+  m_BeamParticle - 0x5d0
+  m_ImpactParticle - 0x6b0
+CCitadel_Modifier_RescueBeam
+  m_flHealthPerTick - 0x1a0
+  m_nBeamIndex - 0x1a4
+CCitadel_Item_RescueBeamVData
+  m_DispelAndHealModifier - 0x1528
+CModifierVitalitySuppressorVData
+  m_DebuffParticle - 0x5d0
+CCitadel_Modifier_VitalitySuppressor
+  m_flLastTickTime - 0xc0
+CItemRefresherVData
+  m_RefreshParticle - 0x1528
+CItemPowerShardVData
+  m_RefreshParticle - 0x1528
+CCitadel_Item_AOE_Tech_ShieldVData
+  m_DurationModifier - 0x1528
+CModifierDelayedStunVData
+  m_HitParticle - 0x5d0
+CCitadel_Modifier_Delayed_Stun
+  m_hRingEffect - 0xc0
+  m_flRadius - 0xc4
+CItemSingleTargetStunVData
+  m_StunDelayModifier - 0x1528
+  m_CastParticle - 0x1538
+CItemPhantomStrike_VData
+  m_DebuffModifier - 0x1528
+  m_CasterModifier - 0x1538
+  m_strExplodeSound - 0x1548
+  m_CastParticle - 0x1558
+  m_flTeleportDistance - 0x1638
+CItemAOERootVData
+  m_AOEParticle - 0x1528
+  m_strRootTargetSound - 0x1608
+  m_TetherModifier - 0x1618
+CCitadel_Modifier_AcolytesGlove_VData
+  m_TriggeredModifier - 0x600
+  m_SwingParticle - 0x610
+  m_HitParticle - 0x6f0
+CCitadel_Modifier_CharmedWraps_VData
+  m_SwingParticle - 0x600
+  m_HitParticle - 0x6e0
+CCitadel_Modifier_CharmedWraps
+  m_fLastPrimingLightAttackTime - 0x168
+CCitadel_Modifier_TechCleaveVData
+  m_CleavePlayerParticle - 0x5d0
+  m_CleaveTrooperParticle - 0x6b0
+  m_sVictimSound - 0x790
+CCitadel_Item_TechCleaveVData
+  m_TechCleaveModifier - 0x1528
+  m_sCleaveProcSound - 0x1538
+CCitadel_Modifier_SlowingTech_ProcVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_LongRangeSlowingTech_ProcVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_FullSpectrumVData
+  m_DebuffModifier - 0x600
+  m_BonusDamageModifier - 0x610
+CCitadel_Item_TechDamagePulseVData
+  m_PulseParticle - 0x1528
+  m_TargetParticle - 0x1608
+  m_strPulseTickSound - 0x16e8
+CModifierGlitchVData
+  m_DebuffParticle - 0x5d0
+CCitadel_Modifier_BulletArmorShredder_ProcVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_Tech_BleedVData
+  m_DamageParticle - 0x5d0
+CCitadel_Modifier_Tech_Bleed
+  m_hRingEffect - 0xc0
+CCitadel_Modifier_TechBleed_ProcVData
+  m_BleedModifier - 0x600
+CCitadel_Modifier_TechBurst_ProcVData
+  m_ProcParticle - 0x600
+CCitadel_Modifier_MagicShock_ProcVData
+  m_ProcParticle - 0x600
+  m_hDamageTrackModifier - 0x6e0
+  m_hSlowModifier - 0x6f0
+CModifier_Upgrade_ArcaneMedallion_VData
+  m_TriggeredModifier - 0x600
+CCitadel_Modifier_GalvanicStormTechShieldVData
+  m_BuffModifier - 0x5d0
+  m_ExplodeParticle - 0x5e0
+  m_flExplodeSpeed - 0x6c0
+CCitadel_Modifier_TechOverflowProcWatcherVData
+  m_BuildUpModifier - 0x600
+  m_ProcModifier - 0x610
+  m_BuildupSuccessEffect - 0x620
+CCitadel_Modifier_EscalatingExposureProcWatcherVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_DiscordVData
+  m_ImpactParticle - 0x5d0
+CCitadel_Modifier_Discord_Friendly
+  m_flHealPerSecond - 0xc0
+CCitadel_Item_DivinersKevlar_VData
+  m_BuffModifier - 0x1528
+  m_PrecastSpiritBuffModifier - 0x1538
+CCitadel_Modifier_DivinersKevlarBuff_VData
+  m_KevlarChannelParticle - 0x5d0
+CCitadel_Modifier_HollowPoint_ProcVData
+  m_TracerParticle - 0x5d0
+  m_ParticleModifier - 0x6b0
+CCitadel_Modifier_HollowPoint_Proc
+  m_nStacksPerBullet - 0xc0
+CCitadel_Modifier_Superior_Stamina_WatcherVData
+  m_BuffModifier - 0x5d0
+CCitadel_Item_Disarm_VData
+  m_BuffModifier - 0x1628
+  m_DebuffModifier - 0x1638
+CCitadel_Modifier_ActiveDisarm_SpiritSteal_VData
+  m_SpiritStealParticle - 0x5d0
+CCitadel_Modifier_ColdFrontAOE_VData
+  m_TargetModifier - 0x5d0
+CCitadel_Modifier_ColdFrontAOE
+  m_hAOEEffect - 0x1a0
+CCitadel_Item_ColdFrontVData
+  m_AOEModifier - 0x1528
+CCitadel_Modifier_MagicClarityWatcherVData
+  m_BuffModifier - 0x5d0
+CCitadel_Modifier_Magic_Clarity_BuffVData
+  m_VisualModifier - 0x5d0
+CCitadel_Modifier_Magic_Clarity_Buff
+  m_bAbilityLocked - 0xf8
+CCitadel_Modifier_MagicStormWatcherVData
+  m_BuffModifier - 0x5d0
+CCitadel_Modifier_QuickSilverVData
+  m_BuffModifier - 0x600
+  m_ProcParticle - 0x610
+CCitadel_Modifier_QuickSilver_Watcher
+  m_bProcNextHit - 0x210
+CCitadel_Modifier_QuickSilverBuffVData
+  m_RapidFireParticle - 0x5d0
+CCitadel_Modifier_WeaponPowerForHealthVData
+  m_ActiveBuff - 0x5d0
+CCitadel_Modifier_WeaponPowerForHealth
+  m_flHealthDrained - 0xc0
+CCitadel_Upgrade_WeaponPowerForHealthVData
+  m_BuffModifier - 0x1528
+CCitadel_Item_HealthRegenAuraVData
+  m_HealParticle - 0x1528
+  m_CastHealParticle - 0x1608
+  m_HealingPulseTrackerModifier - 0x16e8
+CCitadel_Modifier_ComboBreakerHeal
+  m_flAmountPerSecond - 0xc0
+CCitadel_Item_ComboBreakerVData
+  m_ComboBreakerModifier - 0x1528
+  m_HealModifier - 0x1538
+CModifier_CheatDeathImmunityVData
+  m_BuffParticle - 0x5d0
+  m_BuffPlayerParticle - 0x6b0
+  m_StatusEffect - 0x790
+CCitadel_Item_CheatDeathVData
+  m_DamagePulseParticle - 0x1528
+  m_DamageTargetParticle - 0x1608
+  m_sHealPulseSound - 0x16e8
+  m_sHealAndDamagePulseSound - 0x16f8
+  m_DeathImmuneModifier - 0x1708
+CCitadel_Modifier_Out_Of_Combat_Health_Regen
+  m_LastDamageTaken - 0xc0
+CCitadelModifierApexWatcherVData
+  m_BuffModifier - 0x5d0
+CCitadel_Modifier_Apex_Watcher
+  m_bShouldEnableBuff - 0x138
+CCitadel_ArmorUpgrade_ActiveBulletShieldVData
+  m_TempShieldModifier - 0x1528
+CCitadel_ArmorUpgrade_RegeneratingBulletShieldVData
+  m_ActiveModifier - 0x1528
+CCitadel_Modifier_AblativeCoatResistBuffVData
+  m_ResistBuffParticle - 0x5d0
+CCitadel_ArmorUpgrade_AblativeCoatVData
+  m_RestoreEffectModifier - 0x1528
+  m_OnTakeDamageEffectModifier - 0x1538
+  m_OnBreakEffectModifier - 0x1548
+  m_ResistBuffModifier - 0x1558
+  m_flOnTakeDamageEffectDuration - 0x1568
+  m_flOnBreakEffectDuration - 0x156c
+  m_flOnRestoreEffectDuration - 0x1570
+CCitadel_Modifier_ReturnFireVData
+  m_AttackerHitFx - 0x5d0
+  m_ImpactParticle - 0x6b0
+  m_SpiritReflectTracerReplacement - 0x790
+  m_strAttackerHitSound - 0x870
+CCitadel_ArmorUpgrade_ReturnFireVData
+  m_ReactiveArmorModifier - 0x1528
+CCitadel_Modifier_MetalSkinVData
+  m_BuffStartParticle - 0x5d0
+  m_BuffEndParticle - 0x6b0
+CItemMetalSkinVData
+  m_MetalSkinModifier - 0x1528
+CCitadel_Modifier_Passive_Camouflage
+  m_flRate - 0xc0
+  m_vLastPosition - 0xc4
+CCitadel_Modifier_Camouflage_Invis
+  m_vCastPosition - 0x268
+CModifierStimPakVData
+  m_BuffParticle - 0x5d0
+CItemStimPakVData
+  m_StimPakModifier - 0x1528
+  m_CastParticle - 0x1538
+CCitadel_Modifier_Savior_VData
+  m_BuffParticle - 0x5d0
+  m_TrailParticle - 0x6b0
+CCitadel_Item_Savior_VData
+  m_SaviorModifier - 0x1528
+  m_CastParticle - 0x1538
+CCitadel_ArmorUpgrade_PersonalRejuvenatorVData
+  m_DeployParticle - 0x1528
+  m_RespawnParticle - 0x1608
+  m_sDeploySound - 0x16e8
+  m_sRespawnSound - 0x16f8
+  m_BonusHealthModifier - 0x1708
+CItem_RestorativeLocket_VData
+  m_CastParticle - 0x1528
+CCitadel_Modifier_Frenzy_MoveSpeed
+  m_flMoveSpeedPerStack - 0xc0
+CCitadel_ArmorUpgrade_DebuffReducerVData
+  m_DebuffReducedParticle - 0x1528
+  m_PurgeCastParticle - 0x1608
+CCitadel_ArmorUpgrade_SlowImmunityVData
+  m_ImmunityModifier - 0x1528
+CCitadel_ArmorUpgrade_RegenerativeArmorVData
+  m_RegenModifier - 0x1528
+CCitadel_ArmorUpgrade_VexBarrierVData
+  m_ShieldModifier - 0x1528
+CCitadel_Modifier_ChainLightningEffectVData
+  m_ChainParticle - 0x5d0
+  m_ChainSound - 0x6b0
+  m_VictimSound - 0x6c0
+CCitadel_Modifier_ChainLightningVData
+  m_TracerParticle - 0x6f0
+  m_ChainModifier - 0x7d0
+CCitadel_Modifier_ChainLightning
+  m_flNextProcTime - 0x1c0
+CCitadel_Modifier_Galvanic_Storm_EffectVData
+  m_BuffChainParticle - 0x6d0
+CCitadel_Modifier_Galvanic_Storm_VData
+  m_TechShieldModifier - 0x7e0
+CCitadel_Modifier_SilenceProcWatcherVData
+  m_BuildUpModifier - 0x600
+  m_SilenceProcModifier - 0x610
+  m_SilenceActiveModifier - 0x620
+  m_ImmunityModifier - 0x630
+  m_sInstantProcIfCasterHasModifier - 0x640
+  m_TracerParticle - 0x648
+CCitadel_Modifier_SilencerProcActiveVData
+  m_TracerParticle - 0x600
+  m_SilencerActiveParticle - 0x6e0
+  m_SilenceActiveModifier - 0x7c0
+  m_BulletSlowModifier - 0x7d0
+CCitadel_Modifier_DisarmProcWatcherVData
+  m_BuildUpModifier - 0x600
+  m_DisarmProcModifier - 0x610
+  m_ImmunityModifier - 0x620
+  m_TracerParticle - 0x630
+CCitadel_Modifier_TechDamageProcWatcher
+  m_flNextProcTime - 0x168
+  m_shotProced - 0x16c
+CCitadel_Modifier_SlowingBullets_ProcVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_Inhibitor_ProcVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_CQC_ProcVData
+  m_DebuffModifier - 0x600
+CCitadel_Modifier_FireRateAuraVData
+  m_FireRateAuraSourceParticle - 0x5d0
+CCitadel_Modifier_Item_Bleeding_Bullets_ActiveVData
+  m_BleedModifier - 0x600
+  m_BuildUpModifier - 0x610
+  m_BulletImpactParticle - 0x620
+CCitadel_Modifier_Item_Bleeding_Bullets_DamageOverTime
+  m_flLastTickTime - 0xc0
+CCitadel_Modifier_ExplosiveBulletsVData
+  m_ExplodeParticle - 0x6f0
+  m_ExplodeSound - 0x7d0
+CCitadel_Modifier_ExplosiveBullets
+  m_BuffedShotId - 0x1f8
+CCitadel_Modifier_BerserkerDamageStackVData
+  m_BuffStatusParticle - 0x5d0
+  m_BuffStatusParticleEnemy - 0x6b0
+CCitadel_Modifier_BerserkerVData
+  m_BerserkerSound - 0x5d0
+  m_StackModifier - 0x5e0
+CCitadel_Modifier_Fervor_Bonuses_VData
+  m_BonusesParticle - 0x5d0
+  m_ActivateBonusesSound - 0x6b0
+CCitadel_Modifier_Fervor_Bonuses
+  m_nBonusesParticle - 0xc0
+CCitadel_Modifier_Fervor_VData
+  m_FervorParticle - 0x5d0
+  m_BonusesModifier - 0x6b0
+CCitadel_Modifier_Siphon_Bullets_WatcherVData
+  m_HealModifier - 0x5f0
+CModifier_SiphonBullets_HealthLoss_VData
+  m_SiphonParticle - 0x5d0
+  m_HealModifier - 0x6b0
+CModifier_SiphonBullets_VData
+  m_StealWatcherModifier - 0x600
+  m_HealModifier - 0x610
+  m_TracerParticle - 0x620
+  m_ExplodeParticle - 0x700
+  m_ExplodeSound - 0x7e0
+CCitadel_Modifier_TechDefenderShreddersProcVData
+  m_TechDebuffModifier - 0x600
+CCitadel_Modifier_Ricochet_ProcVData
+  m_RicochetTracerParticle - 0x600
+CCitadel_Modifier_DetentionAmmoVData
+  m_BuildUpModifier - 0x600
+  m_DebuffModifier - 0x610
+  m_ImmunityModifier - 0x620
+  m_TracerParticle - 0x630
+CCitadel_WeaponUpgrade_WeaponEaterVData
+  m_WeaponEaterTracker - 0x1528
+CCitadel_WeaponUpgrade_InstantReloadVData
+  m_ReloadParticle - 0x1528
+CCitadel_Modifier_NearbyEnemyBoostVData
+  m_BerserkerSound - 0x5d0
+  m_BuffModifier - 0x5e0
+CCitadel_WeaponUpgrade_SurgingPowerVData
+  m_ModifierSurgingPower - 0x1528
+  m_CastTargetEffect - 0x1538
+CCitadel_Modifier_Surging_PowerVData
+  m_BerserkerSound - 0x5d0
+  m_ModifierActiveDisplay - 0x5e0
+CCitadel_Upgrade_OverdriveClip_VData
+  m_OverdriveClipModifier - 0x1528
+  m_ReloadModifier - 0x1538
+CCitadel_Modifier_Upgrade_OverdriveClip_VData
+  m_BuffEffect - 0x5d0
+  m_TracerParticle - 0x6b0
+CCitadel_Modifier_Upgrade_OverdriveClip
+  m_nBonusMaxClipSize - 0xc0
+CCitadel_Modifier_Upgrade_OverdriveClip_Reload
+  m_nStartingClipSize - 0xc0
+CCitadel_Modifier_BurstFire_Actuator
+  m_bLastShotInFlight - 0xc0
+  m_bBonusTracked - 0xc1
+  m_nHitCounter - 0xc4
+  m_nTotalBurstFireShots - 0xc8
+  m_nInitialzedClipSize - 0xcc
+  m_nBonusPitch - 0xd0
+  m_bInitialized - 0xd4
+  m_nIncreasedBurstShotCount - 0xd8
+  m_flIntraBurstCycleTime - 0xdc
+  m_flCycleTimePct - 0xe0
+  m_flMaxCycleTimeOverride - 0xe4
+  m_flMaxBurstFireCooldownOverride - 0xe8
+CCitadel_Modifier_BoxingGloveVData
+  m_DebuffModifier - 0x600
+  m_SwingParticle - 0x610
+  m_HitParticle - 0x6f0
+CCitadel_Modifier_BeltFed_MagazineVData
+  m_SpinUpSound - 0x5d0
+  m_SpinDownSound - 0x5e0
+  m_SpinLoopSound - 0x5f0
+CCitadel_Modifier_BeltFed_Magazine
+  m_bInitialized - 0xc0
+  m_flSpinUpRateOverride - 0xc4
+  m_flSpinUpDecayOverride - 0xc8
+  m_flMaxCycleTimeOverride - 0xcc
+  m_flMaxBurstFireCooldownOverride - 0xd0
+CCitadel_Upgrade_StabilizingTripodVData
+  m_SelfDebuffModifier - 0x1528
+CItem_FleetfootBoots_VData
+  m_FleetfootBootsModifier - 0x1528
+  m_FleetfootBootsBonusClipModifier - 0x1538
+CModifier_FleetfootBoots_BonusClip
+  m_nBonusClip - 0xc0
+CModifier_Upgrade_KineticSashTriggered_VData
+  m_TriggeredSound - 0x5d0
+CModifier_Upgrade_KineticSashTriggered
+  m_nBonusClip - 0xc0
+CModifier_Upgrade_KineticSash_VData
+  m_KineticSashTriggeredModifier - 0x5d0
+CCitadel_Modifier_LifestrikeGauntlets_VData
+  m_SwingParticle - 0x600
+  m_HitParticle - 0x6e0
+CCitadel_Modifier_HunterAuraTarget
+  m_flDebuffScale - 0x168
+CCitadel_WeaponUpgrade_HeadshotBooster_VData
+  m_HeadShotVictimSound - 0x1528
+  m_HeadShotConfirmationSound - 0x1538
+CCitadel_WeaponUpgrade_SharpShooterVData
+  m_HeadShotVictimSound - 0x1528
+  m_HeadShotConfirmationSound - 0x1538
+CCitadel_WeaponUpgrade_BansheeSlugs_VData
+  m_DebuffModifier - 0x1528
+CCitadel_WeaponUpgrade_BurstFireVData
+  m_ActivationSound - 0x1528
+  m_BuffModifier - 0x1538
+CCitadel_Item_DPS_Aura_VData
+  m_AOECastParticle - 0x1528
+  m_ActiveModifier - 0x1608
+CModifier_WarpStone_Caster_VData
+  m_playerBuffSelf - 0x5d0
+CItem_WarpStone_VData
+  m_CasterModifier - 0x1528
+  m_CasterDebuffModifier - 0x1538
+  m_strExplodeSound - 0x1548
+  m_CastDelayParticle - 0x1558
+  m_TeleportTrailParticle - 0x1638
+  m_flTeleportDistance - 0x1718
+CCitadel_Modifier_ArcaneEaterProcVData
+  m_StealWatcherModifier - 0x600
+CCitadel_Modifier_ArcaneEaterDebuffVData
+  m_DebuffParticle - 0x5d0
+CCitadel_Modifier_ReinforcingCasingsVData
+  m_BuffModifier - 0x5d0
+CCitadel_Modifier_ReinforcingCasings
+  m_LastHitShotID - 0xc0
+CCitadel_Modifier_CritShotVData
+  m_SlowModifier - 0x6f0
+  m_CritSound - 0x700
+CCitadel_Modifier_MedicBulletsVData
+  m_ImpactParticle - 0x6f0
+CCitadel_Modifier_Item_HealthNova
+  m_flAmountPerSecond - 0xc0
+C_Citadel_Shield
+  m_bAllowRotatingUp - 0x7f8
+  m_bFixedPosition - 0x7f9
+  m_flShieldOffset - 0x7fc
+CCitadel_Modifier_Shield
+  m_hShieldEntity - 0xc0
+CCitadel_ArmorUpgrade_CloakingDeviceActive_VData
+  m_AmbushModifier - 0x1528
+  m_InvisModifier - 0x1538
+CModifier_CloakingDevice_Active_Ambush_VData
+  m_InvisRevealedParticle - 0x5d0
+  m_AmbushParticle - 0x6b0
+  m_strActivateAmbushSound - 0x790
+CModifier_CloakingDevice_Active_Ambush
+  m_nAmbushParticle - 0xc0
+CCitadel_Modifier_Passive_CloakVData
+  m_InvisModifier - 0x5d0
+CCitadel_UtilityUpgrade_RocketBootsVData
+  m_LaunchParticle - 0x1528
+  m_InAirWatcherModifier - 0x1608
+CCitadel_UtilityUpgrade_RocketBoosterVData
+  m_LandingParticle - 0x1618
+  m_AoEPreviewParticle - 0x16f8
+  m_DropDownStartParticle - 0x17d8
+  m_DropDownStartSound - 0x18b8
+  m_LandingSound - 0x18c8
+  m_DebuffModifier - 0x18d8
+CCitadel_Upgrade_AerialAssualtVData
+  m_WatcherModifier - 0x1528
+  m_LaunchParticle - 0x1538
+CCitadelModifierAerialAssaultWatcherVData
+  m_AssaultModifier - 0x5d0
+CCitadelModifierAerialAssaultVData
+  m_FireRateModifier - 0x5d0
+  m_ExplodeParticle - 0x5e0
+  m_TracerParticle - 0x6c0
+  m_ExplodeSound - 0x7a0
+  m_flAirDrag - 0x7b0
+  m_flAirSpeed - 0x7b4
+  m_flFallSpeed - 0x7b8
+CItemSmokeBombPreCastModifierVData
+  m_SmokeAreaParticle - 0x5d0
+  m_CasterParticle - 0x6b0
+CCitadel_UtilityUpgrade_AOESmokeBombVData
+  m_CastCompleteParticle - 0x1528
+  m_strBuffGainedSound - 0x1608
+  m_InvisModifier - 0x1618
+CItemAOESilenceModifierVData
+  m_strSilenceTargetSound - 0x5d0
+  m_SilenceModifier - 0x5e0
+CCitadel_UtilityUpgrade_DebuffImmunityVData
+  m_DebuffImmunityModifier - 0x1528
+CCitadel_Item_ModDisruptorVData
+  m_DetonateParticle - 0x1528
+  m_DisruptModifier - 0x1608
+  m_flWaveSpeed - 0x1618
+CCitadel_Item_BaseProjectileAOEModifierVData
+  m_AOEModifier - 0x1528
+CAbilitySlideVData
+  m_flMinAngleToConsiderASlope - 0x14e0
+  m_flSlideMaxSlopeMaxAccSpeed - 0x14e4
+  m_flSlideMinSlopeMaxAccSpeed - 0x14e8
+  m_flButtonPressWindow - 0x14ec
+  m_flTurnSpeed - 0x14f0
+  m_flSlideMinSlopeAcceleration - 0x14f4
+  m_flSlideMaxSlopeAcceleration - 0x14f8
+  m_flTurnMinAngDiff - 0x14fc
+  m_flTurnMaxAngDiff - 0x1500
+  m_flLandedFlatGroundFrictionGraceTime - 0x1504
+  m_flFlatGroundFrictionGraceTime - 0x1508
+  m_flFrictionFlatGroundGrace - 0x150c
+  m_flFrictionFlatGround - 0x1510
+  m_flFrictionMinSlope - 0x1514
+  m_flFrictionMaxSlope - 0x1518
+  m_flFrictionUphillMinSlope - 0x151c
+  m_flFrictionUphillMaxSlope - 0x1520
+  m_flLandingSlopeScaleBias - 0x1524
+  m_flBoostMinTriggerSpeed - 0x1528
+  m_flBoostMaxTriggerSpeed - 0x152c
+  m_flBoostMinSpeed - 0x1530
+  m_flBoostMaxSpeed - 0x1534
+  m_flMinActivationSpeed - 0x1538
+  m_flMinSustainSpeed - 0x153c
+  m_flSprintBoostSpeed - 0x1540
+  m_flDashSlideStartTime - 0x1544
+  m_flDashSlideSpeed - 0x1548
+  m_flDashSlideFailSpeed - 0x154c
+  m_strDashSlideActivate - 0x1550
+  m_flDashSlideFrictionTime - 0x1560
+  m_flDashSlideFriction - 0x1564
+  m_flDashMinActivationSpeed - 0x1568
+  m_flAccMinSlopeDeg - 0x156c
+  m_flAccMaxSlopeDeg - 0x1570
+  m_flAccMinSlopeScale - 0x1574
+  m_flSlideProbeForwardOffset - 0x1578
+  m_flSlideActivationProbeForwardOffset - 0x157c
+  m_flMaxDistanceBetweenProbeSamples - 0x1580
+  m_flInitialSlideUseForwardProbeTime - 0x1584
+  m_flCurrentSlopeSampleDistance - 0x1588
+  m_flSampleVelDiffStdDevScaleCutoff - 0x158c
+  m_flSlopeFacingAngleToActivate - 0x1590
+  m_flAirDragAfterJump - 0x1594
+  m_flAirDragAfterJumpTime - 0x1598
+  m_flAirDragMaxAngle - 0x159c
+  m_flAirDragResetTime - 0x15a0
+  m_flLateSlideJumpWindow - 0x15a4
+  m_SlideEffectRemap - 0x15a8
+  m_GetupSpeedCurve - 0x15b8
+  m_flGetupBusyDuration - 0x15f8
+  m_cameraSequenceStartSliding - 0x1600
+  m_cameraSequenceEndSliding - 0x1680
+  m_SlideParticle - 0x1700
+  m_strStartSound - 0x17e0
+  m_strLoopingSound - 0x17f0
+  m_strStopSound - 0x1800
+CCitadel_Ability_Slide
+  m_flGroundDashSlideTime - 0xc80
+  m_flSlowGetupStartTime - 0xc98
+  m_bShouldTriggerSlowGetup - 0xc9c
+  m_bWantsSlide - 0xc9d
+  m_bAirborneWhenDuckPressed - 0xc9e
+  m_bIsSliding - 0xc9f
+  m_flSpeedAdjust - 0xca0
+  m_flDuckPressedTime - 0xca4
+  m_flVelocityAtDuckPressedTime - 0xca8
+  m_flSlideChangeTime - 0xcac
+  m_flSlidingOnFlatStartTime - 0xcb0
+  m_nJumpsThisSlideSession - 0xcb4
+  m_flOnGroundStartTime - 0xcb8
+  m_flDashSlideStartTime - 0xcbc
+  m_bStartedSlideViaProbeSlope - 0xcc0
+  m_nSlideEffectIndex - 0xcc4
+CCitadel_Ability_Teleport
+  m_bTeleportingToTarget - 0xc28
+  m_vTargetPosition - 0xc2c
+  m_vTargetAngles - 0xc38
+CAbilityMeleeVData
+  m_bCanMeleeWhileZoomed - 0x14e0
+  m_flMeleeInputBufferTime - 0x14e4
+  m_flCollisionDistance - 0x14e8
+  m_MeleeDamageFlags - 0x14f0
+CCitadel_Ability_Melee_Base
+  m_bUsingThisMelee - 0xc28
+  m_bUsingMeleeTagActive - 0xc29
+  m_bHitWithThisAttack - 0xc2a
+  m_flLastActivateTime - 0xc2c
+  m_flNextAttackAllowedTime - 0xc30
+  m_flAttackTriggeredTime - 0xc34
+CAbilityHoldMelee_VData
+  m_LightAttackData - 0x14f8
+  m_HeavyAttackData - 0x1938
+  m_HeavyAirAttackData - 0x1d78
+  m_flNextAttackOnParry - 0x21b8
+  m_flParryWindow - 0x21bc
+  m_flParryStunTime - 0x21c0
+  m_flParryCooldown - 0x21c4
+  m_HoldBeginEffect - 0x21c8
+  m_SuccessfulParryParticle - 0x22a8
+  m_ParryActivateParticle - 0x2388
+  m_cameraSequenceHoldStart - 0x2468
+  m_cameraSequenceHitImpact - 0x24e8
+  m_strHoldBegin - 0x2568
+  m_strSuccessfulParrySound - 0x2578
+  m_ParryVictimModifier - 0x2588
+CCitadel_Ability_HoldMelee
+  m_flParryWindowEndTime - 0xca8
+  m_flNextParryTime - 0xcac
+  m_flStateStartTime - 0xcb0
+  m_flDashStartTime - 0xcb4
+  m_eCurrentAttackState - 0xcb8
+  m_eCurrentAttackType - 0xcbc
+  m_vAirDashDir - 0xcc0
+  m_bCreatedChargeEffects - 0xccc
+  m_angForced - 0xcd0
+CAbilityMeleeParryVData
+  m_flWhiffDuration - 0x14e0
+  m_flMovementRestrictionTime - 0x14e4
+  m_flActiveTime - 0x14e8
+  m_flParryEndVisualTime - 0x14ec
+  m_flSuccessActiveTime - 0x14f0
+  m_SuccessfulParryParticle - 0x14f8
+  m_strSuccessfulParrySound - 0x15d8
+  m_ParryActiveModifier - 0x15e8
+  m_ParryVictimModifier - 0x15f8
+  m_ParryCooldownModifier - 0x1608
+  m_ParryEndVisualModifier - 0x1618
+CCitadel_Ability_MeleeParry
+  m_flParryStartTime - 0xc28
+  m_bAttackParried - 0xc2c
+  m_flParrySuccessTime - 0xc30
+CCitadel_Ability_PrimaryWeaponVData
+  m_DOFWhileZoomed - 0x14e0
+  m_bDOFFarSettingsAreOffsetByGunRange - 0x14f0
+  m_sDisarmedSound - 0x14f8
+  m_flMinDisarmedSoundInterval - 0x1508
+  m_sObstructedShotSound - 0x1510
+CCitadel_Ability_PrimaryWeapon
+  m_flNextPrimaryAttack - 0xc28
+  m_iClip - 0xc2c
+  m_iBonusClip - 0xc30
+  m_flSpreadPenalty - 0xc34
+  m_flZoomTime - 0xc38
+  m_flZoomOutTime - 0xc3c
+  m_iSpreadIndex - 0xc40
+  m_nShotRecoilIndex - 0xc42
+  m_flNextShotRecoilRecoveryTime - 0xc44
+  m_bIsZoomed - 0xc48
+  m_nBurstShotsRemaining - 0xc49
+  m_nShotNumber - 0xc4c
+  m_flMisfireChancePercent - 0xc50
+  m_bInReload - 0xc54
+  m_bSingleShotReloadFirstBullet - 0xc55
+  m_reloadQueuedStartTime - 0xc58
+  m_flReloadAvailableTime - 0xc5c
+  m_flLastAttackTime - 0xc60
+  m_flNextAttackDelayStartTime - 0xc64
+  m_flNextAttackDelayEndTime - 0xc68
+  m_flAttackDelayPauseTotalTime - 0xc6c
+  m_flAttackDelayPauseEndTime - 0xc70
+  m_eNextAttackDelayReason - 0xc74
+  m_bInputPressedWhileSelected - 0xc78
+  m_eActiveFireMode - 0xc7c
+  m_angRecoilAngles - 0xc80
+  m_angRecoilToAdd - 0xc8c
+  m_angRecoilRecovery - 0xc98
+  m_flRecoilStartTime - 0xca4
+  m_flRecoilRecoverySpeed - 0xca8
+  m_flAddApproachSpeed - 0xcac
+  m_flLastAnglesUpdateTime - 0xcb0
+  m_bFireBackwards - 0xcb4
+  m_currentSpread - 0xcb8
+  m_currentMaxSpread - 0xcbc
+  m_currentFireSpread - 0xcc0
+  m_flCurrentSpinRate - 0xcc4
+  m_fFireDuration - 0xccc
+  m_bFireOnEmpty - 0xcd2
+  m_flNextDisarmSound - 0xcd4
+CCitadel_Ability_ZipLine_VData
+  m_flMinButtonHoldTimeToActivate - 0x14e0
+  m_flCrouchDropSpeedFraction - 0x14e4
+  m_flCrouchDropAirDragSuppressDuration - 0x14e8
+  m_flDetachDisallowedTime - 0x14ec
+  m_flCameraWobbleIntensity - 0x14f0
+  m_DOFWhileZiplining - 0x14f4
+  m_ZipLinePreviewParticle - 0x1508
+  m_ZipLineSpeedParticle - 0x15e8
+  m_ZipLineTetherParticle - 0x16c8
+  m_ZipLineTetherAttachParticle - 0x17a8
+  m_ZipLineEnemyKnockdownProtectionParticle - 0x1888
+  m_ZipLineSelfKnockdownProtectionParticle - 0x1968
+  m_ZipLineKnockdownProtectionStatusParticle - 0x1a48
+  m_strZipLineSummonSound - 0x1b28
+  m_strZipLineLatchedSound - 0x1b38
+  m_strZipLineStartSound - 0x1b48
+  m_RidingZipLineModifier - 0x1b58
+  m_KnockedOffSlowModifier - 0x1b68
+  m_ZipLineIntroModifier - 0x1b78
+  m_ZipLineKnockdownImmuneModifier - 0x1b88
+  m_ZipLineSlowModifier - 0x1b98
+  m_cameraSequenceAwaitingTether - 0x1ba8
+  m_cameraSequenceLatched - 0x1c28
+  m_cameraSequenceAttached - 0x1ca8
+  m_cameraSequenceClear - 0x1d28
+CCitadel_Ability_ZipLine
+  m_flActivatePressTime - 0x1090
+  m_bThinking - 0x1094
+  m_bMoveCollidedPushUp - 0x1095
+  m_flTimeStartZipping - 0x10a4
+  m_flTimeForKnockdownProtection - 0x10a8
+  m_flTimeStopZipping - 0x10ac
+  m_flCasterSpeed - 0x10b0
+  m_vecInitialVel - 0x10b4
+  m_vecAttachPoint - 0x10e8
+  m_pPrevNode - 0x10f4
+  m_pNextNode - 0x10f8
+  m_flTimeEnterState - 0x10fc
+  m_flLatchTime - 0x1100
+  m_flDamagedTime - 0x1104
+  m_eAttachState - 0x1108
+  m_iAttachedZipLineLane - 0x110c
+  m_bDroppedFromZipline - 0x1110
+  m_hAttachZipLine - 0x1111
+CCitadel_Modifier_ZiplineKnockdownImmuneVData
+  m_ZipLineEnemyKnockdownProtectionParticle - 0x5d0
+  m_ZipLineSelfKnockdownProtectionParticle - 0x6b0
+  m_ZipLineKnockdownProtectionStatusParticle - 0x790
+  m_ZipLineKnockdownProtectionStatusEnemyParticle - 0x870
+CCitadel_Modifier_ZipLine_Mastery
+  m_nFXIndex - 0xc0
+CCitadel_Item_ZiplineMasteryVData
+  m_JumpBonusModifier - 0x1528
+CCitadel_Ability_ZipLineBoost_VData
+  m_ZipboostModifier - 0x14e0
+  m_flTimeToActivate - 0x14f0
+  m_flTimeForHint - 0x14f4
+CCitadel_Modifier_ZiplineBoostVData
+  m_flRampUpTime - 0x5d0
+  m_flPercentageSpeedIncrease - 0x5d4
+  m_cameraSequenceStartBoost - 0x5d8
+CCitadel_Modifier_ZiplineBoost
+  m_bIsBoosting - 0xc0
+CCitadel_Modifier_SilencedVData
+  m_EmpParticle - 0x5d0
+  m_EmpPlayerParticle - 0x6b0
+  m_EmpStatusParticle - 0x790
+CCitadel_Modifier_StunnedVData
+  m_StunnedParticle - 0x5d0
+CCitadel_Modifier_Stunned
+  m_bEnabled - 0xc0
+  m_bWasEnabled - 0xc1
+CCitadel_Modifier_MutedVData
+  m_MutedParticle - 0x5d0
+  m_MutedPlayerParticle - 0x6b0
+  m_MutedStatusParticle - 0x790
+CCitadel_Modifier_Low_Health_GlowVData
+  m_GlowParticle - 0x5d0
+CCitadel_Modifier_Low_Health_Glow
+  m_nFXIndex - 0xc0
+CCitadel_Modifier_FireBombVData
+  m_ChargeParticle - 0x5d0
+  m_GroundParticle - 0x6b0
+CCitadel_Modifier_FireBomb
+  m_flSideMoveSpeed - 0x130
+  m_vReturnPosition - 0x134
+  m_vReturnAngles - 0x140
+CCitadel_Ability_FireBombVData
+  m_ExplodeParticle - 0x14e0
+  m_ExplodeSound - 0x15c0
+  m_ProgressBarModifier - 0x15d0
+  m_FireBombModifier - 0x15e0
+  m_DebuffModifier - 0x15f0
+CCitadel_Ability_FireBomb
+  m_flDetonateTime - 0xca0
+  m_bIsCasting - 0xcb8
+CCitadel_Modifier_FlameDashVData
+  m_GroundAuraModifier - 0x5d0
+  m_ProgressModifier - 0x5e0
+  m_FlameDashParticle - 0x5f0
+  m_FlameAuraParticle - 0x6d0
+CCitadel_Modifier_FlameDashBurnVData
+  m_DebuffModifier - 0x5d0
+CCitadel_Ability_FlameDashVData
+  m_FlameDashModifier - 0x14e0
+  m_DashBurstSound - 0x14f0
+  m_ChargeHitSound - 0x1500
+  m_cameraSpeedBoost - 0x1510
+CCitadel_Ability_FlameDash
+  m_flDashEndTime - 0xc28
+  m_bIsSpeedBursting - 0xc40
+CCitadel_Modifier_IncendiaryThinkerVData
+  m_GroundParticle - 0x5d0
+CCitadel_Modifier_NapalmProjectileVData
+  m_DebuffModifier - 0x5d0
+  m_SlowModifier - 0x5e0
+CCitadel_Modifier_NapalmProjectile
+  m_vInitialCastPosition - 0x1a0
+  m_flProjectileSpeed - 0x1ac
+  m_iParticleEffect - 0x1b0
+CCitadel_Modifier_Afterburn_DOT_VData
+  m_sAfterburnParticle - 0x5d0
+CCitadel_Modifier_AfterburnWatcherVData
+  m_AfterburnDotModifier - 0x600
+  m_BuildUpModifier - 0x610
+  m_sAfterburnExplodeParticle - 0x620
+  m_ExplodeSound - 0x700
+CCitadel_Modifier_StaticChargeVData
+  m_ExplodeParticle - 0x5d0
+  m_ZapParticle - 0x6b0
+CCitadel_Modifier_StaticCharge
+  m_hRingEffect - 0xc0
+  m_flRadius - 0x138
+CCitadel_Ability_StaticChargeVData
+  m_CastParticle - 0x14e0
+  m_StaticChargeModifier - 0x15c0
+CCitadel_Modifier_LightningBallVData
+  m_ZapParticle - 0x5d0
+  m_TargetScreenParticleEffect - 0x6b0
+CCitadel_Modifier_LightningBall
+  m_hProjectile - 0x168
+CAbilityLightningBallVData
+  m_ZapModifier - 0x14e0
+  m_strHitSound - 0x14f0
+  m_strProjectileLoopingSound - 0x1500
+  m_ZapParticle - 0x1510
+CModifierStormCloudVData
+  m_ZapFriendly - 0x5d0
+  m_DrawFriendly - 0x6b0
+  m_AoEFriendly - 0x790
+  m_ZapEnemy - 0x870
+  m_DrawEnemy - 0x950
+  m_AoEEnemy - 0xa30
+  m_strChannelEndingSoonSound - 0xb10
+  m_strChannelFinishedSound - 0xb20
+  m_strDamageRecievedSound - 0xb30
+  m_strAmbientZapSound - 0xb40
+CCitadel_Modifier_StormCloud
+  m_flNextRandomLightningStrike - 0xc0
+  m_flStartTime - 0xc4
+  m_flRadiusIncrementPerSecond - 0xc8
+  m_vCastPosition - 0xcc
+  m_bFiredEndingSoonSound - 0xd8
+  m_nLastTickForLightningCenterCalc - 0xdc
+  m_vecLightningCenter - 0xe0
+  m_nSatVolumeIndex - 0xec
+CAbilityStormCloudVData
+  m_StormCloudModifier - 0x14e0
+CCitadel_Ability_StormCloud
+  m_bApplyingVerticalAirDrag - 0xc28
+CAbilityPowerSurgeVData
+  m_ChainParticle - 0x14e0
+  m_CastHitParticle - 0x15c0
+  m_BuffModifier - 0x16a0
+  m_ChainModifier - 0x16b0
+CCitadel_Modifier_PowerSurgeVData
+  m_TracerParticle - 0x5d0
+  m_WeaponFxParticle - 0x6b0
+  m_strWeaponShootSound - 0x790
+  m_strBulletWhizSound - 0x7a0
+  m_DebuffModifier - 0x7b0
+CCitadel_Modifier_SpilledBloodThinkerVData
+  m_SpilledBloodParticle - 0x5d0
+  m_flTickRate - 0x6b0
+  m_flHeight - 0x6b4
+CCitadel_Ability_BloodBombVData
+  m_ExplodeParticle - 0x14e0
+  m_SpilledBloodModifier - 0x15c0
+  m_strBloodSpillStatName - 0x15d0
+CCitadel_Modifier_LifeDrainVData
+  m_SilenceModifier - 0x5d0
+  m_DrainParticle - 0x5e0
+CCitadel_Ability_LifeDrainVData
+  m_LifeDrainTargetModifier - 0x14e0
+  m_LifeDrainCasterModifier - 0x14f0
+CCitadel_Ability_LifeDrain
+  m_tDrainLifeStopTime - 0xc28
+CCitadel_Modifier_GhostBloodShardDebuffVData
+  m_BloodShardDebuffParticle - 0x5d0
+CCitadel_Modifier_GhostBloodShard
+  m_flMinSlowAmount - 0xc0
+  m_flMoveSpeedPenaltyPerStack - 0xc4
+  m_flSlowDuration - 0xc8
+CAbilityBloodShardsVData
+  m_DebuffModifier - 0x14e0
+  m_ImpactParticle - 0x14f0
+CCitadel_Ability_Ghost_BloodShards
+  m_vecDamagedTargets - 0xd78
+CCitadel_Modifier_HealthSwapVData
+  m_BloodExchangeParticle - 0x5d0
+CCitadel_Modifier_HealthSwapPrecastVData
+  m_strTargetParticleEffect - 0x5d0
+  m_strTargetEnemyParticleEffect - 0x6b0
+  m_strTargetScreenParticleEffect - 0x790
+CCitadel_Modifier_HealthSwapPrecast
+  m_hTarget - 0xc0
+CCitadel_Ability_HealthSwapVData
+  m_SwapParticle - 0x14e0
+  m_SwapModifier - 0x15c0
+  m_PreCastModifier - 0x15d0
+CCitadel_Ability_HealthSwap
+  m_nFXIndex - 0xc28
+  m_flHealthToCaster - 0xc2c
+  m_flTargetHealthLost - 0xc30
+  m_flHealthStolenValue - 0xd50
+  m_flPostCastHoldEndTime - 0xd54
+CCitadelAbilityChargedBombVData
+  m_ChargeBombModifier - 0x14e0
+  m_ExplodeParticle - 0x14f0
+  m_strExplodeSound - 0x15d0
+  m_flChargeForMaxDamage - 0x15e0
+  m_flMinDamagePercent - 0x15e4
+CCitadel_Modifier_ChargedBombVData
+  m_ChargeParticle - 0x5d0
+  m_strBeepSound - 0x6b0
+CModifierBullChargingVData
+  m_ChargeParticle - 0x5d0
+CCitadel_Modifier_ChargeDragEnemy
+  m_qRelativeOffset - 0x1d8
+  m_flRelativeDist - 0x1e4
+  m_flMaxDist - 0x1e8
+  m_vecOffsetDir - 0x1ec
+  m_vecStartPosition - 0x1f8
+CAbilityBullChargeVData
+  m_cameraSequenceImpact - 0x14e0
+  m_ModifierTossAirControlLockout - 0x1560
+  m_ModifierWeaponPowerIncrease - 0x1570
+  m_ModifierChargeDragEnemy - 0x1580
+  m_ModifierBullCharging - 0x1590
+CCitadel_Ability_Bull_Charge
+  m_anglesCharging - 0xe58
+  m_flChargeStartTime - 0xe64
+  m_flFastChargeEndTime - 0xe68
+CCitadel_Modifier_Bull_Leap_BoostingVData
+  m_BoostTrailParticle - 0x5d0
+CCitadel_Modifier_Bull_Leap_Boosting_CrashVData
+  m_DragModifier - 0x5d0
+  m_CrashTrailParticle - 0x5e0
+CCitadel_Ability_Bull_LeapVData
+  m_CrashSpeedScaleCurve - 0x14e0
+  m_BoostModifier - 0x1520
+  m_CrashModifier - 0x1530
+  m_TakeOffParticle - 0x1540
+  m_ImpactParticle - 0x1620
+  m_AoEPreviewParticle - 0x1700
+  m_strCrashingSound - 0x17e0
+  m_strImpactSound - 0x17f0
+CCitadel_Ability_Bull_Leap
+  m_vecCrashPosition - 0xc28
+  m_vecCrashDirection - 0xc34
+  m_eLeapState - 0xc40
+  m_flStateEnterTime - 0xc44
+  m_flNextStateTime - 0xc48
+  m_flBoostEndTime - 0xc60
+  m_nTargetingParticleIndex - 0xf18
+  m_vecLastVel - 0xf1c
+CCitadel_Modifier_Bull_Heal_TargetVData
+  m_DrainParticle - 0x5d0
+CCitadel_Modifier_Bull_Heal_Target
+  m_flTetherRangeSquared - 0x1d8
+CCitadel_Ability_Bull_HealVData
+  m_AuraModifier - 0x14e0
+CCitadel_Ability_PassiveBeefyVData
+  m_HealParticle - 0x14e0
+CModifierPowerJumpVData
+  m_FloatParticle - 0x5d0
+  m_flAirDrag - 0x6b0
+  m_flVerticalCameraOffset - 0x6b4
+  m_flVerticalCameraOffsetLerpTime - 0x6b8
+  m_flVerticalCameraOffsetBias - 0x6bc
+CModifierAirRaidVData
+  m_SlowModifier - 0x600
+  m_strWeaponShootSound - 0x610
+CAbilityPowerJumpVData
+  m_JumpParticle - 0x14e0
+  m_InAirModifier - 0x15c0
+  m_PowerJumpModifier - 0x15d0
+CCitadel_Ability_PowerJump
+  m_nTargetingParticleIndex - 0xc2c
+  m_bAirRaiding - 0xc30
+CAbilityChargedShotVData
+  m_ChannelParticle - 0x14e0
+  m_ChannelStartParticle - 0x15c0
+  m_ShootParticle - 0x16a0
+CCitadel_Ability_ChargedShot
+  m_ChannelParticle - 0xc28
+CAbilityGuidedArrowVData
+  m_cameraCancelledTransitionBacktoArcher - 0x14e0
+  m_cameraExplodedTransitionBackToArcher - 0x1560
+  m_flCameraHoldAtExplosion - 0x15e0
+  m_flFadeToBlackTime - 0x15e4
+  m_SpectatingProjectileParticle - 0x15e8
+  m_ExplosionParticle - 0x16c8
+  m_GuidedArrowChannelParticle - 0x17a8
+  m_ProjectileModel - 0x1888
+  m_ArrowOffsetX - 0x1968
+  m_ArrowCameraDistance - 0x196c
+  m_ArrowCameraHeightOffset - 0x1970
+  m_ArrowInitialPitch - 0x1974
+  m_GuidingModifier - 0x1978
+  m_DebuffModifier - 0x1988
+  m_strExplodeSound - 0x1998
+  m_flTrackAmount - 0x19a8
+  m_flSpeedAccel - 0x19ac
+  m_flSpeedDeccel - 0x19b0
+  m_flBaseProjectileSpeed - 0x19b4
+  m_flMaxProjectileSpeed - 0x19b8
+CCitadel_Ability_GuidedArrow
+  m_hProjectile - 0xc30
+  m_flArrowSpeed - 0xc34
+  m_flSnapAnglesBackTime - 0xc38
+  m_flCastTime - 0xc3c
+  m_bNeedsExplosion - 0xc40
+  m_vProjectileRemovedOrigin - 0xc44
+  m_angCasterAnglesAtCastTime - 0xc50
+  m_flTravelDistance - 0xc5c
+  m_bInKillFlow - 0xc60
+CCitadel_Modifier_Guiding_ArrowVData
+  m_GlowEnemeyModifier - 0x5d0
+CCitadel_Modifier_ImmobilizeTrapDOT_ThinkerVData
+  m_GroundParticle - 0x5d0
+  m_flTickRate - 0x6b0
+  m_flHeight - 0x6b4
+CAbilityImmobilizeTrapVData
+  m_ExplodeParticle - 0x14e0
+  m_PreviewRingParticle - 0x15c0
+  m_TrapHighlightParticle - 0x16a0
+  m_strTripSound - 0x1780
+  m_strExplodeSound - 0x1790
+  m_strExpiredSound - 0x17a0
+  m_strImmobilizeTargetSound - 0x17b0
+  m_strArmingSound - 0x17c0
+  m_TrapModifier - 0x17d0
+  m_DebuffModifier - 0x17e0
+  m_DotModifier - 0x17f0
+CCitadel_Modifier_WingBlastPush
+  m_vPush - 0xc0
+CAbilityHornetLeapVData
+  m_flChannelingAirDrag - 0x14e0
+  m_flChannelingMaxFallSpeed - 0x14e4
+  m_LeapModifier - 0x14e8
+  m_DustParticle - 0x14f8
+  m_TrailParticle - 0x15d8
+  m_CastParticle - 0x16b8
+CCitadel_Ability_HornetLeap
+  m_bLeaping - 0xc2a
+  m_flLeapStartTime - 0xc2c
+  m_nFXIndex - 0xc30
+CCitadel_Ability_HornetMark
+  m_nFXIndex - 0xc28
+CCitadel_Modifier_HornetSnipeVData
+  m_GlowEnemeyModifier - 0x5d0
+CCitadel_Modifier_SnipeGlowVData
+  m_GlowParticle - 0x5d0
+CCitadel_Modifier_Snipe_Glow
+  m_nFXIndex - 0xc0
+CAbilityHornetSnipeVData
+  m_AssassinateShotParticle - 0x14e0
+  m_AssassinateShotParticleOwnerOnly - 0x15c0
+  m_LaserSightParticle - 0x16a0
+  m_LaserSightParticleOwnerOnly - 0x1780
+  m_SnipeModifier - 0x1860
+  m_BuffOnKillModifier - 0x1870
+  m_strSnipeImpactSound - 0x1880
+CCitadel_Ability_Hornet_Snipe
+  m_bIsScoped - 0xdec
+CCitadel_Modifier_Hornet_Sting
+  m_flLastTickTime - 0xc0
+CAbilityHornetStingVData
+  m_DebuffModifier - 0x14e0
+  m_HitParticle - 0x14f0
+CCitadel_Modifier_Hornet_Chain_Connection
+  m_vecOrigin - 0xc0
+CAbilityHornetChainVData
+  m_ExplodeParticle - 0x14e0
+  m_strExplodeSound - 0x15c0
+  m_ChainModifier - 0x15d0
+  m_DisarmModifier - 0x15e0
+CModifierPsychicLiftVData
+  m_LiftParticle - 0x870
+  m_strStartSound - 0x950
+CCitadel_Modifier_PsychicLift
+  m_vecFloatDest - 0x130
+  m_vecStartingPos - 0x13c
+CAbilityPsychicLiftVData
+  m_LiftModifier - 0x14e0
+  m_TargetParticle - 0x14f0
+  m_TargetCastSound - 0x15d0
+CCitadel_Modifier_ProjectMindVData
+  m_TeleportStartParticle - 0x5d0
+  m_TeleportEndParticle - 0x6b0
+  m_TeleportTrailParticle - 0x790
+  m_TeleportModelParticle - 0x870
+  m_ShieldModifier - 0x950
+CCitadel_Modifier_ProjectMind
+  m_particleStart - 0xc0
+  m_particleEnd - 0xc4
+  m_particleTrail - 0xc8
+  m_vecEndLocation - 0xcc
+  m_vecStartPosition - 0xd8
+  m_flStartDelay - 0xe4
+  m_vecApplyOffset - 0xe8
+CCitadel_Ability_ProjectMindVData
+  m_ProjectMindModifier - 0x14e0
+CCitadel_Modifier_PsychicDagger_MakeDaggers_VData
+  m_flDesatAmount - 0x5d0
+  m_DesatTint - 0x5d4
+  m_SatTint - 0x5d8
+  m_Outline - 0x5dc
+  m_DaggerShot - 0x5e0
+  m_DaggerSpawn - 0x6c0
+  m_DaggerAoE - 0x7a0
+  m_DaggerTargetPreview - 0x880
+  m_DaggerShotFail - 0x960
+  m_DaggerFireSound - 0xa40
+  m_DaggerMissSound - 0xa50
+  m_LastDaggerMissSound - 0xa60
+CCitadel_Modifier_PsychicDagger_MakeDaggers
+  m_nSatVolumeIndex - 0xc0
+CCitadel_Ability_PsychicDaggerVData
+  m_MakeDaggersModifier - 0x14e0
+CCitadel_Modifier_Wraith_RapidFireVData
+  m_RapidFireParticle - 0x5d0
+CCitadel_Ability_Wraith_RapidFireVData
+  m_CastParticle - 0x14e0
+  m_TargetBuffSound - 0x15c0
+  m_RapidFireModifier - 0x15d0
+CCitadel_Modifier_FissureWallVData
+  m_DebrisParticle - 0x5d0
+  m_SpikeParticle - 0x6b0
+  m_WallSpawnSound - 0x790
+  m_DebuffModifier - 0x7a0
+  m_EnemyVisionModifier - 0x7b0
+  m_SlowModifier - 0x7c0
+CCitadel_Ability_FissureWallVData
+  m_FriendlyWallParticle - 0x14e0
+  m_EnemyWallParticle - 0x15c0
+  m_WallTravelSoundLoop - 0x16a0
+  m_WallModifier - 0x16b0
+CCitadel_Ability_FissureWall
+  m_vecWallPreviewParticles - 0xc30
+  m_vecStartPos - 0xcf0
+  m_vecPosition - 0xcfc
+  m_vecDirection - 0xd08
+  m_vecLeft - 0xd14
+  m_Length - 0xd20
+  m_bTraveling - 0xd24
+  m_bPreview - 0xd25
+CCitadel_Ability_RocketBarrageVData
+  m_BarrageModifier - 0x14e0
+  m_StackingSlowModifier - 0x14f0
+  m_ImpactParticle - 0x1500
+  m_strExplodeSound - 0x15e0
+  m_cameraSequenceSelected - 0x15f0
+  m_flMoveSpeedReductionPct - 0x1670
+CCitadel_Ability_RocketBarrage
+  m_flCurrentTimeScale - 0xe20
+  m_vecAimPos - 0xe24
+  m_vecAimVel - 0xe30
+  m_flLastUpdateTime - 0xe3c
+CCitadel_Modifier_RocketBarrageVolleyVData
+  m_strFireSound - 0x5d0
+CCitadel_Modifier_Forge_HeavyBarrage_StackingSlow
+  m_flStackingSlowPerRocket - 0xc0
+CCitadel_Ability_ShieldedSentry_VData
+  m_InnateModifier - 0x14e0
+  m_DebuffModifier - 0x14f0
+CCitadel_Ability_MobileResupplyVData
+  m_flResupplyForceScale - 0x14e0
+  m_flResupplyUp - 0x14e4
+  m_strKilledSound - 0x14e8
+  m_AuraModifier - 0x14f8
+  m_DispenserModel - 0x1508
+  m_SprayParticle - 0x15e8
+  m_DestroyedParticle - 0x16c8
+CAbilityChronoSwapVData
+  m_BubbleMoveModifier - 0x14e0
+  m_strSwapStarted - 0x14f0
+CCitadel_Modifier_ChronoSwap_BubbleMoveVData
+  m_BeamParticle - 0x5d0
+  m_HealParticle - 0x6b0
+  m_DamageParticle - 0x790
+CCitadel_Modifier_ChronoSwap_BubbleMove
+  m_bOtherIsInFrontAtStart - 0xc0
+  m_vOtherToDest - 0xc4
+  m_vStart - 0xd0
+  m_vDest - 0xdc
+  m_hOther - 0xe8
+  m_nNumTicks - 0xec
+  m_nTicksLeft - 0xf0
+  m_nBeamIndex - 0xf4
+CCitadel_Modifier_Chrono_TimeWall_EffectVData
+  m_DebuffModifier - 0x5d0
+  m_BuffParticle - 0x5e0
+  m_DebuffParticle - 0x6c0
+  m_strDamageSound - 0x7a0
+CCitadel_Ability_Chrono_TimeWallVData
+  m_AuraModifier - 0x14e0
+  m_TimeWallParticle - 0x14f0
+  m_TimeWallChargeParticle - 0x15d0
+  m_TimeWallHitParticle - 0x16b0
+  m_TimeWallHitTimerParticle - 0x1790
+  m_strWallCreated - 0x1870
+  m_strChargeUpSound - 0x1880
+CCitadel_Ability_Chrono_TimeWall
+  m_hChargingParticle - 0xc28
+  m_vSpawnPos - 0xc2c
+  m_qAngles - 0xc38
+  m_bAirCast - 0xc44
+CCitadel_Ability_Chrono_KineticCarbineVData
+  m_flShotTimeScaleLingerDuration - 0x14e0
+  m_ChargingModifier - 0x14e8
+  m_DebuffModifier - 0x14f8
+  m_cameraKineticCarbineShotFired - 0x1508
+CCitadel_Ability_Chrono_KineticCarbine
+  m_bWantsSlow - 0xc28
+  m_flLatchedTimeScaleFracChangeTime - 0xc2c
+  m_flLatchedTimeScaleFrac - 0xc30
+  m_flSpeedBoostEndTime - 0xc34
+  m_flShotTimeScaleEndTime - 0xc38
+  m_flStoredPowerPct - 0xc40
+CCitadel_Modifier_Chrono_KineticCarbineVData
+  m_TracerParticle - 0x5d0
+  m_FullyChargedParticle - 0x6b0
+  m_strFullyCharged - 0x790
+  m_strShotSound - 0x7a0
+CCitadelBulletTimeWarp
+  m_flBulletTimeScale - 0x7f0
+  m_flProjectileTimeScale - 0x7f4
+  m_flExpireTime - 0x7f8
+  m_flStopDuration - 0x7fc
+CCitadel_Modifier_Chrono_KineticCarbine
+  m_nBulletCount - 0xc0
+  m_flElapsedPct - 0xc4
+  m_hTimeWarp - 0xc8
+  m_nFullyChargedParticle - 0xcc
+CCitadel_Ability_Chrono_PulseGrenade_VData
+  m_DebuffModifier - 0x14e0
+  m_SlowModifier - 0x14f0
+  m_PreviewRingParticle - 0x1500
+  m_AreaEffect - 0x15e0
+  m_strArmingSound - 0x16c0
+  m_strArmedSound - 0x16d0
+  m_strLoopingSound - 0x16e0
+  m_strHitSound - 0x16f0
+  m_strDebuffStatName - 0x1700
+CCitadel_Ability_Chrono_PulseGrenade
+  m_bInitialDamage - 0xc28
+CAbilityLashVData
+  m_LashParticle - 0x14e0
+  m_BuffModifier - 0x15c0
+  m_strVictimCastSound - 0x15d0
+CAbilityLashFlogVData
+  m_FlogParticle - 0x14e0
+  m_FlogLifeLeachParticle - 0x15c0
+  m_FlogDebuffModifier - 0x16a0
+CCitadel_Ability_Lash_Flog
+  m_SandEffect - 0xd40
+CModifierLashFlogDebuffVData
+  m_FlogDebuffParticle - 0x5d0
+CAbilityLashDownStrikeVData
+  m_TargetPreviewParticle - 0x14e0
+  m_strGroundCastAnimGraphParam - 0x15c0
+  m_strAirCastAnimGraphParam - 0x15c8
+  m_StompParticle - 0x15d0
+  m_SmallExplodeParticle - 0x16b0
+  m_StompExplosionSound - 0x1790
+  m_DownStrikeModifier - 0x17a0
+  m_ImpactModifier - 0x17b0
+  m_flDamageFrustumHalfWidth - 0x17c0
+  m_flDamageFrustumAngle - 0x17c4
+  m_flDamageWaveSpeed - 0x17c8
+  m_flDamageTraceProbeDamageRadius - 0x17cc
+  m_flDamageTraceProbeWorldRadius - 0x17d0
+  m_flDamageTraceProbeStepUpHeight - 0x17d4
+  m_flDamageTraceProbeStepDownHeight - 0x17d8
+  m_flDamageTraceProbeDropDownRate - 0x17dc
+  m_flInitialDamageRadiusInMeters - 0x17e0
+CCitadel_Ability_LashDownStrike
+  m_PreviewEffect - 0xcd0
+  m_vStrikeVel - 0xe28
+CModifierLashGrappleTargetVData
+  m_LockingOnParticle - 0x5d0
+  m_LockedOnParticle - 0x6b0
+CModifierLashGrappleEnemyDebuffVData
+  m_GrappleParticle - 0x6b0
+  m_LaunchParticle - 0x790
+  m_ImpactParticle - 0x870
+  m_RopeParticle - 0x950
+  m_ImpactSound - 0xa30
+  m_DebuffModifier - 0xa40
+CCitadel_Modifier_LashGrappleEnemy_Debuff
+  m_vCrashDir - 0xc8
+  m_vLiftTarget - 0xd4
+  m_flStartTime - 0xe0
+  m_bCrashingDown - 0xe4
+CAbilityStompVData
+  m_StompParticle - 0x14e0
+  m_strStompExplosionSound - 0x15c0
+  m_strCastDelayLocalPlayerSound - 0x15d0
+  m_DebuffModifier - 0x15e0
+  m_BulletResistModifier - 0x15f0
+CCitadel_Modifier_VoidSphereVData
+  m_TeleportStartParticle - 0x5d0
+  m_TeleportEndParticle - 0x6b0
+  m_TeleportTrailParticle - 0x790
+  m_TeleportModelParticle - 0x870
+  m_BuffModifier - 0x950
+  m_flPreTeleportDuration - 0x960
+  m_strAmbientLoopingLocalPlayerSound - 0x968
+CCitadel_Modifier_VoidSphere
+  m_bTeleported - 0xc0
+  m_particleStart - 0xc4
+  m_particleEnd - 0xc8
+  m_particleTrail - 0xcc
+  m_vecEndLocation - 0xd0
+  m_vecStartPosition - 0xdc
+  m_vecEndLocationCaster - 0xe8
+CCitadel_Modifier_VoidSphereBuffVData
+  m_RapidFireParticle - 0x5d0
+CCitadel_Ability_VoidSphereVData
+  m_BubbleModifier - 0x14e0
+  m_strCastEffect - 0x14f0
+  m_strAllyPositionPreview - 0x15d0
+CModifierChargedTacklePrepareVData
+  m_PrepareParticle - 0x5d0
+CModifierChargedTackleActiveVData
+  m_TackleParticle - 0x5d0
+  m_PullEnemiesParticle - 0x6b0
+CCitadel_Modifier_ChargePullEnemy
+  m_vecOffsetDir - 0xc0
+  m_flTackleRadius - 0xcc
+  m_flPullTargetSpeed - 0xd0
+CAbilityChargedTackleVData
+  m_ChargePreviewParticle - 0x14e0
+  m_ChargePrepareModifier - 0x15c0
+  m_ChargeActiveModifier - 0x15d0
+  m_BuffModifier - 0x15e0
+  m_DragModifier - 0x15f0
+  m_strHitSound - 0x1600
+CCitadel_Ability_ChargedTackle
+  m_bPreparing - 0xe20
+  m_bTackling - 0xe21
+  m_flTackleStartTime - 0xe24
+  m_flPrepareStartTime - 0xe28
+  m_vecTackleDir - 0xe2c
+  m_vecLastPosition - 0xe38
+  m_nStuckFramesCount - 0xe44
+  m_vecHitEnemies - 0xe48
+  m_nDistancePreview - 0xe60
+CCitadel_Modifier_VacuumAuraTargetModifierVData
+  m_flOuterSpeedScale - 0x6b0
+  m_flSpeedScaleBias - 0x6b4
+  m_TargetLoopingSound - 0x6b8
+CCitadel_Modifier_VacuumAuraTarget
+  m_flMaxDist - 0x138
+  m_vecOffsetDir - 0x13c
+  m_vecStartPosition - 0x148
+  m_flAOERadius - 0x154
+CAbilityVacuumVData
+  m_VacuumAuraModifier - 0x14e0
+  m_flAirSpeedMax - 0x14f0
+  m_flFallSpeedMax - 0x14f4
+  m_flAirDrag - 0x14f8
+CAbilityNikumanVData
+  m_NikumanModifier - 0x14e0
+  m_SelfBuffModifier - 0x14f0
+CCitadel_Ability_IceGrenadeVData
+  m_ExplodeParticle - 0x14e0
+  m_IceGrenadeSlowModifier - 0x15c0
+  m_ExplosionSound - 0x15d0
+CCitadel_Modifier_IceDomeVData
+  m_BlockerModel - 0x5d0
+  m_DomeParticle - 0x6b0
+  m_FriendlyAuraModifier - 0x790
+  m_EnemyAuraModifier - 0x7a0
+  m_strDomeEndSound - 0x7b0
+  m_strTargetLoopingSound - 0x7c0
+C_Citadel_Ice_Dome_Blocker
+  m_flTurnSolidTime - 0x9f8
+CCitadel_Modifier_IceDome
+  m_hBlocker - 0xc0
+  m_nParticleIndex - 0xc4
+  m_flStartTime - 0xc8
+  m_vOrigin - 0x1b0
+CCitadel_Ability_IceDomeVData
+  m_IceDomeModifier - 0x14e0
+ice_path_shard_model_desc_t
+  m_nModelID - 0x8
+  m_vecPanelSize - 0xc
+  m_vecPanelVertices - 0x18
+  m_flThickness - 0x30
+  m_SurfacePropStringToken - 0x34
+CModifierIcePathVData
+  m_FrontModel - 0x5d0
+  m_BodyModel - 0x6b0
+  m_GroundParticle - 0x790
+  m_FloatingParticle - 0x870
+  m_IcePathBuffParticle - 0x950
+  m_FriendlyAuraModifier - 0xa30
+CCitadel_Modifier_IcePath
+  m_iShardCount - 0x2b8
+  m_vLastShardPosition - 0x2bc
+  m_hSurfShard - 0x2c8
+CCitadel_Ability_IcePathVData
+  m_IcePathModifier - 0x14e0
+  m_flMomentumDecayRate - 0x14f0
+  m_flMomentumWeight - 0x14f4
+  m_flMaxPitchChange - 0x14f8
+  m_flMaxPitchUp - 0x14fc
+  m_flMaxPitchDown - 0x1500
+  m_flMaxHeight - 0x1504
+  m_flForwardAngleBias - 0x1508
+CCitadel_Ability_IcePath
+  m_bIcePathing - 0xc98
+  m_qLastAngles - 0xc9c
+  m_vLastVelocity - 0xca8
+  m_bFirstMovementTick - 0xcb4
+CCitadel_Ability_IceBeamVData
+  m_BeamParticle - 0x14e0
+  m_HitParticle - 0x15c0
+  m_SlowModifier - 0x16a0
+  m_BuildupModifier - 0x16b0
+  m_BuildupProcModifier - 0x16c0
+  m_BeamStartSound - 0x16d0
+  m_BeamStopSound - 0x16e0
+  m_BeamPointStartLoopSound - 0x16f0
+  m_BeamPointEndLoopSound - 0x1700
+  m_BeamPointClosestLoopSound - 0x1710
+CCitadel_Ability_IceBeam
+  m_flNextDamageTick - 0x1240
+  m_vStart - 0x1244
+  m_vEnd - 0x1250
+  m_vSplitStart - 0x1260
+  m_vSplitEnd - 0x126c
+  m_vecEntitiesHit - 0x1278
+  m_vBeamAimPos - 0x1290
+  m_angBeamAngles - 0x12a0
+  m_bNeedsBeamReset - 0x12b8
+CCitadel_Modifier_IceBeam_Stacking_SlowVData
+  m_DisarmModifier - 0x5e8
+CCitadel_Modifier_IceBeam_Stacking_Slow
+  m_flCurrBuildup - 0x1e8
+CCitadel_Ability_ViscousWeapon_Alt_VData
+  m_strChargingParticle - 0x14e0
+  m_ImpactParticle - 0x15c0
+  m_FiringParticle - 0x16a0
+  m_ExplosionSound - 0x1780
+  m_ChargeSound - 0x1790
+  m_ShootSound - 0x17a0
+CCitadel_Ability_ViscousWeapon_Alt
+  m_nClipConsumed - 0xc28
+  m_bIsCharging - 0xc2c
+  m_bIsToggled - 0xc2d
+  m_fxChargingParticle - 0xc30
+  m_flLastBulletConsumedTime - 0xc3c
+CCitadel_Ability_GooMasteryVData
+  m_GooBuffModifier - 0x14e0
+  m_sGooModifierName - 0x14f0
+CCitadel_Ability_GooMastery
+  m_ActiveExpiration - 0xc28
+CCitadelModifer_Viscous_Goo_Aura_VData
+  m_GooPickupParticle - 0x5d0
+CCitadelModifier_Viscous_Goo_Aura_Apply_Friendly
+  m_pGooMasteryAbility - 0xc0
+CCitadelModifier_Viscous_Goo_Aura_Apply_Enemy
+  m_pGooMasteryAbility - 0xc0
+CAbilityGooGrenadeVData
+  m_GooGrenadeImpactModifier - 0x14e0
+  m_GooGrenadePuddleFriendlyAuraModifier - 0x14f0
+  m_GooGrenadePuddleEnemyAuraModifier - 0x1500
+  m_GooGrenadeSkipParticle - 0x1510
+  m_GooGrenadeExplodeParticle - 0x15f0
+  m_GrenadeHitImpactSound - 0x16d0
+  m_GrenadeMissImpactSound - 0x16e0
+CCitadel_Ability_GooGrenade
+  m_LastDetonateTime - 0xe58
+CModifierRestorativeGooVData
+  m_RestorativeGooEndParticle - 0x5d0
+  m_flDistanceCameraOffsetLerpTime - 0x6b0
+  m_flDistanceCameraOffsetBias - 0x6b4
+  m_flDistanceCameraOffset - 0x6b8
+  m_BreakoutProgressBarModifier - 0x6c0
+  m_NonTargetLoopingSound - 0x6d0
+  m_TargetLoopingSound - 0x6e0
+CCitadel_Modifier_RestorativeGoo
+  m_hGooCube - 0x328
+CAbilityRestorativeGooVData
+  m_RestorativeGooParticle - 0x14e0
+  m_RestorativeGooModifier - 0x15c0
+CCitadel_Modifier_PuddleVData
+  m_puddleAoeDamageFx - 0x5d0
+  m_TargetDamageFx - 0x6b0
+CCitadel_Ability_PuddleVData
+  m_PuddleModifier - 0x14e0
+CCitadelViscousBallVData
+  m_sModelName - 0x28
+  m_flPhysicsRadius - 0x108
+CAbilityViscousBowlingVData
+  m_TransformStartFx - 0x14e0
+  m_ExplodeFX - 0x15c0
+  m_flVerticalCameraOffsetLerpTime - 0x16a0
+  m_flVerticalCameraOffsetBias - 0x16a4
+  m_flVerticalCameraOffset - 0x16a8
+  m_flDistanceCameraOffsetLerpTime - 0x16ac
+  m_flDistanceCameraOffsetBias - 0x16b0
+  m_flDistanceCameraOffset - 0x16b4
+  m_strPopGraphParamter - 0x16b8
+  m_ExplodeSound - 0x16c0
+  m_BallJumpSound - 0x16d0
+  m_ImpactModifier - 0x16e0
+  m_HitTrackerModifier - 0x16f0
+  m_RollingModifier - 0x1700
+C_CitadelViscousBall
+  m_hAbility - 0x7f8
+CCitadel_Ability_GooBowlingBall
+  m_hBall - 0xde8
+  m_bRolling - 0xdec
+  m_flRollStartTime - 0xdf0
+  m_vecHitEntities - 0xe00
+  m_bInitializedOtherAbility - 0xe18
+  m_bSetNoDraw - 0xe19
+  m_bBoosting - 0xe1a
+  m_HeroHitsRemaining - 0xe24
+  m_bBallStarted - 0xe28
+  m_bBallEnded - 0xe29
+CCitadel_Viscious_Bowling_Modifier
+  vecHitTargets - 0xc0
+CCitadel_Ability_Viscous_GootapultVData
+  m_ExplosionParticle - 0x14e0
+  m_strAboutToLandAnimGraphParam - 0x15c0
+  m_strGootapultingAnimGraphParam - 0x15c8
+  m_strTakeoffAnimGraphParam - 0x15d0
+  m_strExplodeSound - 0x15d8
+  m_strInFlightSound - 0x15e8
+  m_strTakeoffSound - 0x15f8
+  m_InFlightModifier - 0x1608
+  m_ExplosionModifier - 0x1618
+CCitadel_Ability_Viscous_Gootapult
+  m_bCharging - 0xc28
+  m_bInFlight - 0xc29
+  m_bAboutToLand - 0xc2a
+CModifierStackingDamageVData
+  m_SlowModifier - 0x5d0
+CCitadel_Modifier_Haze_StackingDamage
+  m_nTotalProcs - 0x168
+CAbilityStackingDamageVData
+  m_StackingModifier - 0x14e0
+CCitadel_Modifier_SleepDaggerAsleepVData
+  m_DebuffParticle - 0x5d0
+  m_PostSleepModifier - 0x6b0
+CAbilitySleepDaggerVData
+  m_ImpactParticle - 0x14e0
+  m_SleepModifier - 0x15c0
+  m_SleepBombModifier - 0x15d0
+CCitadel_Modifier_SleepBombVData
+  m_BombParticle - 0x5d0
+  m_ExplodeDamageFriendlyParticle - 0x6b0
+  m_ExplodeDamageEnemyParticle - 0x790
+  m_SleepModifier - 0x870
+  m_strExplodeSound - 0x880
+CCitadel_Modifier_SleepBomb
+  m_vecOrigin - 0x210
+CCitadel_Ability_SmokeBombVData
+  m_InvisModifier - 0x14e0
+  m_BuffModifier - 0x14f0
+  m_PurgeParticle - 0x1500
+CCitadel_Modifier_BulletFlurryVData
+  m_ImpactParticle - 0x5d0
+  m_strAttackerHitSound - 0x6b0
+  m_strVictimHitSound - 0x6c0
+CCitadel_Modifier_BulletFlurry
+  m_flRadius - 0x1a0
+  m_vecShootTargets - 0x1a8
+  m_nNumPlayersKilled - 0x1c0
+  m_nShootIndex - 0x1c4
+  m_nShootIndexNPC - 0x1c8
+  m_nBurstShots - 0x1cc
+  m_flNextAttackTime - 0x1d0
+  m_nSatVolumeIndex - 0x1d4
+  m_nEffectId - 0x1d8
+  m_flNextSequenceChange - 0x1dc
+  m_nCurrentPose - 0x1e0
+CCitadel_Ability_BulletFlurryVData
+  m_ChannelParticle - 0x14e0
+  m_BulletFlurryModifier - 0x15c0
+CAbilityExplosiveBarrelVData
+  m_BarrelModel - 0x14e0
+  m_BarrelExplodeParticle - 0x15c0
+  m_MirvExplodeParticle - 0x16a0
+  m_BarrelBurnParticle - 0x1780
+  m_strExplodeSound - 0x1860
+  m_strMirvExplodeSound - 0x1870
+  m_strRiccochetSound - 0x1880
+  m_strBarrelSoundLp - 0x1890
+  m_strBarrelLaunchSound - 0x18a0
+  m_strBarrelMeleedSound - 0x18b0
+CAbilityBouncePadVData
+  m_BounceModifier - 0x14e0
+  m_AllyBounceModifier - 0x14f0
+  m_SpeedOnLandModifier - 0x1500
+  m_NoBounceModifier - 0x1510
+CCitadel_Modifier_BoucePadVData
+  m_StompParticle - 0x5d0
+  m_strImpactSound - 0x6b0
+CCitadel_Bounce_PadVData
+  m_sModelName - 0x28
+  m_IdleParticle - 0x108
+  m_BounceParticle - 0x1e8
+  m_DestroyParticle - 0x2c8
+  m_strCasterBounceSound - 0x3a8
+  m_strOtherHeroBounceSound - 0x3b8
+  m_strBarrelBounceSound - 0x3c8
+  m_strExpiredSound - 0x3d8
+CCitadel_Modifier_Bounce_Pad_Stomp
+  m_bStomped - 0x2f0
+CCitadel_Ability_Bounce_Pad
+  m_vForward - 0xc28
+  m_bShouldDeploy - 0xc34
+  m_bAnglesSet - 0xc35
+  m_bCanCancel - 0xc36
+  m_angFacing - 0xd50
+CCitadel_Ability_Gravity_Lasso_VData
+  m_GravityLassoSelf - 0x14e0
+  m_GravityLassoTarget - 0x14f0
+CModifierGravityLassoEnemyVData
+  m_LassoEffect - 0x6b0
+CCitadel_Modifier_Gravity_Lasso_Enemy
+  m_eHoldPosition - 0xc8
+CCitadel_Modifier_Gravity_Lasso_Self
+  m_bHasUsedBouncePad - 0xc0
+  m_vCastTargets - 0xc8
+CAbilityTargetPracticeVData
+  m_TargetPracticeSelfModifier - 0x14e0
+  m_TargetPracticeEnemyModifier - 0x14f0
+CCitadel_Modifier_TargetPracticeDebuffVData
+  m_SlowModifier - 0x5d0
+  m_BulletResistModifier - 0x5e0
+  m_EMPModifier - 0x5f0
+CCitadel_Modifier_TargetPracticeSelfVData
+  m_TracerParticle - 0x5d0
+  m_strWeaponShootSound - 0x6b0
+  m_strBulletWhizSound - 0x6c0
+CCitadel_Modifier_TargetPracticeEnemyVData
+  m_DebuffModifier - 0x5d0
+  m_BuildupCompleteModifier - 0x5e0
+  m_BuildupModifier - 0x5f0
+  m_TargetParticle - 0x600
+  m_HitParticle - 0x6e0
+  m_HeadParticle - 0x7c0
+  m_strTargetHitSound - 0x8a0
+  m_strTargetHeadShotHitSound - 0x8b0
+  m_strTargetCompleteSound - 0x8c0
+CAbilityAstroRifleVData
+  m_SelfModifier - 0x14e0
+  m_DebuffModifier - 0x14f0
+  m_SlowModifier - 0x1500
+CCitadel_Modifier_Astro_Rifle_SelfVData
+  m_WeaponFxParticle - 0x5d0
+CCitadel_Modifier_Astro_Rifle_DebuffVData
+  m_SlowModifier - 0x5d0
+  m_strTargetHitSound - 0x5e0
+CCitadel_Modifier_Astro_ShotgunBuffVData
+  m_DebuffModifier - 0x5d0
+CCitadel_Ability_Astro_Shotgun_Toggle_VData
+  m_BuffModifier - 0x14e0
+CAbilityHookVData
+  m_SelfModifier - 0x14e0
+  m_TargetModifier - 0x14f0
+  m_BulletAmpModifier - 0x1500
+  m_ShieldModifier - 0x1510
+  m_HookOutParticle - 0x1520
+  m_strHookSuccessSound - 0x1600
+  m_strHookAllySound - 0x1610
+  m_strHookMissSound - 0x1620
+  m_strHookImpactGeoSound - 0x1630
+  m_SelfBuffCastSound - 0x1640
+CCitadel_Ability_Hook
+  m_hHookVictim - 0xc28
+  m_hProjectile - 0xc2c
+  m_vecHookTargetStartPos - 0xc30
+CCitadel_Modifier_HookTargetVData
+  m_flApproachingWhooshAnticipationTime - 0x5d0
+  m_flCloseEnoughDistance - 0x5d4
+  m_flTossUpSpeed - 0x5d8
+  m_SlowModifier - 0x5e0
+  m_HookRetrieveParticle - 0x5f0
+  m_strRetractSound - 0x6d0
+  m_strRetractSoundEnd - 0x6e0
+  m_strApproachingWhooshSound - 0x6f0
+CCitadel_Modifier_HookTarget
+  m_flCurrentVerticalSpeed - 0xc4
+  m_bSuccess - 0xc8
+  m_bSameTeam - 0xc9
+  m_bPlayedApproachingWhoosh - 0xca
+  m_flInitialTravelDistance - 0xcc
+CCitadel_Modifier_StickyBombAttachedVData
+  m_BombAttachedParticle - 0x5d0
+  m_StunAttachedParticle - 0x6b0
+  m_ExplodeParticle - 0x790
+  m_strExplodeSound - 0x870
+  m_strTickTockSound - 0x880
+  m_strTickTockFastSound - 0x890
+  m_DebuffModifier - 0x8a0
+  m_DetonateWarningTime - 0x8b0
+CCitadel_Modifier_StickyBombAttached
+  m_bDetonateSoundStarted - 0xc0
+  m_flDamage - 0xcc
+  m_nParticleIndex - 0xd0
+CAbilityStickyBombVData
+  m_BombAttachedModifier - 0x14e0
+  m_CastBombParticle - 0x14f0
+CCitadel_Ability_StickyBomb
+  m_nPlayersHit - 0xc30
+CCitadel_Modifier_UppercutClipSize
+  m_nPreClipSize - 0xf8
+CModifierUppercuttedVData
+  m_StunParticle - 0x5d0
+  m_strStunSound - 0x6b0
+  m_NoExplodeModifier - 0x6c0
+  m_flEnemyNoAirDashDuration - 0x6d0
+CAbilityUppercutVData
+  m_UppercutAttackData - 0x14f8
+  m_UppercutModifier - 0x1938
+  m_BuffModifier - 0x1948
+  m_ClipModifier - 0x1958
+CCitadel_Ability_Uppercut
+  m_bShouldUseResources - 0xea0
+CCitadel_Ability_Bebop_LaserBeamVData
+  m_LaserModifier - 0x14e0
+  m_ChargeParticle - 0x14f0
+CCitadel_Ability_Bebop_LaserBeam
+  m_bZoomed - 0xd78
+  m_bAirCast - 0xd79
+  m_vBeamAimPos - 0xd7c
+  m_angBeamAngles - 0xd88
+  m_bNeedsBeamReset - 0xda0
+CCitadel_Modifier_Bebop_LaserBeamVData
+  m_SlowModifier - 0x5d0
+  m_BeamParticle - 0x5e0
+  m_BeamHitParticle - 0x6c0
+  m_strLaserStartSound - 0x7a0
+  m_strLaserEndSound - 0x7b0
+  m_strLaserLoopSound - 0x7c0
+  m_strLaserHitSound - 0x7d0
+CCitadel_Modifier_Bebop_LaserBeam
+  m_flSoundStartTime - 0x288
+  m_vStart - 0x290
+  m_vEnd - 0x29c
+  m_vPrevEnd - 0x2a8
+  m_flAngleBetweenTrace - 0x2b4
+  m_flDamagePerTick - 0x2b8
+  m_flNextDamageTick - 0x2bc
+CCitadel_Ability_PrimaryWeapon_BebopVData
+  m_strWindupSound - 0x1520
+  m_strBeamStartSound - 0x1530
+  m_strBeamLoopSound1 - 0x1540
+  m_strBeamLoopSound2 - 0x1550
+  m_strBeamStopSound - 0x1560
+  m_szWeaponBeamParticle - 0x1570
+  m_flWindupRepeatCycle - 0x1650
+CCitadel_Ability_PrimaryWeapon_Bebop
+  m_flStartWindUpTime - 0xfb0
+  m_flStartFiringTime - 0xfb4
+  m_bFiring - 0xfb8
+CAbilityWreckingBallVData
+  m_SummonParticle - 0x14e0
+  m_SummonReadyParticle - 0x15c0
+  m_SummonParticleAttachment - 0x16a0
+  m_ExplodeParticle - 0x16a8
+  m_AutoThrowModifier - 0x1788
+  m_HoldingBallLoop - 0x1798
+CCitadel_Ability_WreckingBall
+  m_bHoldingBall - 0xc60
+CAbilityWreckerSalvageVData
+  m_SalvageEnemyModifier - 0x14e0
+  m_StunEnemyModifier - 0x14f0
+  m_BuffModifier - 0x1500
+CModifier_WreckerSalvageVData
+  m_SalvageBeam - 0x5d0
+  m_ConnectBeam - 0x6b0
+CModifier_WreckerSalvageBuffVData
+  m_WeaponBuffParticle - 0x5d0
+CCitadel_Modifier_WreckerSalvage_Buff
+  m_nBuffParticle - 0xc0
+CModifier_WreckerScrapBlastDebuffVData
+  m_DebuffParticle - 0x5d0
+CCitadel_Modifier_WreckerScrapBlastDebuff
+  m_flEnemyMoveSlow - 0xc0
+CAbilityWreckerScrapBlastVData
+  m_SprayParticle - 0x14e0
+  m_ChannelStartParticle - 0x15c0
+  m_DebuffModifier - 0x16a0
+CAbilityWreckerUltimateVData
+  m_BeamParticle - 0x14e0
+  m_ChargeParticle - 0x15c0
+  m_ActiveModifier - 0x16a0
+CCitadel_Ability_Wrecker_Ultimate
+  m_angBeamAngles - 0xc48
+  m_bNeedsBeamReset - 0xc60
+CModifier_Wrecker_UltimateVData
+  m_EnemyGrabModifier - 0x5d0
+  m_EnemyThrowModifier - 0x5e0
+  m_EnemyDamageModifier - 0x5f0
+  m_InvincibleModifier - 0x600
+  m_StartSound - 0x610
+  m_AmbientLoopingSound - 0x620
+  m_GrabSound - 0x630
+  m_ThrowSound - 0x640
+CModifier_Wrecker_UltimateGrabEnemyVData
+  m_EnemyHeroStasisEffect - 0x5d0
+  m_EnemyHeroGrabEffect - 0x6b0
+CCitadel_Modifier_Wrecker_Ultimate_GrabEnemy
+  m_vHoldOffset - 0xc0
+  m_flLastTouchTime - 0xcc
+CModifier_Wrecker_UltimateThrowEnemyVData
+  m_EnemyHeroStasisEffect - 0x6b0
+  m_EnemyHeroGrabEffect - 0x790
+CCitadel_Modifier_Wrecker_Ultimate_ThrowEnemy
+  m_vThrowVelocity - 0xc8
+CAbilityWreckerTeleportVData
+  m_SpectatingProjectileParticle - 0x14e0
+  m_ExplosionParticle - 0x15c0
+  m_ChannelParticle - 0x16a0
+  m_CastParticle - 0x1780
+  m_ArrowOffsetX - 0x1860
+  m_ArrowCameraDistance - 0x1864
+  m_ArrowCameraHeightOffset - 0x1868
+  m_ArrowInitialPitch - 0x186c
+  m_GuidingModifier - 0x1870
+  m_DebuffModifier - 0x1880
+  m_strExplodeSound - 0x1890
+  m_flTrackAmount - 0x18a0
+  m_flSpeedAccel - 0x18a4
+  m_flSpeedDeccel - 0x18a8
+  m_flBaseProjectileSpeed - 0x18ac
+  m_flMaxProjectileSpeed - 0x18b0
+CCitadel_Ability_WreckerTeleport
+  m_hProjectile - 0xc30
+  m_flArrowSpeed - 0xc34
+  m_flSnapAnglesBackTime - 0xc38
+  m_flCastTimeDamage - 0xc3c
+  m_flCastTime - 0xc40
+  m_bNeedsExplosion - 0xc44
+  m_vProjectileRemovedOrigin - 0xc48
+  m_angCasterAnglesAtCastTime - 0xc54
+  m_flTravelDistance - 0xc60
+CCitadel_CatAnimatingVData
+  m_sModelName - 0x28
+  m_cGlowColor - 0x108
+CAbilityPerchedPredatorVData
+  m_MineActiveParticle - 0x14e0
+  m_CatReappearParticle - 0x15c0
+  m_CatEyesParticle - 0x16a0
+  m_ExplodeBaseParticle - 0x1780
+  m_ExplodeFriendlyParticle - 0x1860
+  m_ExplodeEnemyParticle - 0x1940
+  m_strExplodeSound - 0x1a20
+CCitadel_Ability_Perched_Predator
+  m_hActiveProjectile - 0xc28
+CAbilityNanoWarpVData
+  m_ChannelParticle - 0x14e0
+  m_ExplodeSlowParticle - 0x15c0
+  m_strExplodeSound - 0x16a0
+  m_SlowModifier - 0x16b0
+CCitadel_Ability_ProximityRitual_VData
+  m_flThinkInterval - 0x14e0
+  m_UnitTargetParticle - 0x14e8
+  m_PredatoryStatueModel - 0x15c8
+  m_PredatoryStatueModifier - 0x16a8
+CCitadel_Ability_ProximityRitual
+  m_LastThinkTime - 0xc60
+  m_bWasSelected - 0xc64
+CCitadel_Modifier_Nano_PredatoryStatueVData
+  m_flThinkInterval - 0x5d0
+  m_AOEParticle - 0x5d8
+  m_EnabledParticle - 0x6b8
+  m_DrainParticle - 0x798
+  m_strLaserStartSound - 0x878
+  m_strLaserLoopSound - 0x888
+  m_strEnabledSound - 0x898
+  m_strEnabledLoopSound - 0x8a8
+  m_strDisabledSound - 0x8b8
+  m_TargetModifier - 0x8c8
+C_Citadel_Nano_Predatory_Statue
+  m_hAbility - 0xa08
+  m_hTarget - 0xa0c
+  m_flLifetime - 0xa10
+CCitadel_Modifier_Nano_PredatoryStatue
+  m_GameTimeEnabled - 0xe8
+  m_LastCatInAreaTime - 0xec
+  m_hStatue - 0xf0
+CCitadel_Modifier_Nano_PredatoryStatueTargetVData
+  m_strLaserHitSound - 0x5d0
+CCitadel_Modifier_Nano_PredatoryStatueTarget
+  m_vecStatuePos - 0xc0
+  m_hStatue - 0x1b0
+CCitadel_Modifier_CatAmmoVData
+  m_BuildUpModifier - 0x600
+  m_DebuffModifier - 0x610
+  m_ImmunityModifier - 0x620
+  m_TracerParticle - 0x630
+CCitadelModifier_CatTargetVData
+  m_flBaseCatScale - 0x5d0
+  m_flMinPitch - 0x5d4
+  m_flMaxPitch - 0x5d8
+  m_CatPuffParticle - 0x5e0
+  m_CatGlowParticle - 0x6c0
+  m_strTurnIntoCatSound - 0x7a0
+CCitadel_Ability_CatBullet_VData
+  m_CatBulletModifier - 0x14e0
+CCitadel_Modifier_UltCombo_Target
+  m_angles - 0xc8
+CCitadel_Modifier_UltCombo_Self
+  m_angles - 0xc0
+CCitadel_Ability_UltComboVData
+  m_MeleeSwingParticle - 0x14e0
+  m_MeleeImpactParticle - 0x15c0
+  m_SelfModifier - 0x16a0
+  m_TargetModifier - 0x16b0
+CCitadel_Ability_UltCombo
+  m_flLastAttackTime - 0xc28
+  m_nAttackNum - 0xc2c
+  m_hTarget - 0xca0
+CModifierIntimidatedVData
+  m_EffectParticle - 0x5d0
+CAbilityIntimidateVData
+  m_EnemyModifier - 0x14e0
+  m_DebuffModifier - 0x14f0
+  m_AoEPlayerParticle - 0x1500
+  m_AoEParticle - 0x15e0
+CCitadel_Modifier_Burrow
+  m_flLastDamageTime - 0xc0
+CCitadel_Modifier_SpinVData
+  m_AoEParticle - 0x5d0
+  m_SlowModifier - 0x6b0
+CCitadel_Ability_BurrowVData
+  m_ExplodeParticle - 0x14e0
+  m_BurrowStartParticle - 0x15c0
+  m_BurrowEndParticle - 0x16a0
+  m_BurrowInGroundParticle - 0x1780
+  m_BurrowModifier - 0x1860
+  m_SpinModifier - 0x1870
+  m_flChannelEndEnemyPopUpForce - 0x1880
+  m_flChannelEndEnemyPopUpCylinderHeight - 0x1884
+CCitadel_Ability_Burrow
+  m_bInGround - 0xcd0
+  m_nBurrowEffect - 0xcd4
+CCitadel_Ability_ThrowSandVData
+  m_SandDebuff - 0x14e0
+  m_SilenceDebuff - 0x14f0
+CCitadel_Modifier_ThrowSandDebuffVData
+  m_DebuffParticle - 0x5d0
+CCitadel_Modifier_ThrowSandProjectileVData
+  m_DebuffModifier - 0x5d0
+CCitadel_Modifier_ThrowSandProjectile
+  m_vInitialCastPosition - 0x130
+  m_iParticleEffect - 0x13c
+CCitadel_Ability_ShivWeapon_VData
+  m_flPushForce - 0x1520
+CCitadel_Modifier_ThrownShiv_Debuff
+  m_nNumTicksRemaining - 0xc0
+CCitadel_Ability_ShivDaggerVData
+  m_DebuffModifier - 0x14e0
+  m_DaggerStuckParticle - 0x14f0
+  m_DaggerImpactParticle - 0x15d0
+  m_strDaggerHitSound - 0x16b0
+CCitadel_Modifier_ShivDashVData
+  m_DashParticle - 0x5d0
+  m_DashTrailParticle - 0x6b0
+CAbilityShivDashVData
+  m_DashModifier - 0x14e0
+  m_DashImpactEffect - 0x14f0
+  m_DashSwingEffect - 0x15d0
+  m_DashLineEffect - 0x16b0
+  m_strDashStartWithTargets - 0x1790
+  m_strDashStartMiss - 0x17a0
+  m_strDashHitEnemy - 0x17b0
+CCitadel_Ability_ShivDash
+  m_vStartPosition - 0xc28
+  m_vDashDirection - 0xc34
+  m_bIsDashing - 0xc40
+  m_bStartedInAir - 0xc41
+  m_vecHitEnemies - 0xc48
+  m_vecLastPosition - 0xc60
+  m_bCanPurge - 0xc6c
+  m_nReductionsLeft - 0xc70
+  m_flStuckTime - 0xe70
+CAbilityShivBloodRageVData
+  m_ActiveCastParticle - 0x14e0
+  m_PurgeParticle - 0x15c0
+  m_strPurge - 0x16a0
+  m_MaxRageBuff - 0x16b0
+  m_flAirSpeedMax - 0x16c0
+  m_flFallSpeedMax - 0x16c4
+  m_flAirDrag - 0x16c8
+  m_flOnDamageDrainSuppressTime - 0x16cc
+  m_flOnFullDrainSuppressTime - 0x16d0
+CCitadel_Ability_Shiv_Blood_Rage
+  m_flDrainSuppressEndTime - 0xc28
+CCitadel_Modifier_Shiv_Dive_TargetPossessedVData
+  m_ExplosionParticle - 0x5d0
+  m_strPossessEndExplodeSound - 0x6b0
+  m_cameraSequencePossessEnd - 0x6c0
+  m_vPossessionEndOffset - 0x740
+CCitadel_Modifier_Shiv_Dive_TargetPossessed
+  m_hPossessedEffect - 0xc0
+CCitadel_Ability_Shiv_DiveVData
+  m_RisingSounds - 0x14e0
+  m_FallingSounds - 0x1508
+  m_FallingNormalSounds - 0x1530
+  m_FallingFastSounds - 0x1558
+  m_strPossessSound - 0x1580
+  m_strPossessStartSound - 0x1590
+  m_strPossessEndExplodeSound - 0x15a0
+  m_JumpParticle - 0x15b0
+  m_RisingParticle - 0x1690
+  m_FallingParticle - 0x1770
+  m_FallingNormalParticle - 0x1850
+  m_FallingFastParticle - 0x1930
+  m_PossessParticle - 0x1a10
+  m_ExplosionParticle - 0x1af0
+  m_ShivPossessingModifier - 0x1bd0
+  m_TargetPossessedModifier - 0x1be0
+  m_cameraSequenceFallingSlow - 0x1bf0
+  m_cameraSequenceFallingFast - 0x1c70
+  m_cameraSequencePossessStart - 0x1cf0
+  m_cameraSequencePossessTarget - 0x1d70
+  m_flInitialJumpMaxHeight - 0x1df0
+  m_flInitialJumpHorizontalSpeed - 0x1df4
+  m_flAttackAnimPreTriggerTime - 0x1df8
+  m_flJumpAnimPreTriggerTime - 0x1dfc
+  m_flMinHeadroom - 0x1e00
+  m_flDiveAngleTurnRate - 0x1e04
+  m_flDiveControlDecayStartAngle - 0x1e08
+  m_flDiveControlDecayMaxAngle - 0x1e0c
+  m_flSlowToFastTime - 0x1e10
+  m_flFastToSlowTime - 0x1e14
+  m_flGravityScale - 0x1e18
+  m_flAirDrag - 0x1e20
+  m_flAirAccelPercent - 0x1e28
+  m_flSideMovePercentage - 0x1e30
+  m_flFallSpeedMax - 0x1e38
+  m_flAirSpeedMax - 0x1e40
+  m_vPossessionEndOffset - 0x1e48
+  m_flPossessionEndReappearDelay - 0x1e54
+  m_flPossessionTargetingLookAheadDist - 0x1e58
+  m_flPossessionTargetingRadius - 0x1e5c
+  m_flPossessionPreAnimDuration - 0x1e60
+  m_flPossessionPostAnimDuration - 0x1e64
+  m_flVertialLocalOffset - 0x1e68
+  m_flInitialOffsetLerpTime - 0x1e6c
+  m_flInitialOffsetLerpBias - 0x1e70
+  m_flPossessEndVerticalSpeed - 0x1e74
+  m_flPossessEndBusyTime - 0x1e78
+CCitadel_Ability_Shiv_Dive
+  m_flDiveStateStartTime - 0xc28
+  m_eDiveState - 0xc2c
+  m_flSpeedChangeStartTime - 0xc30
+  m_flSpeedAtChangeTime - 0xc34
+  m_bFastDive - 0xc38
+  m_nEffectRising - 0xc3c
+  m_nEffectFalling - 0xc40
+  m_nEffectFallingSlow - 0xc44
+  m_nEffectFallingFast - 0xc48
+  m_vInitialOffset - 0x1298
+  m_hPossessed - 0x12a4
+CCitadel_Ability_Tengu_UrnVData
+  m_ExplodeParticle - 0x14e0
+  m_AuraModifier - 0x15c0
+  m_ExplodeSound - 0x15d0
+CCitadel_Ability_Tengu_StoneFormVData
+  m_CastParticle - 0x14e0
+  m_ImpactParticle - 0x15c0
+  m_StoneFormParticle - 0x16a0
+  m_CastTargetSound - 0x1780
+  m_strImpactSound - 0x1790
+  m_strTrueFormModel - 0x17a0
+  m_flLandHoldTime - 0x1880
+  m_flRisingTime - 0x1884
+CCitadel_Ability_Tengu_StoneForm
+  m_flStartTime - 0xde8
+  m_flLandedTime - 0xdec
+  m_bLanded - 0xdf0
+  m_bFalling - 0xdf1
+  m_bInStoneForm - 0xdf2
+  m_flStartHeight - 0xdf4
+  m_nStoneFormEffect - 0xdf8
+CCitadel_Modifier_TangoTether_TetherReceiverVData
+  m_strAttackBuffParticle - 0x5d0
+  m_TetherSound - 0x6b0
+CCitadel_Modifier_TangoTether_TetherVData
+  m_TetherSound - 0x5d0
+  m_HealSound - 0x5e0
+  m_HitIndicator - 0x5f0
+  m_GrappleHitSound - 0x600
+  m_BuffModifier - 0x610
+  m_DisconnectingModifier - 0x620
+  m_DisconnectedModifier - 0x630
+  m_flMinConnectTime - 0x640
+  m_flDisconnectDistanceBuffer - 0x644
+  m_flCandidateCloserDistance - 0x648
+  m_flTargetAwayDistance - 0x64c
+CCitadel_Modifier_TangoTether_Tether
+  m_fHealingSoundBuildup - 0xf8
+CModifierTangoTetherTargetVData
+  m_GrappleRopeParticle - 0x5d0
+CCitadelAbilityTangoTetherVData
+  m_flJumpFallSpeedMax - 0x14e0
+  m_flJumpAirDrag - 0x14e4
+  m_flJumpAirSpeedMax - 0x14e8
+  m_flJumpSpeed - 0x14ec
+  m_flJumpPitch - 0x14f0
+  m_flDashSpeed - 0x14f4
+  m_flDashCloseEnoughToTarget - 0x14f8
+  m_flDashLockOntoTargetDist - 0x14fc
+  m_flVelocityTurnSpringStrength - 0x1500
+  m_flAngleToSpeedScale - 0x1504
+  m_flBackswingDuration - 0x1514
+  m_flAnimToStrikePointTime - 0x1518
+  m_flGrappleShotFloatTime - 0x151c
+  m_flGrappleShotDelayToFlyOnHit - 0x1520
+  m_flGrappleSpeed - 0x1524
+  m_TetherModifier - 0x1528
+  m_GrappleTargetModifier - 0x1538
+  m_LeapParticle - 0x1548
+  m_ImpactParticle - 0x1628
+  m_SlashParticle - 0x1708
+  m_BulletGrappleTracerParticle - 0x17e8
+  m_EnemyGrappleParticle - 0x18c8
+  m_strDamageTarget - 0x19a8
+  m_strStartDash - 0x19b8
+  m_strStartAttack - 0x19c8
+  m_strGrappleHitTarget - 0x19d8
+  m_strGrappleHitWorld - 0x19e8
+  m_strGrappleHitNothing - 0x19f8
+  m_cameraSequenceFlying - 0x1a08
+  m_cameraSequenceAttacking - 0x1a88
+CCitadel_Ability_TangoTether
+  m_desatVolIdx - 0xc28
+  m_vecCastStartPos - 0xc2c
+  m_vecDashStartPos - 0xc38
+  m_vecDashEndPos - 0xc44
+  m_angDashStartAng - 0xc50
+  m_flDashStartTime - 0xc5c
+  m_flGrappleStartTime - 0xc60
+  m_flGrappleArriveTime - 0xc64
+  m_hTarget - 0xc68
+  m_flVelSpring - 0xc6c
+  m_flGrappleShotAttackTime - 0xc70
+  m_nTicksNotMoving - 0xc74
+  m_vecPrevPos - 0xc78
+  m_rgTargetPos - 0xc84
+  m_rgTargetPosTime - 0xd74
+  m_nGrappleTravelEffect - 0xdc4
+CAbilityTenguLightningCrashVData
+  m_AoEPreviewParticle - 0x14e0
+  m_FlyingModifier - 0x15c0
+CCitadel_Ability_Tengu_LightningCrash
+  m_angFlyingAngles - 0xc28
+  m_flFlyingStartTime - 0xeac
+  m_flFlyingEndTime - 0xeb0
+  m_flDiveStart - 0xeb4
+  m_flFlyingSpeed - 0xeb8
+  m_bFlying - 0xebc
+  m_bDiving - 0xebd
+  m_nTargetingParticleIndex - 0xec0
+CModifierTenguLightningCrashFlyVDATA
+  m_ExplodeParticle - 0x5d0
+  m_ExplodeSound - 0x6b0
+  m_BulletShieldModifier - 0x6c0
+  m_TechShieldModifier - 0x6d0
+  m_RegenerationModifier - 0x6e0
+CCitadel_Ability_Tengu_DragonsFireVData
+  m_BeamParticle - 0x14e0
+  m_HitParticle - 0x15c0
+  m_FlyingModifier - 0x16a0
+  m_GroundAuraModifier - 0x16b0
+  m_BurnModifier - 0x16c0
+  m_BeamStartSound - 0x16d0
+  m_BeamStopSound - 0x16e0
+  m_BeamPointStartLoopSound - 0x16f0
+  m_BeamPointEndLoopSound - 0x1700
+  m_BeamPointClosestLoopSound - 0x1710
+  m_flAirDrag - 0x1720
+  m_flMaxFallSpeed - 0x1724
+  m_flTargetAirSpeedFast - 0x1728
+  m_flTargetAirSpeedBase - 0x172c
+  m_flTargetAirSpeedSlow - 0x1730
+  m_flAcceleration - 0x1734
+  m_flDecceleration - 0x1738
+  m_flBoostTime - 0x173c
+  m_flAirSideSpeedPercent - 0x1740
+  m_flAttackHeightMax - 0x1744
+  m_flMaxPitchChange - 0x1748
+  m_flMaxPitchUp - 0x174c
+  m_flMaxPitchDown - 0x1750
+  m_flMaxHeight - 0x1754
+  m_flForwardPitchBias - 0x1758
+  m_flBelowMinHeightPitch - 0x175c
+  m_flMinHeight - 0x1760
+  m_flChannelingAirDrag - 0x1764
+  m_flChannelingMaxFallSpeed - 0x1768
+CCitadel_Ability_Tengu_DragonsFire
+  m_bFlying - 0xc98
+  m_qLastAngles - 0xc9c
+  m_bFirstMovementTick - 0xca8
+  m_flCurrentSpeed - 0xcac
+  m_vBeamAimPos - 0x1338
+  m_angBeamAngles - 0x1348
+  m_bNeedsBeamReset - 0x1360
+CCitadel_Ability_Spinning_BladeVData
+  m_DebuffModifier - 0x14e0
+  m_CatchIndicator - 0x14f0
+  m_CatchParticle - 0x15d0
+  m_strThrowSound - 0x16b0
+  m_strReturnSound - 0x16c0
+  m_strCatchSound - 0x16d0
+  m_strFailSound - 0x16e0
+  m_strHitSound - 0x16f0
+CAbilityDustStormVData
+  m_DustStormAura - 0x14e0
+  m_GrenadeTrailModifier - 0x14f0
+CCitadelModifierDustStormAuraApplyVData
+  m_DebuffModifier - 0x5d0
+CAbilityDistruptiveChargeVData
+  m_Particle - 0x14e0
+  m_BuffModifier - 0x15c0
+CCitadel_Modifier_BoloVData
+  m_TrapModifier - 0x5d0
+  m_ReverseLeechModifier - 0x5e0
+CCitadel_Modifier_Bolo
+  m_hRingEffect - 0xc0
+CAbilityTrappersBoloVData
+  m_ImpactParticle - 0x14e0
+  m_TrapModifier - 0x15c0
+  m_DebuffModifier - 0x15d0
+CModifierLockDownDebuffVData
+  m_DebuffParticle - 0x5d0
+  m_AOEParticleCaster - 0x6b0
+  m_AOEParticleEnemy - 0x790
+  m_AOEParticleOthers - 0x870
+  m_strFollowLoop - 0x950
+  m_strExplodeSound - 0x960
+  m_strEscapedSound - 0x970
+  m_RootModifier - 0x980
+  m_BulletResistModifier - 0x990
+CCitadel_Modifier_LockDown_Debuff
+  m_vEscapeTarget - 0x1d8
+CAbilityLockDownVData
+  m_CastParticle - 0x14e0
+  m_DebuffModifier - 0x15c0
+CModifierHighAlertBuffVData
+  m_BuffParticle - 0x5d0
+CAbilityHighAlertVData
+  m_BuffModifier - 0x14e0
+CModifierCrowdControlDebuffVData
+  m_DebuffParticle - 0x5d0
+CAbilityCrowdControlVData
+  m_CastParticle - 0x14e0
+  m_DebuffModifier - 0x15c0
+CModifierRiotProtocolEnemyDebuffVData
+  m_DebuffParticle - 0x5d0
+CCitadel_Modifier_Warden_RiotProtocol_EnemyDebuff
+  m_flEnemyMoveSlow - 0xc0
+CModifierRiotProtocolBuffVData
+  m_LaserParticle - 0x5d0
+  m_PulseHitEnemyParticle - 0x6b0
+  m_EnemyDebuffModifier - 0x790
+CCitadel_Modifier_Warden_RiotProtocol
+  m_mapEntToTimeHit - 0xc0
+  m_nNumPlayersAffected - 0xe8
+  m_nNumPlayersKilled - 0xec
+  m_playerAngles - 0xf0
+  m_ConeParticle - 0xfc
+CAbilityRiotProtocolVData
+  m_ChargeUpParticle - 0x14e0
+  m_CastParticle - 0x15c0
+  m_WardenBuffModifier - 0x16a0
+CCitadel_Ability_RiotProtocol
+  m_bActive - 0xc28
+CCitadelYamatoBaseVData
+  m_flShadowFormSpeed - 0x14e0
+CAbilityPowerSlashVData
+  m_flAirDrag - 0x14e8
+  m_flMaxPowerPadding - 0x14ec
+  m_flEffectGroundTrace - 0x14f0
+  m_flWhizbyMaxRange - 0x14f4
+  m_flHitPushForce - 0x14f8
+  m_flStartPosTestCapsuleLength - 0x14fc
+  m_vecLongEffectOffset - 0x1500
+  m_PowerSlashParticle - 0x1510
+  m_PowerSlashFullParticle - 0x15f0
+  m_ImpactParticle - 0x16d0
+  m_CastParticle - 0x17b0
+  m_PowerUpParticle - 0x1890
+  m_strStartSound - 0x1970
+  m_strDamageImpactSound - 0x1980
+  m_strDamageImpactVictimSound - 0x1990
+  m_strPowerUp1Sounds - 0x19a0
+  m_strPowerUp2Sounds - 0x19b0
+  m_strPowerUp3Sounds - 0x19c0
+  m_strWhizbySound - 0x19d0
+  m_strSlashSound - 0x19e0
+  m_strSlashFullSound - 0x19f0
+  m_SlowModifier - 0x1a00
+CCitadel_Ability_PowerSlash
+  m_nPowerLevel - 0xc3c
+  m_nCastParticle - 0xc40
+CModifierFlyingStrikeTargetVData
+  m_GrappleRopeParticle - 0x5d0
+CCitadelAbilityFlyingStrikeVData
+  m_flJumpFallSpeedMax - 0x14e8
+  m_flJumpAirDrag - 0x14ec
+  m_flJumpAirSpeedMax - 0x14f0
+  m_flDashSpeed - 0x14f4
+  m_flDashCloseEnoughToTarget - 0x14f8
+  m_flDashLockOntoTargetDist - 0x14fc
+  m_flTargetMinSpeedToStopChasing - 0x1500
+  m_flVelocityTurnSpringStrength - 0x1504
+  m_flAngleToSpeedScale - 0x1508
+  m_flAnimToStrikePointTime - 0x1518
+  m_flGrappleShotFloatTime - 0x151c
+  m_flGrappleShotDelayToFlyOnHit - 0x1520
+  m_flGrappleSpeed - 0x1524
+  m_SlowModifier - 0x1528
+  m_GrappleTargetModifier - 0x1538
+  m_WeaponBuffModifier - 0x1548
+  m_LeapParticle - 0x1558
+  m_ImpactParticle - 0x1638
+  m_SlashParticle - 0x1718
+  m_BulletGrappleTracerParticle - 0x17f8
+  m_EnemyGrappleParticle - 0x18d8
+  m_strDamageTarget - 0x19b8
+  m_strStartDash - 0x19c8
+  m_strStartAttack - 0x19d8
+  m_strGrappleHitTarget - 0x19e8
+  m_strGrappleHitWorld - 0x19f8
+  m_strGrappleHitNothing - 0x1a08
+  m_cameraSequenceFlying - 0x1a18
+  m_cameraSequenceAttacking - 0x1a98
+CCitadel_Ability_FlyingStrike
+  m_desatVolIdx - 0xc30
+  m_bShadowFormCast - 0xc34
+  m_vecCastStartPos - 0xc38
+  m_vecDashStartPos - 0xc44
+  m_vecDashEndPos - 0xc50
+  m_angDashStartAng - 0xc5c
+  m_flDashStartTime - 0xc68
+  m_flEndAttackTime - 0xc6c
+  m_flGrappleStartTime - 0xc70
+  m_flGrappleArriveTime - 0xc74
+  m_hTarget - 0xc78
+  m_flGrappleShotAttackTime - 0xc7c
+  m_flVelSpring - 0xc80
+  m_nTicksNotMoving - 0xc84
+  m_vecPrevPos - 0xc88
+  m_rgTargetPos - 0xc94
+  m_rgTargetPosTime - 0xd84
+  m_nGrappleTravelEffect - 0xe80
+CCitadelAbilityHealingSlashVData
+  m_flEffectSize - 0x14e8
+  m_flMaxAttackAngle - 0x14ec
+  m_remapAngleToTime - 0x14f0
+  m_DebuffModifier - 0x1500
+  m_ImpactParticle - 0x1510
+  m_HealingSlashParticle - 0x15f0
+  m_HealingSlashSwordGlow - 0x16d0
+  m_CastParticle - 0x17b0
+  m_strDamageTarget - 0x1890
+CCitadel_Ability_InfinitySlashVData
+  m_flRiseSpeed - 0x14e8
+  m_flRiseDuration - 0x14ec
+  m_flSpeedDecayScale - 0x14f0
+  m_flExplodeHoldTime - 0x14f4
+  m_flExplosionShakeAmplitude - 0x14f8
+  m_flExplosionShakeFrequency - 0x14fc
+  m_flExplosionShakeDuration - 0x1500
+  m_AOERangeEffect - 0x1508
+  m_AnimCastEffect - 0x15e8
+  m_cameraSequenceExplosion - 0x16c8
+  m_BuffModifier - 0x1748
+  m_BuffTimerModifier - 0x1758
+CCitadel_Ability_InfinitySlash
+  m_flExplodeEndTime - 0xcd8
+  m_flBuffEndTime - 0xcdc
+CModifierRapidFireChannelVData
+  m_flAirDrag - 0x5d0
+CCitadel_Modifier_RapidFire
+  m_flNextAttackTime - 0x210
+CAbilityRocketLauncherVData
+  m_ExplosionParticle - 0x14e0
+CAbilitySleepBombVData
+  m_ExplosionParticle - 0x14e0
+  m_AuraModifier - 0x15c0
+CCitadel_Ability_Yakuza_Shakedown
+  m_IgnoreChannelSlow - 0xc28
+CCitadel_Ability_Shakedown_TargetVData
+  m_RootModifier - 0x14e0
+  m_PulseModifier - 0x14f0
+CCitadel_Ability_Shakedown_Target
+  m_hShadowdownAbility - 0xc28
+  m_AimPos - 0xc2c
+CCitadel_Modifier_ShakedownPulseVData
+  m_strFireSound - 0x5d0
+  m_ShakeParticle - 0x5e0
+  m_ChainParticle - 0x6c0
+CCitadel_Modifier_SettingSunThinker_VData
+  m_TargetParticle - 0x5d0
+  m_ExplodeParticle - 0x6b0
+  m_LingerParticle - 0x790
+  m_LayerParticle - 0x870
+  m_strExplodeSound - 0x950
+  m_strTargetingCompletedSound - 0x960
+CCitadel_Ability_SettingSun_VData
+  m_BeamTargetParticle - 0x14e0
+  m_UnitTargetParticle - 0x15c0
+  m_SettingSunThinkerModifier - 0x16a0
+  m_flSSCameraPreviewOffset - 0x16b0
+  m_flSSCameraPreviewSpeed - 0x16b4
+  m_flSSCameraPreviewDistance - 0x16b8
+CCitadel_Ability_SettingSun
+  m_TargetPreviews - 0xc28
+  m_bWasSelected - 0xcf0
+CAbilityKobunVData
+  m_vSummonFollowOffset - 0x14e0
+  m_CloneModifier - 0x14f0
+CModifierGangActivityAbilitySwapVData
+  m_SummonGangster - 0x5d0
+  m_TeleportToGangster - 0x5e0
+  m_Cancel - 0x5f0
+  m_ReplaceWithSummonGangster - 0x600
+  m_ReplaceWithTeleportToGangster - 0x610
+  m_ReplaceWithCancel - 0x620
+CAbilityGangActivityVData
+  m_AbilitySwap - 0x14e0
+CAbilityGangActivityCancelVData
+  m_AbilitySwap - 0x14e0
+CModifierFealtyTargetVData
+  m_CastParticle - 0x5d0
+CAbilityFealtyVData
+  m_TargetModifier - 0x14e0
+CCitadel_Ability_Fealty
+  m_hTarget - 0xc28
+CCitadel_Modifier_ConsumedProtectionRacketVData
+  m_strShieldBreakSound - 0x5d0
+CCitadel_Ability_Protection_RacketVData
+  m_CastOtherParticle - 0x14e0
+  m_ArmorModifier - 0x15c0
+CAbilityCadenceAnthemVData
+  m_AnthemAOEModifier - 0x14e0
+CAbilityCadenceLullabyVData
+  m_SleepAOEModifier - 0x14e0
+CCitadel_Modifier_Cadence_SilenceContraptionsVData
+  m_DebuffModifier - 0x5d0
+CCitadel_Modifier_Cadence_GrandFinale_BuffVData
+  m_BuildUpModifier - 0x5d0
+  m_ExplodeParticle - 0x5e0
+  m_ExplodeSound - 0x6c0
+CAbilityCadenceGrandFinaleVData
+  m_StageModel - 0x14e0
+  m_flStageModelHeight - 0x15c0
+  m_flStageModelWidth - 0x15c4
+  m_flStageModelLength - 0x15c8
+  m_flStageModelScale - 0x15cc
+  m_GrandFinaleAOEModifier - 0x15d0
+CAbilityCadencePrimaryWeaponVData
+  m_DebuffModifier - 0x1520
+CCitadelModifierCadenceGunSpikesVData
+  m_strSmallIconCssClassMax - 0x5d0
+CCitadel_Modifier_Cadence_Crescendo_InAOE_VData
+  m_PostAOEModifier - 0x5d0
+CAbilityCadenceCrescendoVData
+  m_CrescendoAOEModifier - 0x14e0
+CAbilityTokamakHeatSinksInherentVData
+  m_HotTracerParticle - 0x14e0
+  m_HotWeaponFxParticle - 0x15c0
+  m_strHotWeaponShootSound - 0x16a0
+  m_strOverheatRed - 0x16b0
+  m_strOverheatFull - 0x16c0
+CCitadel_Ability_Tokamak_HeatSinks_Inherent
+  m_nIntervalsElapsed - 0xc28
+  m_NextShotTime - 0xc2c
+  m_flDissipationRate - 0xc30
+  m_flDissipationTime - 0xc34
+  m_flHeatTime - 0xc38
+  m_flOverheatSoundTime - 0xc3c
+  m_bOverheating - 0xc40
+CAbilityTokamakHeatSinksVData
+  m_HeatDotModifier - 0x14e0
+CAbilityTokamakHotShotVData
+  m_LaserModifier - 0x14e0
+  m_strLaserStartSound - 0x14f0
+  m_strLaserEndSound - 0x1500
+  m_strLaserLoopSound - 0x1510
+  m_strLaserHitSound - 0x1520
+  m_ChargeParticle - 0x1530
+  m_BeamParticle - 0x1610
+  m_HitParticle - 0x16f0
+  m_GroundParticle - 0x17d0
+CCitadel_Ability_Tokamak_HotShot
+  m_flDPS - 0xda0
+  m_flNextDamageTick - 0xda4
+  m_vStart - 0xda8
+  m_vEnd - 0xdb4
+  m_vecEntitiesHit - 0xdc0
+  m_angBeamAngles - 0xdd8
+  m_bNeedsBeamReset - 0xdf0
+CAbilityTokamakBreachVData
+  m_AllySmokeAOEModifier - 0x14e0
+  m_EnemySmokeAOEModifier - 0x14f0
+  m_PurgeParticle - 0x1500
+CCitadel_Modifier_Tokamak_HeatSinks_DOT_VData
+  m_sAfterburnParticle - 0x5d0
+  m_sAfterburnExplodeParticle - 0x6b0
+CCitadel_Ability_Tokamak_DyingStarVData
+  m_ExplosionParticle - 0x14e0
+  m_FlameAuraParticle - 0x15c0
+  m_strInFlightAnimGraphParam - 0x16a0
+  m_strExplodeSound - 0x16a8
+  m_InFlightModifier - 0x16b8
+CCitadel_Ability_Tokamak_DyingStar
+  m_nRollFXIndex - 0xc28
+  m_bInFlight - 0xc2c
+CCitadel_Ability_Tokamak_CrimsonCannonVData
+  m_LaserShot - 0x14e0
+  m_ChargeParticle - 0x15c0
+  m_CasterOnlyTargetParticle - 0x16a0
+  m_EnemyTargetedParticle - 0x1780
+  m_strEnemyBeenTargetedSound - 0x1860
+  m_strCasterTargetSelectedSound - 0x1870
+  m_strFireSound - 0x1880
+  m_strImpactSound - 0x1890
+  m_strBlockedSound - 0x18a0
+CCitadel_Ability_Tokamak_CrimsonCannon
+  m_bAirCast - 0xc28
+  m_bIsZoomed - 0xdf0
+CAbilityTokamakRadianceVData
+  m_RadianceModifier - 0x14e0
+CCitadel_Modifier_RadianceVData
+  m_RadianceFxParticle - 0x5d0
+  m_RadianceDamageParticle - 0x6b0
+  m_ClientsideDamageParticle - 0x790
+  m_strDamageRecievedSound - 0x870
+CModifier_Thumper_BulletWatcherVData
+  m_ExplodeParticle - 0x5d0
+  m_ExplodeSound - 0x6b0
+CCitadel_Ability_Thumper_1
+  m_vecAimPos - 0xc28
+  m_vecAimNormal - 0xc34
+  m_flPushForce - 0xc40
+CCitadel_Modifier_Thumper_Ability_2
+  m_vLastPosition - 0xc0
+CAbilityThumper2VData
+  m_StompParticle - 0x14e0
+  m_strStompExplosionSound - 0x15c0
+  m_BuffModifier - 0x15d0
+  m_BarbedWireAuraModifier - 0x15e0
+CModifierThumper_3VData
+  m_DroneParticle - 0x5d0
+  m_LoopSound - 0x6b0
+CAbilityThumper3VData
+  m_DroneModifier - 0x14e0
+CAbilityThumper4VData
+  m_PullAOEModifier - 0x14e0
+CAbility_Rutger_RocketLauncher_VData
+  m_ImpactParticle - 0x14e0
+  m_ShootParticle - 0x15c0
+CAbility_Rutger_ForceField_VData
+  m_AuraModifier - 0x14e0
+  m_VictimPushModifier - 0x14f0
+  m_SlowModifier - 0x1500
+  m_strDomeCreated - 0x1510
+  m_strChargeUpSound - 0x1520
+  m_strPushAndDamage - 0x1530
+  m_ChronoSphereChargeParticle - 0x1540
+CCitadel_Modifier_Rutger_ForceField_PushOut
+  m_vStart - 0xc0
+  m_vDest - 0xcc
+  m_vCenter - 0xd8
+CCitadel_Modifier_Rutger_CheatDeath_Activated_VData
+  m_ActivatedParticle - 0x5d0
+CAbility_Rutger_CheatDeath_VData
+  m_ModifierCheatDeathActivated - 0x14e0
+CCitadel_Modifier_Rutger_Pulse_VData
+  m_strSilenceTargetSound - 0x5d0
+CCitadel_Modifier_Rutger_Pulse_Target
+  m_vAuraCenter - 0x1a0
+CCitadel_Ability_Rutger_Pulse_VData
+  m_AuraModifier - 0x14e0
+CModifier_Synth_PlasmaFlux_WeaponDamage_VData
+  m_BuffParticle - 0x5d0
+CAbility_Synth_PlasmaFlux_VData
+  m_WeaponDamageBonusModifier - 0x14e0
+  m_TeleportTrailParticle - 0x14f0
+  m_ImpactParticle - 0x15d0
+  m_strCasterLoopingSound - 0x16b0
+  m_strProjectileExpireSound - 0x16c0
+  m_strImpactSound - 0x16d0
+  m_cameraSequenceTeleport - 0x16e0
+CAbility_Synth_PlasmaFlux
+  m_bTeleported - 0xc30
+  m_flProjectileLaunchTime - 0xc34
+  m_flProjectileExpireTime - 0xc38
+  m_hActiveProjectile - 0xc3c
+CModifier_Synth_Pulse_Escape_VData
+  m_HitParticle - 0x5d0
+  m_SatchelParticle - 0x6b0
+  m_AoEParticle - 0x790
+  m_strChannelFinishedSound - 0x870
+CModifier_Synth_Pulse_Escape
+  m_hAOEParticle - 0x168
+CAbility_Synth_Pulse_VData
+  m_EscapeModifier - 0x14e0
+  m_AoEParticle - 0x14f0
+  m_EffectParticle - 0x15d0
+  m_ChannelParticle - 0x16b0
+  m_strChannelFinishedSound - 0x1790
+  m_cameraSequenceInSatchel - 0x17a0
+CAbility_Synth_Pulse
+  m_flEndTime - 0xc28
+CModifier_Synth_Pulse_BulletShield
+  m_fBulletShield - 0xc0
+CModifier_Synth_Grasp_Caster_VData
+  m_CastParticle - 0x5d0
+CModifier_Synth_Grasp_BulletShield
+  m_fBulletShield - 0xc0
+CModifier_Synth_Grasp_Victim_VData
+  m_strVictimTetheredSound - 0x5d0
+  m_GraspVictimParticle - 0x5e0
+CModifier_Synth_Grasp_Victim
+  m_vecOrigin - 0xc0
+CAbility_Synth_Grasp_VData
+  m_CasterModifier - 0x14e0
+  m_VictimModifier - 0x14f0
+  m_BulletShieldModifier - 0x1500
+CAbility_Synth_Grasp
+  m_vecTetheredEnemies - 0xc28
+CModifier_Synth_DematerializeVData
+  m_ExplodeParticle - 0x5d0
+  m_FireRateSlowModifier - 0x6b0
+CAbility_Synth_Dematerialize_VData
+  m_CastParticle - 0x14e0
+  m_CastTargetSound - 0x15c0
+  m_DematerializeModifier - 0x15d0
+CAbility_Synth_Barrage_VData
+  m_BarrageCasterModifier - 0x14e0
+  m_AmpModifier - 0x14f0
+  m_DebuffModifier - 0x1500
+  m_ShootParticle - 0x1510
+  m_ImpactParticle - 0x15f0
+  m_ChannelParticle - 0x16d0
+  m_strProjectileLaunchSound - 0x17b0
+CAbility_Synth_Barrage
+  m_nProjectilesScheduled - 0xe90
+  m_fProjectileInterval - 0xe94
+  m_ChannelParticle - 0xe98
+CAbility_Synth_Blitz_VData
+  m_BlitzModifier - 0x14e0
+  m_TechAmpModifier - 0x14f0
+  m_SlowParticle - 0x1500
+  m_strProcSound - 0x15e0
+CAbility_Synth_Blitz
+  m_vecSpecialShots - 0xc28
+  m_nFastFireBulletsLeft - 0xc40
+  m_flBlitzEndTime - 0xc48
+  m_bCanApplyTechAmp - 0xc60
+  m_bCanLifesteal - 0xc61
+CModifier_Synth_Affliction_Debuff_VData
+  m_EffectParticle - 0x5d0
+  m_DebuffParticle - 0x6b0
+CAbility_Synth_Affliction_VData
+  m_DebuffModifier - 0x14e0
+  m_AoEParticle - 0x14f0
+  m_CastParticle - 0x15d0
+CAbility_Synth_Affliction
+  m_hAOEParticle - 0xc98
+CAbility_Mirage_Tornado_VData
+  m_TornadoAura - 0x14e0
+  m_GrenadeTrailModifier - 0x14f0
+CModifier_Mirage_Tornado_Aura_Apply_VData
+  m_TossModifier - 0x5d0
+  m_LiftModifier - 0x5e0
+  m_EnemyInAirModifier - 0x5f0
+CModifier_Mirage_Tornado_Lift_VData
+  m_SlowModifier - 0x5d0
+  m_LiftParticle - 0x5e0
+CModifier_Mirage_Tornado_Lift
+  m_vecFloatDest - 0x130
+  m_vecStartingPos - 0x13c
+CAbility_Mirage_SandPhantom_VData
+  m_PreCreationModifier - 0x14e0
+  m_WhirlwindEvasionModifier - 0x14f0
+  m_SandPhantomModifier - 0x1500
+CModifier_Mirage_SandPhantom_VData
+  m_WhirlwindSpeedModifier - 0x5d0
+CModifier_Mirage_SandPhantom
+  m_particleStart - 0xc0
+  m_particleEnd - 0xc4
+  m_particleTrail - 0xc8
+  m_vecStartPosition - 0xcc
+  m_flStartDelay - 0xd8
+  m_vecApplyOffset - 0xdc
+CModifier_Mirage_SandPhantom_WhirlwindEvasion_VData
+  m_AttackerHitFx - 0x5d0
+  m_ImpactParticle - 0x6b0
+  m_playerBuffSelf - 0x790
+  m_playerBuffEnemy - 0x870
+  m_ReflectedBulletTracerParticle - 0x950
+  m_strAttackerHitSound - 0xa30
+  m_strVictimHitSound - 0xa40
+CModifier_Mirage_EtherealBullets_VData
+  m_ImpactParticle - 0x5d0
+  m_TriggerParticle - 0x6b0
+  m_BulletBurstTimerParticle - 0x790
+  m_strBulletSound - 0x870
+CModifier_Mirage_EtherealBullets
+  m_vecShootTargets - 0xc0
+  m_nShootIndex - 0xd8
+  m_nShotCyclesPerformed - 0xdc
+  m_bIsBulletBursting - 0xe0
+CAbility_Mirage_EtherealBullets_VData
+  m_BulletsModifier - 0x14e0
+  m_SlowModifier - 0x14f0
+CCitadel_Ability_SunfireCataclysm_VData
+  m_SunfireCataclysmModifier - 0x14e0
+  m_VacuumModifier - 0x14f0
+  m_EMPModifier - 0x1500
+  m_SphereChargeParticle - 0x1510
+  m_ColumnParticle - 0x15f0
+  m_ExplosionParticle - 0x16d0
+  m_strExplosionSound - 0x17b0
+CCitadel_Ability_SunfireCataclysm
+  m_vecCastPos - 0xec8
+  m_nFXPreviewParticle - 0xed4
+  m_hChargingParticle - 0xed8
+CModifier_Mirage_SunfireCataclysm_Vacuum
+  m_vStart - 0xc0
+  m_vDest - 0xcc
+  m_vCenter - 0xd8
+CCitadel_Ability_Slork_InvisVData
+  m_InvisModifier - 0x14e0
+  m_PreventHealingModifier - 0x14f0
+  m_AmbushExplosionParticle - 0x1500
+  m_AmbushExplosionSound - 0x15e0
+CCitadel_Ability_PrimaryWeapon_SlorkVData
+  m_HitParticle - 0x1520
+  m_WeaponShapeParticle - 0x1600
+  m_WeaponRangeAssistParticle - 0x16e0
+  m_nNumConePoints - 0x17c0
+  m_flRoundPerSecond - 0x17c4
+  m_DebuffModifier - 0x17c8
+  m_PoisonSprayerHitSound - 0x17d8
+  m_WeaponLoopStartSound - 0x17e8
+  m_WeaponLoopSound - 0x17f8
+  m_WeaponLoopEndSound - 0x1808
+CCitadel_Ability_PrimaryWeapon_Slork
+  m_angAimAngles - 0xea0
+  m_bNeedAimAngleReset - 0xed0
+CAbilitySlorkScaldVData
+  m_DebuffModifier - 0x14e0
+  m_ImpactParticle - 0x14f0
+CCitadel_Slork_Raging_CurrentVData
+  m_AuraModifier - 0x14e0
+CCitadel_Modifier_Slork_RagingCurrentVData
+  m_CountdownModifier - 0x5d0
+  m_WaterAuraParticle - 0x5e0
+CCitadel_Modifier_Slork_Raging_Current
+  m_bUnitTarget - 0x168
+CCitadel_Modifier_Slork_Raging_Current_CountdownVData
+  m_TorrentModifier - 0x5d0
+  m_WaterAuraParticle - 0x5e0
+CCitadel_Modifier_Slork_Raging_Current_Countdown
+  m_hRingEffect - 0xc0
+CCitadel_Modifier_RagingCurrentVData
+  m_TorrentParticle - 0x6b0
+  m_TorrentModifier - 0x790
+CAbilitySlorkChompVData
+  m_ChompHobbled - 0x14e0
+  m_ChompGrapple - 0x14f0
+CCitadel_Modifier_Chomp_LowHealth_GlowVData
+  m_strLocalStatusEffect - 0x5d0
+CCitadel_Modifier_Chomp_Grapple
+  m_hMoveToTarget - 0xc0
+CModifierChompHobbledVData
+  m_LassoEffect - 0x5d0
+  m_ConsumeSound - 0x6b0
+CCitadel_Modifier_Chomp_Hobbled
+  m_LastUpdate - 0xc0
+  m_flDamageTime - 0xc4
+  m_flMovementTime - 0xc8
+  m_hGrappler - 0xcc
+CCitadel_Modifier_Slork_Invis_VData
+  m_AmbushModifier - 0x888
+  m_VisibleModifier - 0x898
+CCitadel_Modifier_Slork_Invis
+  m_bHasGoneFullyInvis - 0x2d8
+CModifierSlorkAmbushVData
+  m_strAmbushEffect - 0x5d0
+CModifierLastBreathVData
+  m_ShieldParticle - 0x5d0
+  m_BulletShieldHitParticle - 0x6b0
+  m_TechShieldHitParticle - 0x790
+  m_ExplodeParticle - 0x870
+  m_strStartSound - 0x950
+  m_ExplodeSound - 0x960
+  m_flShieldImpactEffectDuration - 0x970
+  m_BulletShieldImpactModifier - 0x978
+  m_TechShieldImpactModifier - 0x988
+CCitadel_Modifier_LastBreath
+  m_flDamageToAbsorb - 0x168
+CCitadel_Ability_Slork_LastBreathVData
+  m_ShieldModifier - 0x14e0
+CAbilityRiptideVData
+  m_TossModifier - 0x14e0
+  m_DebuffModifier - 0x14f0
+C_EconItemAttribute
+  m_iAttributeDefinitionIndex - 0x30
+  m_flValue - 0x34
+CAttributeManager
+  m_Providers - 0x8
+  m_Receivers - 0x20
+  m_iReapplyProvisionParity - 0x38
+  m_hOuter - 0x3c
+  m_bPreventLoopback - 0x40
+  m_ProviderType - 0x44
+  m_CachedResults - 0x48
+CAttributeList
+  m_Attributes - 0x8
+  m_pManager - 0x58
+CAttributeManager::cached_attribute_float_t
+  flIn - 0x0
+  iAttribHook - 0x8
+  flOut - 0x10
+C_EconItemView
+  m_iItemDefinitionIndex - 0x8
+  m_iEntityQuality - 0xc
+  m_iEntityLevel - 0x10
+  m_iItemID - 0x18
+  m_iAccountID - 0x20
+  m_iInventoryPosition - 0x24
+  m_bInitialized - 0x30
+  m_nOverrideStyle - 0x31
+  m_bIsStoreItem - 0x32
+  m_bIsTradeItem - 0x33
+  m_bHasComputedAttachedParticles - 0x34
+  m_bHasAttachedParticles - 0x35
+  m_iEntityQuantity - 0x38
+  m_unClientFlags - 0x3c
+  m_unOverrideOrigin - 0x40
+  m_AttributeList - 0x58
+CAttributeContainer
+  m_Item - 0x68
+C_EconEntity::AttachedParticleInfo_t
+  m_nAttachedParticleIndex - 0x0
+  m_customType - 0x4
+  m_bShouldDestroyImmediately - 0x8
+C_EconEntity::AttachedModelData_t
+  m_iModelDisplayFlags - 0x0
+C_MiniMapMarker
+  m_eType - 0x538
+CCitadel_Item
+  m_vecComponentsConsumed - 0xc28
+C_PortraitWorldUnit_GraphController
+  m_pszHeroUI - 0x18
+C_EnvCombinedLightProbeVolume
+  m_Entity_Color - 0x1598
+  m_Entity_flBrightness - 0x159c
+  m_Entity_hCubemapTexture - 0x15a0
+  m_Entity_bCustomCubemapTexture - 0x15a8
+  m_Entity_hLightProbeTexture - 0x15b0
+  m_Entity_hLightProbeDirectLightIndicesTexture - 0x15b8
+  m_Entity_hLightProbeDirectLightScalarsTexture - 0x15c0
+  m_Entity_hLightProbeDirectLightShadowsTexture - 0x15c8
+  m_Entity_vBoxMins - 0x15d0
+  m_Entity_vBoxMaxs - 0x15dc
+  m_Entity_bMoveable - 0x15e8
+  m_Entity_nHandshake - 0x15ec
+  m_Entity_nEnvCubeMapArrayIndex - 0x15f0
+  m_Entity_nPriority - 0x15f4
+  m_Entity_bStartDisabled - 0x15f8
+  m_Entity_flEdgeFadeDist - 0x15fc
+  m_Entity_vEdgeFadeDists - 0x1600
+  m_Entity_nLightProbeSizeX - 0x160c
+  m_Entity_nLightProbeSizeY - 0x1610
+  m_Entity_nLightProbeSizeZ - 0x1614
+  m_Entity_nLightProbeAtlasX - 0x1618
+  m_Entity_nLightProbeAtlasY - 0x161c
+  m_Entity_nLightProbeAtlasZ - 0x1620
+  m_Entity_bEnabled - 0x1639
+C_EnvCubemap
+  m_Entity_hCubemapTexture - 0x5b8
+  m_Entity_bCustomCubemapTexture - 0x5c0
+  m_Entity_flInfluenceRadius - 0x5c4
+  m_Entity_vBoxProjectMins - 0x5c8
+  m_Entity_vBoxProjectMaxs - 0x5d4
+  m_Entity_bMoveable - 0x5e0
+  m_Entity_nHandshake - 0x5e4
+  m_Entity_nEnvCubeMapArrayIndex - 0x5e8
+  m_Entity_nPriority - 0x5ec
+  m_Entity_flEdgeFadeDist - 0x5f0
+  m_Entity_vEdgeFadeDists - 0x5f4
+  m_Entity_flDiffuseScale - 0x600
+  m_Entity_bStartDisabled - 0x604
+  m_Entity_bDefaultEnvMap - 0x605
+  m_Entity_bDefaultSpecEnvMap - 0x606
+  m_Entity_bIndoorCubeMap - 0x607
+  m_Entity_bCopyDiffuseFromDefaultCubemap - 0x608
+  m_Entity_bEnabled - 0x618
+C_EnvCubemapFog
+  m_flEndDistance - 0x538
+  m_flStartDistance - 0x53c
+  m_flFogFalloffExponent - 0x540
+  m_bHeightFogEnabled - 0x544
+  m_flFogHeightWidth - 0x548
+  m_flFogHeightEnd - 0x54c
+  m_flFogHeightStart - 0x550
+  m_flFogHeightExponent - 0x554
+  m_flLODBias - 0x558
+  m_bActive - 0x55c
+  m_bStartDisabled - 0x55d
+  m_flFogMaxOpacity - 0x560
+  m_nCubemapSourceType - 0x564
+  m_hSkyMaterial - 0x568
+  m_iszSkyEntity - 0x570
+  m_hFogCubemapTexture - 0x578
+  m_bHasHeightFogEnd - 0x580
+  m_bFirstTime - 0x581
+C_GradientFog
+  m_hGradientFogTexture - 0x538
+  m_flFogStartDistance - 0x540
+  m_flFogEndDistance - 0x544
+  m_bHeightFogEnabled - 0x548
+  m_flFogStartHeight - 0x54c
+  m_flFogEndHeight - 0x550
+  m_flFarZ - 0x554
+  m_flFogMaxOpacity - 0x558
+  m_flFogFalloffExponent - 0x55c
+  m_flFogVerticalExponent - 0x560
+  m_fogColor - 0x564
+  m_flFogStrength - 0x568
+  m_flFadeTime - 0x56c
+  m_bStartDisabled - 0x570
+  m_bIsEnabled - 0x571
+  m_bGradientFogNeedsTextures - 0x572
+C_EnvLightProbeVolume
+  m_Entity_hLightProbeTexture - 0x1518
+  m_Entity_hLightProbeDirectLightIndicesTexture - 0x1520
+  m_Entity_hLightProbeDirectLightScalarsTexture - 0x1528
+  m_Entity_hLightProbeDirectLightShadowsTexture - 0x1530
+  m_Entity_vBoxMins - 0x1538
+  m_Entity_vBoxMaxs - 0x1544
+  m_Entity_bMoveable - 0x1550
+  m_Entity_nHandshake - 0x1554
+  m_Entity_nPriority - 0x1558
+  m_Entity_bStartDisabled - 0x155c
+  m_Entity_nLightProbeSizeX - 0x1560
+  m_Entity_nLightProbeSizeY - 0x1564
+  m_Entity_nLightProbeSizeZ - 0x1568
+  m_Entity_nLightProbeAtlasX - 0x156c
+  m_Entity_nLightProbeAtlasY - 0x1570
+  m_Entity_nLightProbeAtlasZ - 0x1574
+  m_Entity_bEnabled - 0x1581
+C_PlayerVisibility
+  m_flVisibilityStrength - 0x538
+  m_flFogDistanceMultiplier - 0x53c
+  m_flFogMaxDensityMultiplier - 0x540
+  m_flFadeTime - 0x544
+  m_bStartDisabled - 0x548
+  m_bIsEnabled - 0x549
+C_EnvVolumetricFogController
+  m_flScattering - 0x538
+  m_flAnisotropy - 0x53c
+  m_flFadeSpeed - 0x540
+  m_flDrawDistance - 0x544
+  m_flFadeInStart - 0x548
+  m_flFadeInEnd - 0x54c
+  m_flIndirectStrength - 0x550
+  m_nIndirectTextureDimX - 0x554
+  m_nIndirectTextureDimY - 0x558
+  m_nIndirectTextureDimZ - 0x55c
+  m_vBoxMins - 0x560
+  m_vBoxMaxs - 0x56c
+  m_bActive - 0x578
+  m_flStartAnisoTime - 0x57c
+  m_flStartScatterTime - 0x580
+  m_flStartDrawDistanceTime - 0x584
+  m_flStartAnisotropy - 0x588
+  m_flStartScattering - 0x58c
+  m_flStartDrawDistance - 0x590
+  m_flDefaultAnisotropy - 0x594
+  m_flDefaultScattering - 0x598
+  m_flDefaultDrawDistance - 0x59c
+  m_bStartDisabled - 0x5a0
+  m_bEnableIndirect - 0x5a1
+  m_bIndirectUseLPVs - 0x5a2
+  m_bIsMaster - 0x5a3
+  m_hFogIndirectTexture - 0x5a8
+  m_nForceRefreshCount - 0x5b0
+  m_fNoiseSpeed - 0x5b4
+  m_fNoiseStrength - 0x5b8
+  m_vNoiseScale - 0x5bc
+  m_bFirstTime - 0x5c8
+C_EnvVolumetricFogVolume
+  m_bActive - 0x538
+  m_vBoxMins - 0x53c
+  m_vBoxMaxs - 0x548
+  m_bStartDisabled - 0x554
+  m_flStrength - 0x558
+  m_nFalloffShape - 0x55c
+  m_flFalloffExponent - 0x560
+  m_flHeightFogDepth - 0x564
+  m_fHeightFogEdgeWidth - 0x568
+  m_fIndirectLightStrength - 0x56c
+  m_fSunLightStrength - 0x570
+  m_fNoiseStrength - 0x574
+  m_bOverrideIndirectLightStrength - 0x578
+  m_bOverrideSunLightStrength - 0x579
+  m_bOverrideNoiseStrength - 0x57a
+C_InfoVisibilityBox
+  m_nMode - 0x53c
+  m_vBoxSize - 0x540
+  m_bEnabled - 0x54c
+CInfoWorldLayer
+  m_pOutputOnEntitiesSpawned - 0x538
+  m_worldName - 0x560
+  m_layerName - 0x568
+  m_bWorldLayerVisible - 0x570
+  m_bEntitiesSpawned - 0x571
+  m_bCreateAsChildSpawnGroup - 0x572
+  m_hLayerSpawnGroup - 0x574
+  m_bWorldLayerActuallyVisible - 0x578
+C_PointCamera
+  m_FOV - 0x538
+  m_Resolution - 0x53c
+  m_bFogEnable - 0x540
+  m_FogColor - 0x541
+  m_flFogStart - 0x548
+  m_flFogEnd - 0x54c
+  m_flFogMaxDensity - 0x550
+  m_bActive - 0x554
+  m_bUseScreenAspectRatio - 0x555
+  m_flAspectRatio - 0x558
+  m_bNoSky - 0x55c
+  m_fBrightness - 0x560
+  m_flZFar - 0x564
+  m_flZNear - 0x568
+  m_bCanHLTVUse - 0x56c
+  m_bDofEnabled - 0x56d
+  m_flDofNearBlurry - 0x570
+  m_flDofNearCrisp - 0x574
+  m_flDofFarCrisp - 0x578
+  m_flDofFarBlurry - 0x57c
+  m_flDofTiltToGround - 0x580
+  m_TargetFOV - 0x584
+  m_DegreesPerSecond - 0x588
+  m_bIsOn - 0x58c
+  m_pNext - 0x590
+C_PointCameraVFOV
+  m_flVerticalFOV - 0x598
+CPointTemplate
+  m_iszWorldName - 0x538
+  m_iszSource2EntityLumpName - 0x540
+  m_iszEntityFilterName - 0x548
+  m_flTimeoutInterval - 0x550
+  m_bAsynchronouslySpawnEntities - 0x554
+  m_pOutputOnSpawned - 0x558
+  m_clientOnlyEntityBehavior - 0x580
+  m_ownerSpawnGroupType - 0x584
+  m_createdSpawnGroupHandles - 0x588
+  m_SpawnedEntityHandles - 0x5a0
+  m_ScriptSpawnCallback - 0x5b8
+  m_ScriptCallbackScope - 0x5c0
+C_SoundAreaEntityBase
+  m_bDisabled - 0x538
+  m_bWasEnabled - 0x540
+  m_iszSoundAreaType - 0x548
+  m_vPos - 0x550
+C_SoundAreaEntitySphere
+  m_flRadius - 0x560
+C_SoundAreaEntityOrientedBox
+  m_vMin - 0x560
+  m_vMax - 0x56c
+C_SoundEventAABBEntity
+  m_vMins - 0x538
+  m_vMaxs - 0x544
+C_SoundEventOBBEntity
+  m_vMins - 0x538
+  m_vMaxs - 0x544
+C_SoundEventSphereEntity
+  m_flRadius - 0x538
+C_SoundEventPathCornerEntity
+  m_vecCornerPairsNetworked - 0x538
+C_BasePlayerPawn
+  m_pWeaponServices - 0xc20
+  m_pItemServices - 0xc28
+  m_pAutoaimServices - 0xc30
+  m_pObserverServices - 0xc38
+  m_pWaterServices - 0xc40
+  m_pUseServices - 0xc48
+  m_pFlashlightServices - 0xc50
+  m_pCameraServices - 0xc58
+  m_pMovementServices - 0xc60
+  m_ServerViewAngleChanges - 0xc70
+  m_nHighestConsumedServerViewAngleChangeIndex - 0xcc0
+  v_angle - 0xcc4
+  v_anglePrevious - 0xcd0
+  m_iHideHUD - 0xcdc
+  m_skybox3d - 0xce0
+  m_flDeathTime - 0xd70
+  m_vecPredictionError - 0xd74
+  m_flPredictionErrorTime - 0xd80
+  m_vecLastCameraSetupLocalOrigin - 0xd84
+  m_flLastCameraSetupTime - 0xd90
+  m_flFOVSensitivityAdjust - 0xd94
+  m_flMouseSensitivity - 0xd98
+  m_vOldOrigin - 0xd9c
+  m_flOldSimulationTime - 0xda8
+  m_nLastExecutedCommandNumber - 0xdac
+  m_nLastExecutedCommandTick - 0xdb0
+  m_hController - 0xdb4
+  m_bIsSwappingToPredictableController - 0xdb8
+C_Team
+  m_aPlayerControllers - 0x538
+  m_aPlayers - 0x550
+  m_iScore - 0x568
+  m_szTeamname - 0x56c
+CBasePlayerVData
+  m_sModelName - 0x28
+  m_vecIntrinsicModifiers - 0x108
+  m_flHeadDamageMultiplier - 0x120
+  m_flChestDamageMultiplier - 0x130
+  m_flStomachDamageMultiplier - 0x140
+  m_flArmDamageMultiplier - 0x150
+  m_flLegDamageMultiplier - 0x160
+  m_flHoldBreathTime - 0x170
+  m_flDrowningDamageInterval - 0x174
+  m_nDrowningDamageInitial - 0x178
+  m_nDrowningDamageMax - 0x17c
+  m_nWaterSpeed - 0x180
+  m_flUseRange - 0x184
+  m_flUseAngleTolerance - 0x188
+  m_flCrouchTime - 0x18c
+CClientAlphaProperty
+  m_nRenderFX - 0x10
+  m_nRenderMode - 0x11
+  m_bAlphaOverride - 0x0
+  m_bShadowAlphaOverride - 0x0
+  m_nReserved - 0x0
+  m_nAlpha - 0x13
+  m_nDesyncOffset - 0x14
+  m_nReserved2 - 0x16
+  m_nDistFadeStart - 0x18
+  m_nDistFadeEnd - 0x1a
+  m_flFadeScale - 0x1c
+  m_flRenderFxStartTime - 0x20
+  m_flRenderFxDuration - 0x24
+CLogicRelay
+  m_OnTrigger - 0x538
+  m_OnSpawn - 0x560
+  m_bDisabled - 0x588
+  m_bWaitForRefire - 0x589
+  m_bTriggerOnce - 0x58a
+  m_bFastRetrigger - 0x58b
+  m_bPassthoughCaller - 0x58c
+C_ParticleSystem
+  m_szSnapshotFileName - 0x7f0
+  m_bActive - 0x9f0
+  m_bFrozen - 0x9f1
+  m_flFreezeTransitionDuration - 0x9f4
+  m_nStopType - 0x9f8
+  m_bAnimateDuringGameplayPause - 0x9fc
+  m_iEffectIndex - 0xa00
+  m_flStartTime - 0xa08
+  m_flPreSimTime - 0xa0c
+  m_vServerControlPoints - 0xa10
+  m_iServerControlPointAssignments - 0xa40
+  m_hControlPointEnts - 0xa44
+  m_bNoSave - 0xb44
+  m_bNoFreeze - 0xb45
+  m_bNoRamp - 0xb46
+  m_bStartActive - 0xb47
+  m_iszEffectName - 0xb48
+  m_iszControlPointNames - 0xb50
+  m_nDataCP - 0xd50
+  m_vecDataCPValue - 0xd54
+  m_nTintCP - 0xd60
+  m_clrTint - 0xd64
+  m_bOldActive - 0xd88
+  m_bOldFrozen - 0xd89
+C_PathParticleRope
+  m_bStartActive - 0x538
+  m_flMaxSimulationTime - 0x53c
+  m_iszEffectName - 0x540
+  m_PathNodes_Name - 0x548
+  m_flParticleSpacing - 0x560
+  m_flSlack - 0x564
+  m_flRadius - 0x568
+  m_ColorTint - 0x56c
+  m_nEffectState - 0x570
+  m_iEffectIndex - 0x578
+  m_PathNodes_Position - 0x580
+  m_PathNodes_TangentIn - 0x598
+  m_PathNodes_TangentOut - 0x5b0
+  m_PathNodes_Color - 0x5c8
+  m_PathNodes_PinEnabled - 0x5e0
+  m_PathNodes_RadiusScale - 0x5f8
+CPathSimple
+  m_pathString - 0x588
+C_DynamicLight
+  m_Flags - 0x7f0
+  m_LightStyle - 0x7f1
+  m_Radius - 0x7f4
+  m_Exponent - 0x7f8
+  m_InnerAngle - 0x7fc
+  m_OuterAngle - 0x800
+  m_SpotRadius - 0x804
+C_EnvScreenOverlay
+  m_iszOverlayNames - 0x538
+  m_flOverlayTimes - 0x588
+  m_flStartTime - 0x5b0
+  m_iDesiredOverlay - 0x5b4
+  m_bIsActive - 0x5b8
+  m_bWasActive - 0x5b9
+  m_iCachedDesiredOverlay - 0x5bc
+  m_iCurrentOverlay - 0x5c0
+  m_flCurrentOverlayTime - 0x5c4
+C_FuncTrackTrain
+  m_nLongAxis - 0x7f0
+  m_flRadius - 0x7f4
+  m_flLineLength - 0x7f8
+C_LightGlowOverlay
+  m_vecOrigin - 0xd0
+  m_vecDirection - 0xdc
+  m_nMinDist - 0xe8
+  m_nMaxDist - 0xec
+  m_nOuterMaxDist - 0xf0
+  m_bOneSided - 0xf4
+  m_bModulateByDot - 0xf5
+C_LightGlow
+  m_nHorizontalSize - 0x7f0
+  m_nVerticalSize - 0x7f4
+  m_nMinDist - 0x7f8
+  m_nMaxDist - 0x7fc
+  m_nOuterMaxDist - 0x800
+  m_flGlowProxySize - 0x804
+  m_flHDRColorScale - 0x808
+  m_GlowOverlay - 0x810
+C_RagdollManager
+  m_iCurrentMaxRagdollCount - 0x538
+C_SpotlightEnd
+  m_flLightScale - 0x7f0
+  m_Radius - 0x7f4
+C_PointValueRemapper
+  m_bDisabled - 0x538
+  m_bDisabledOld - 0x539
+  m_bUpdateOnClient - 0x53a
+  m_nInputType - 0x53c
+  m_hRemapLineStart - 0x540
+  m_hRemapLineEnd - 0x544
+  m_flMaximumChangePerSecond - 0x548
+  m_flDisengageDistance - 0x54c
+  m_flEngageDistance - 0x550
+  m_bRequiresUseKey - 0x554
+  m_nOutputType - 0x558
+  m_hOutputEntities - 0x560
+  m_nHapticsType - 0x578
+  m_nMomentumType - 0x57c
+  m_flMomentumModifier - 0x580
+  m_flSnapValue - 0x584
+  m_flCurrentMomentum - 0x588
+  m_nRatchetType - 0x58c
+  m_flRatchetOffset - 0x590
+  m_flInputOffset - 0x594
+  m_bEngaged - 0x598
+  m_bFirstUpdate - 0x599
+  m_flPreviousValue - 0x59c
+  m_flPreviousUpdateTickTime - 0x5a0
+  m_vecPreviousTestPoint - 0x5a4
+C_PointWorldText
+  m_bForceRecreateNextUpdate - 0x7f8
+  m_messageText - 0x808
+  m_FontName - 0xa08
+  m_bEnabled - 0xa48
+  m_bFullbright - 0xa49
+  m_flWorldUnitsPerPx - 0xa4c
+  m_flFontSize - 0xa50
+  m_flDepthOffset - 0xa54
+  m_Color - 0xa58
+  m_nJustifyHorizontal - 0xa5c
+  m_nJustifyVertical - 0xa60
+  m_nReorientMode - 0xa64
+CCitadelSoundOpvarSetOBB
+  m_iszStackName - 0x550
+  m_iszOperatorName - 0x558
+  m_iszOpvarName - 0x560
+  m_vDistanceInnerMins - 0x568
+  m_vDistanceInnerMaxs - 0x574
+  m_vDistanceOuterMins - 0x580
+  m_vDistanceOuterMaxs - 0x58c
+  m_nAABBDirection - 0x598
+C_HandleTest
+  m_Handle - 0x538
+  m_bSendHandle - 0x53c
+C_EnvWind
+  m_EnvWindShared - 0x538
+C_BaseButton
+  m_glowEntity - 0x7f0
+  m_usable - 0x7f4
+  m_szDisplayText - 0x7f8
+C_EntityDissolve
+  m_flStartTime - 0x7f8
+  m_flFadeInStart - 0x7fc
+  m_flFadeInLength - 0x800
+  m_flFadeOutModelStart - 0x804
+  m_flFadeOutModelLength - 0x808
+  m_flFadeOutStart - 0x80c
+  m_flFadeOutLength - 0x810
+  m_flNextSparkTime - 0x814
+  m_nDissolveType - 0x818
+  m_vDissolverOrigin - 0x81c
+  m_nMagnitude - 0x828
+  m_bCoreExplode - 0x82c
+  m_bLinkedToServerEnt - 0x82d
+C_EnvDecal
+  m_hDecalMaterial - 0x7f0
+  m_flWidth - 0x7f8
+  m_flHeight - 0x7fc
+  m_flDepth - 0x800
+  m_nRenderOrder - 0x804
+  m_bProjectOnWorld - 0x808
+  m_bProjectOnCharacters - 0x809
+  m_bProjectOnWater - 0x80a
+  m_flDepthSortBias - 0x80c
+C_FuncElectrifiedVolume
+  m_nAmbientEffect - 0x7f0
+  m_EffectName - 0x7f8
+  m_bState - 0x800
+C_BaseFlex
+  m_flexWeight - 0xa08
+  m_vLookTargetPosition - 0xa20
+  m_blinktoggle - 0xa38
+  m_nLastFlexUpdateFrameCount - 0xa98
+  m_CachedViewTarget - 0xa9c
+  m_nNextSceneEventId - 0xaa8
+  m_iBlink - 0xaac
+  m_blinktime - 0xab0
+  m_prevblinktoggle - 0xab4
+  m_iJawOpen - 0xab8
+  m_flJawOpenAmount - 0xabc
+  m_flBlinkAmount - 0xac0
+  m_iMouthAttachment - 0xac4
+  m_iEyeAttachment - 0xac5
+  m_bResetFlexWeightsOnModelChange - 0xac6
+  m_nEyeOcclusionRendererBone - 0xae0
+  m_mEyeOcclusionRendererCameraToBoneTransform - 0xae4
+  m_vEyeOcclusionRendererHalfExtent - 0xb14
+  m_PhonemeClasses - 0xb30
+C_SceneEntity
+  m_bIsPlayingBack - 0x540
+  m_bPaused - 0x541
+  m_bMultiplayer - 0x542
+  m_bAutogenerated - 0x543
+  m_flForceClientTime - 0x544
+  m_nSceneStringIndex - 0x548
+  m_bClientOnly - 0x54a
+  m_hOwner - 0x54c
+  m_hActorList - 0x550
+  m_bWasPlaying - 0x568
+  m_QueuedEvents - 0x578
+  m_flCurrentTime - 0x590
+C_SunGlowOverlay
+  m_bModulateByDot - 0xd0
+C_Sun
+  m_fxSSSunFlareEffectIndex - 0x7f0
+  m_fxSunFlareEffectIndex - 0x7f4
+  m_fdistNormalize - 0x7f8
+  m_vSunPos - 0x7fc
+  m_vDirection - 0x808
+  m_iszEffectName - 0x818
+  m_iszSSEffectName - 0x820
+  m_clrOverlay - 0x828
+  m_bOn - 0x82c
+  m_bmaxColor - 0x82d
+  m_flSize - 0x830
+  m_flHazeScale - 0x834
+  m_flRotation - 0x838
+  m_flHDRColorScale - 0x83c
+  m_flAlphaHaze - 0x840
+  m_flAlphaScale - 0x844
+  m_flAlphaHdr - 0x848
+  m_flFarZScale - 0x84c
+C_BaseTrigger
+  m_bDisabled - 0x7f0
+  m_bClientSidePredicted - 0x7f1
+C_TriggerPhysics
+  m_gravityScale - 0x7f8
+  m_linearLimit - 0x7fc
+  m_linearDamping - 0x800
+  m_angularLimit - 0x804
+  m_angularDamping - 0x808
+  m_linearForce - 0x80c
+  m_flFrequency - 0x810
+  m_flDampingRatio - 0x814
+  m_vecLinearForcePointAt - 0x818
+  m_bCollapseToForcePoint - 0x824
+  m_vecLinearForcePointAtWorld - 0x828
+  m_vecLinearForceDirection - 0x834
+  m_bConvertToDebrisWhenPossible - 0x840
+C_Beam
+  m_flFrameRate - 0x7f0
+  m_flHDRColorScale - 0x7f4
+  m_flFireTime - 0x7f8
+  m_flDamage - 0x7fc
+  m_nNumBeamEnts - 0x800
+  m_queryHandleHalo - 0x804
+  m_hBaseMaterial - 0x828
+  m_nHaloIndex - 0x830
+  m_nBeamType - 0x838
+  m_nBeamFlags - 0x83c
+  m_hAttachEntity - 0x840
+  m_nAttachIndex - 0x868
+  m_fWidth - 0x874
+  m_fEndWidth - 0x878
+  m_fFadeLength - 0x87c
+  m_fHaloScale - 0x880
+  m_fAmplitude - 0x884
+  m_fStartFrame - 0x888
+  m_fSpeed - 0x88c
+  m_flFrame - 0x890
+  m_nClipStyle - 0x894
+  m_bTurnedOff - 0x898
+  m_vecEndPos - 0x89c
+  m_hEndEntity - 0x8a8
+C_FuncLadder
+  m_vecLadderDir - 0x7f0
+  m_Dismounts - 0x800
+  m_vecLocalTop - 0x818
+  m_vecPlayerMountPositionTop - 0x824
+  m_vecPlayerMountPositionBottom - 0x830
+  m_flAutoRideSpeed - 0x83c
+  m_bDisabled - 0x840
+  m_bFakeLadder - 0x841
+  m_bHasSlack - 0x842
+CPrecipitationVData
+  m_szParticlePrecipitationEffect - 0x28
+  m_flInnerDistance - 0x108
+  m_nAttachType - 0x10c
+  m_bBatchSameVolumeType - 0x110
+  m_nRTEnvCP - 0x114
+  m_nRTEnvCPComponent - 0x118
+  m_szModifier - 0x120
+C_Sprite
+  m_hSpriteMaterial - 0x7f0
+  m_hAttachedToEntity - 0x7f8
+  m_nAttachment - 0x7fc
+  m_flSpriteFramerate - 0x800
+  m_flFrame - 0x804
+  m_flDieTime - 0x808
+  m_nBrightness - 0x818
+  m_flBrightnessDuration - 0x81c
+  m_flSpriteScale - 0x820
+  m_flScaleDuration - 0x824
+  m_bWorldSpaceScale - 0x828
+  m_flGlowProxySize - 0x82c
+  m_flHDRColorScale - 0x830
+  m_flLastTime - 0x834
+  m_flMaxFrame - 0x838
+  m_flStartScale - 0x83c
+  m_flDestScale - 0x840
+  m_flScaleTimeStart - 0x844
+  m_nStartBrightness - 0x848
+  m_nDestBrightness - 0x84c
+  m_flBrightnessTimeStart - 0x850
+  m_hOldSpriteMaterial - 0x858
+  m_nSpriteWidth - 0x8f8
+  m_nSpriteHeight - 0x8fc
+C_BaseClientUIEntity
+  m_bEnabled - 0x7f8
+  m_DialogXMLName - 0x800
+  m_PanelClassName - 0x808
+  m_PanelID - 0x810
+C_PointClientUIDialog
+  m_hActivator - 0x820
+  m_bStartEnabled - 0x824
+C_PointClientUIHUD
+  m_bCheckCSSClasses - 0x828
+  m_bIgnoreInput - 0x9a8
+  m_flWidth - 0x9ac
+  m_flHeight - 0x9b0
+  m_flDPI - 0x9b4
+  m_flInteractDistance - 0x9b8
+  m_flDepthOffset - 0x9bc
+  m_unOwnerContext - 0x9c0
+  m_unHorizontalAlign - 0x9c4
+  m_unVerticalAlign - 0x9c8
+  m_unOrientation - 0x9cc
+  m_bAllowInteractionFromAllSceneWorlds - 0x9d0
+  m_vecCSSClasses - 0x9d8
+CPointOffScreenIndicatorUi
+  m_bBeenEnabled - 0xa50
+  m_bHide - 0xa51
+  m_flSeenTargetTime - 0xa54
+  m_pTargetPanel - 0xa58
+C_PointClientUIWorldPanel
+  m_bForceRecreateNextUpdate - 0x828
+  m_bMoveViewToPlayerNextThink - 0x829
+  m_bCheckCSSClasses - 0x82a
+  m_anchorDeltaTransform - 0x830
+  m_pOffScreenIndicator - 0x9c8
+  m_bIgnoreInput - 0x9f0
+  m_bLit - 0x9f1
+  m_bFollowPlayerAcrossTeleport - 0x9f2
+  m_flWidth - 0x9f4
+  m_flHeight - 0x9f8
+  m_flDPI - 0x9fc
+  m_flInteractDistance - 0xa00
+  m_flDepthOffset - 0xa04
+  m_unOwnerContext - 0xa08
+  m_unHorizontalAlign - 0xa0c
+  m_unVerticalAlign - 0xa10
+  m_unOrientation - 0xa14
+  m_bAllowInteractionFromAllSceneWorlds - 0xa18
+  m_vecCSSClasses - 0xa20
+  m_bOpaque - 0xa38
+  m_bNoDepth - 0xa39
+  m_bRenderBackface - 0xa3a
+  m_bUseOffScreenIndicator - 0xa3b
+  m_bExcludeFromSaveGames - 0xa3c
+  m_bGrabbable - 0xa3d
+  m_bOnlyRenderToTexture - 0xa3e
+  m_bDisableMipGen - 0xa3f
+  m_nExplicitImageLayout - 0xa40
+C_PointClientUIWorldTextPanel
+  m_messageText - 0xa50
+CInfoOffscreenPanoramaTexture
+  m_bDisabled - 0x538
+  m_nResolutionX - 0x53c
+  m_nResolutionY - 0x540
+  m_szLayoutFileName - 0x548
+  m_RenderAttrName - 0x550
+  m_TargetEntities - 0x558
+  m_nTargetChangeCount - 0x570
+  m_vecCSSClasses - 0x578
+  m_bCheckCSSClasses - 0x6f0
+CModifierVData_BaseAura
+  m_eAuraShapeType - 0x5d0
+  m_flAuraRadius - 0x5d4
+  m_flAuraEntityBoundsScale - 0x5e4
+  m_nAmbientParticleRadiusControlPoint - 0x5f4
+  m_modifierProvidedByAura - 0x5f8
+CBaseModifierAura
+  m_hAuraUnits - 0xc0
+  m_hAmbientEffect - 0xd8
+CModifierVData_SetMoveType
+  m_nMoveType - 0x5d0
+CGameModifier_SetMoveType
+  m_nMoveType - 0xc0
+CGameModifier_OverrideTargetIdentifier
+  m_sTargetIdentifier - 0xc0
+  m_hTarget - 0xc8
+  m_sAttachmentName - 0xd0
+  m_hAttachment - 0xd8
+CGameModifier_FireUserEntityIOVData
+  m_FireOnAdded - 0x5d0
+  m_FireOnRemoved - 0x5d4
+C_CitadelProjectile
+  m_hTarget - 0x7fc
+  m_flMaxDistance - 0x800
+  m_flArmingTime - 0x804
+  m_flChargeAmount - 0x808
+  m_bCollideWithThrower - 0x80c
+  m_bNewCollideWithThrower - 0x80d
+  m_flTickSoundInterval - 0x818
+  m_vInitialVelocity - 0x820
+  m_vInitialPosition - 0x82c
+  m_abilityID - 0x838
+  m_hThrower - 0x83c
+  m_sParticleName - 0x840
+  m_vecSpawnPosition - 0x848
+  m_flProjectileSpeed - 0x854
+  m_flMaxLifetime - 0x858
+  m_flParticleRadius - 0x860
+  m_flPreviousTimeScale - 0x870
+C_CitadelPositionHomingProjectile
+  m_vecHomingPosition - 0x878
+CCitadelPlayerController
+  m_ePlayState - 0x6c8
+  m_iGuidedBotMatchLastHits - 0x6cc
+  m_iGuidedBotMatchOrbsSecured - 0x6d0
+  m_iGuidedBotMatchOrbsDenied - 0x6d4
+  m_iGuidedBotMatchDamageToGuardians - 0x6d8
+  m_iGuidedBotMatchDamageToPlayers - 0x6dc
+  m_iGuidedBotMatchDamageTaken - 0x6e0
+  m_iGuidedBotMatchNetWorth - 0x6e4
+  m_iGuidedBotMatchModsPurchased - 0x6e8
+  m_iGuidedBotMatchAbilityUpgrades - 0x6ec
+  m_flGuideBotMatchLastTaskNagVO - 0x6f0
+  m_flGuideBotLastTimeTaskCompleted - 0x6f4
+  m_eGuidedBotMatchObjective - 0x6f8
+  m_nAssignedLane - 0x6fc
+  m_nOriginalLaneAssignment - 0x6fd
+  m_bSwapCastModeAbility1 - 0x6fe
+  m_bSwapCastModeAbility2 - 0x6ff
+  m_bSwapCastModeAbility3 - 0x700
+  m_bSwapCastModeAbility4 - 0x701
+  m_bIsKingPanda - 0x702
+  m_bIsDevTeamMember - 0x703
+  m_hHeroPawn - 0x704
+  m_PlayerDataGlobal - 0x718
+  m_bDeathReplayAvailable - 0x898
+  m_unLobbyPlayerSlot - 0x899
+CCitadel_Modifier_BreakablePropExtraGoldPickupVData
+  m_iBaseExtraGoldBounty - 0x5d0
+  m_iPerMinuteExtraGoldBounty - 0x5d4
+CCitadel_Modifier_BreakablePropSpeedPickupVData
+  m_flSpeedBoost - 0x5d0
+  m_flSprintBoost - 0x5d4
+CCitadel_Modifier_BreakablePropFireRatePickupVData
+  m_flFireRate - 0x5d0
+CCitadel_Modifier_BreakablePropClipSizePickupVData
+  m_flClipSize - 0x5d0
+  m_nClipCount - 0x5d4
+  m_flFireRate - 0x5d8
+CCitadel_Modifier_BreakablePropClipSizePickup
+  nClipRemaining - 0xc0
+CCitadel_Modifier_BreakablePropDoubleJumpVData
+  m_AirJumpVerticalSpeedPercent - 0x5d0
+  m_AirJumps - 0x5d4
+CCitadel_Modifier_BreakablePropDoubleJump
+  m_nTickJumped - 0xc0
+CCitadel_Modifier_BreakablePropZiplineSpeedVData
+  m_flZiplineSpeedBoost - 0x5d0
+CCitadel_Modifier_BreakablePropExtraStaminaVData
+  m_nExtraStamina - 0x5d0
+CCitadel_Modifier_BreakablePropCooldownReductionVData
+  m_flCooldownReduction - 0x5d0
+CCitadel_Modifier_BreakablePropHealthRegenPickupVData
+  m_flFlatHealthRegen - 0x5d0
+  m_flMaxHealthRegenPercent - 0x5d4
+CCitadel_Ability_BaseHeldItemVData
+  m_ItemModel - 0x14e0
+CModifierItemPickupAuraTargetVData
+  m_PickupTimer - 0x5d0
+  m_PickupTimerModifier - 0x5d8
+CCitadel_Ability_GoldenIdolVData
+  m_sIdolDropOffSound - 0x15c0
+CCitadelControlPointTrigger
+  m_flInitialRadius - 0x7f8
+  m_flEndRadius - 0x7fc
+  m_flProgress - 0x800
+  m_flCaptureTime - 0x804
+  m_hUnlockPrereq - 0x808
+  m_bAvailable - 0x80c
+  m_bIsBeingCaptured - 0x80d
+  m_bIsBeingBlocked - 0x80e
+  m_flLastTouchedTime - 0x818
+  m_vecBeamTarget - 0x81c
+  m_vecBeamStart - 0x828
+  m_nFXProgressBeam - 0x834
+  m_strUnlockPrereq - 0x838
+  m_strBeamStart - 0x840
+  m_strBeamTarget - 0x848
+CItemXP
+  m_iParticleParity - 0x810
+C_TeamRelativeParticleSystem
+  m_iszFriendlyEffectName - 0xdb8
+  m_iszEnemyEffectName - 0xdc0
+  m_iFriendlyEffectIndex - 0xdc8
+  m_iEnemyEffectIndex - 0xdd0
+C_AssignedLaneParticle
+  m_iLane - 0x810
+CCitadelZipLineNode
+  m_vecConnections - 0x830
+  m_eCaptureState - 0x848
+  m_iPrimaryLane - 0x84a
+  m_nRopesParity - 0x84c
+  m_bCornerNode - 0x84e
+  m_bCapturable - 0x84f
+  m_bDisableZippingToByPlayers - 0x850
+  m_hGuardingBoss - 0x854
+  m_flRopeRadius - 0x858
+  m_bEnabled - 0x85c
+C_CitadelZiplinePath
+  m_iLaneNumber - 0x640
+CModifierPowerGeneratorVData
+  m_EffectToTitan - 0x5d0
+CModifierTier3BossInvulnVData
+  m_ShieldParticle - 0x5d0
+  m_flShieldRadius - 0x6b0
+C_InWorldAbilityPanel
+  m_hPlayer - 0xa50
+  m_iAbilitySlot - 0xa58
+CLaneStatusWorldPanel
+  m_iLane - 0xa50
+C_InWorldKeyBindPanel
+  m_hPlayer - 0xa50
+CAI_NPC_TrooperVData
+  m_TrooperType - 0xdf8
+  m_flTrooperDamageResistPct - 0xdfc
+  m_flT1BossDamageResistPct - 0xe00
+  m_flT2BossDamageResistPct - 0xe04
+  m_flBarrackGuardianDamageResistPct - 0xe08
+  m_flNearDeathDuration - 0xe0c
+  m_flFlySpeed - 0xe10
+  m_flFlyHeight - 0xe14
+  m_flMeleeDamage - 0xe18
+  m_flMeleeDuration - 0xe1c
+  m_flMeleeChargeRange - 0xe20
+  m_flAttackT1BossMaxRange - 0xe24
+  m_flAttackTrooperMaxRange - 0xe28
+  m_flShieldDamageResistPct - 0xe2c
+  m_flHealthBarOffsetDucking - 0xe30
+  m_flTrooperDPS - 0xe34
+  m_flPlayerDPS - 0xe38
+  m_flT1BossDPS - 0xe3c
+  m_flT2BossDPS - 0xe40
+  m_flT3BossDPS - 0xe44
+  m_flBarrackBossDPS - 0xe48
+  m_flGeneratorBossDPS - 0xe4c
+  m_BossAttackParticle - 0xe50
+  m_LastHitParticle - 0xf30
+  m_TargetingLaserParticle - 0x1010
+  m_TargetingEyeFlashParticle - 0x10f0
+  m_sZiplineContainerBreakFromDamageParticle - 0x11d0
+  m_sZiplineContainerBreakFromLandingParticle - 0x12b0
+  m_MedicHealActiveParticle - 0x1390
+  m_sPlayerLastHitSound - 0x1470
+  m_sCelebrationSound - 0x1480
+  m_sZiplineContainerBreakSound - 0x1490
+  m_NearDeathModifier - 0x14a0
+  m_TrooperBossInvulnModifier - 0x14b0
+CNPC_TrooperBossVData
+  m_bMitigateDamageFromPlayers - 0x14c0
+  m_bBarracksGuardian - 0x14c1
+  m_flPlayerAutoAttackRange - 0x14c4
+  m_BackdoorProtectionModifier - 0x14c8
+  m_sAngryStart - 0x14d8
+  m_sAngryLoop - 0x14e8
+  m_sAngryStop - 0x14f8
+CNPC_Boss_Tier2VData
+  m_flPlayerInitialSightRange - 0xdf8
+  m_strWIPModelName - 0xe00
+  m_vecWeakPoints - 0xee0
+  m_BeamChargingEffect - 0xef8
+  m_BeamPreviewEffect - 0xfd8
+  m_BeamActiveEffect - 0x10b8
+  m_StompImpactEffect - 0x1198
+  m_flTossSpeed - 0x1278
+  m_flStompDamage - 0x127c
+  m_flStompTossUpMagnitude - 0x1280
+  m_flStunDuration - 0x1284
+  m_flStompImpactRadius - 0x1288
+  m_flStompImpactHeight - 0x128c
+  m_flSweepRadius - 0x1290
+  m_flSweepSpeed - 0x1294
+  m_flSweepZScale - 0x1298
+  m_flSweepMaxAngle - 0x129c
+  m_flSweepMaxRange - 0x12a0
+  m_flSweepAdjustSpeed - 0x12a4
+  m_flBurstDuration - 0x12a8
+  m_flBurstCooldown - 0x12ac
+  m_BackdoorProtectionModifier - 0x12b0
+CNPC_Boss_Tier3VData
+  m_nPhase2Health - 0xdf8
+  m_flEyeZOffset - 0xdfc
+  m_flDefaultMoveSpeed - 0xe00
+  m_flDyingMoveSpeed - 0xe04
+  m_flMovingToFinalPositionSpeed - 0xe08
+  m_DeathSmallExplosionParticle - 0xe10
+  m_DeathLargeExplosionParticle - 0xef0
+  m_WeakpointBrokenExplosionParticle - 0xfd0
+  m_ChargeUpExplosionParticle - 0x10b0
+  m_strWIPModelName - 0x1190
+  m_DyingSmallExplosion - 0x1270
+  m_AvatarKilledSound - 0x1280
+  m_AvatarBecomePatronSound - 0x1290
+  m_PatronLandedSound - 0x12a0
+  m_PatronKilledSound - 0x12b0
+  m_LaserBeamModifier - 0x12c0
+  m_DyingModifier - 0x12d0
+  m_VulnerableModifier - 0x12e0
+  m_Phase1Modifier - 0x12f0
+  m_Phase2Modifier - 0x1300
+  m_BackdoorProtection - 0x1310
+  m_ObjectiveRegen - 0x1320
+  m_LaserChargingParticle - 0x1330
+  m_LaserBeamEffect - 0x1410
+  m_LaserPreviewEffect - 0x14f0
+  m_LaserDamageEffect - 0x15d0
+  m_flLaserTrackingSpeed - 0x16b0
+  m_flLaserTrackingMaxSpeed - 0x16b4
+  m_flLaserCastingTrackSpeed - 0x16b8
+  m_flLaserCastingTrackMaxSpeed - 0x16bc
+  m_flLaserTargetingZOffset - 0x16c0
+  m_flLaserDPSToPlayers - 0x16c4
+  m_flLaserDPSToNPCs - 0x16c8
+CBaseTriggerAbilityVData
+  m_AbilityToTrigger - 0x14e0
+  m_flMinCancelTime - 0x14f0
+  m_eHintFeatureToMarkUsedOnTrigger - 0x14f4
+CCitadelBaseTriggerAbility
+  m_hAbilityToTrigger - 0xc28
+  m_SwappedToTime - 0xc2c
+CBaseDashCastAbilityVData
+  m_AbilityToTrigger - 0x14e0
+  m_flDashCastTriggerRadius - 0x14f0
+  m_flDashSpeed - 0x14f4
+  m_bSnapToZeroSpeedOnEnd - 0x14f8
+  m_bUseCurveToDefineSpeed - 0x14f9
+  m_MovementSpeedCurve - 0x1500
+  m_flMovementSpeedCurveAvgSpeed - 0x1540
+  m_strTargetHitSound - 0x1548
+  m_strMissSound - 0x1558
+CCitadelBaseDashCastAbility
+  m_hAbilityToTrigger - 0xc28
+  m_flDashCastStartTime - 0xc2c
+  m_vDashCastDir - 0xc30
+CBaseLockonAbilityVData
+  m_TargetModifier - 0x14e0
+  m_strApplyLockonStack - 0x14f0
+CCitadelBaseLockonAbility
+  m_vecLockonTargets - 0xd40
+  m_LockOnStartTime - 0xd90
+  m_nTargetingLightEffect - 0xd98
+CCitadel_Modifier_DPSTracker
+  m_flProgress - 0xc0
+  m_flDistToTarget - 0xc4
+CCitadel_Modifier_AccuracyTracker
+  m_flProgress - 0xc0
+CNPC_ShieldedSentryVData
+  m_flZShootPostionOffset - 0x108
+  m_LaserSightParticle - 0x110
+  m_KillExplosionParticle - 0x1f0
+  m_DeployProgressModifier - 0x2d0
+  m_NearDeathModifier - 0x2e0
+  m_sSpawnSound - 0x2f0
+  m_sKillExplosionSound - 0x300
+  m_sTargetAcquiredLocalSound - 0x310
+  m_sTargetAcquiredSound - 0x320
+  m_flIdleTurnSpeed - 0x330
+  m_flIdleTurnAngles - 0x334
+  m_flTrooperTakeDamageMult - 0x338
+  m_flNeutralTakeDamageMulti - 0x33c
+  m_flNotifyEventTime - 0x340
+  m_flNearDeathDuration - 0x344
+CNPC_FieldSentryVData
+  m_LaserSightParticle - 0x108
+  m_KillExplosionParticle - 0x1e8
+  m_DeployProgressModifier - 0x2c8
+  m_sSpawnSound - 0x2d8
+  m_sKillExplosionSound - 0x2e8
+  m_sTargetAcquiredLocalSound - 0x2f8
+  m_sTargetAcquiredSound - 0x308
+  m_flIdleTurnSpeed - 0x318
+  m_flIdleTurnAngles - 0x31c
+  m_flTrooperTakeDamageMult - 0x320
+  m_flNeutralTakeDamageMulti - 0x324
+  m_flNotifyEventTime - 0x328
+CCitadelModifierAuraVData
+  m_iAuraSearchType - 0x608
+  m_iAuraSearchFlags - 0x60c
+CCitadelModifierAura_ConeVData
+  m_flAuraTargetingConeHalfWidth - 0x610
+  m_flAuraTargetingConeAngle - 0x614
+CCitadel_Modifier_Knockback
+  m_flForce - 0xc8
+  m_bKnockedBack - 0xcc
+CModifierKnockdownVData
+  m_flSatVolumeRadius - 0x6b0
+  m_flSatVolumeFadeOut - 0x6b4
+  m_flGetUpSeqDuration - 0x6b8
+  m_cameraSequenceGetUp - 0x6c0
+CCitadel_Modifier_Knockdown
+  m_angStunAngles - 0xc8
+  m_ePreferredKnockdownType - 0xd4
+  m_bForceTakePreferred - 0xd8
+  m_flGetUpAnimTime - 0xdc
+  m_bGetUpCamSeqStarted - 0xe0
+  m_bOnGroundDuration - 0xe1
+  m_satIndex - 0xe4
+C_Citadel_Projectile_Tier2Boss_RocketBarrage
+  m_nLaserParticleIndex - 0x878
+  m_vecSmoothedVelocity - 0x87c
+CCitadel_Modifier_BubbleVData
+  m_ExplodeParticle - 0x870
+  m_ExplodeSound - 0x950
+  m_BuffModifier - 0x960
+CCitadel_Modifier_Bubble
+  m_flDampingFactor - 0xc0
+CCitadel_Item_StasisBomb_Aura
+  m_AuraRadius - 0xe0
+CCitadel_Item_PowerShard
+  m_hLastSignatureToActivate - 0xc40
+CCitadel_Item_Discord_AuraVData_Enemy
+  m_strAreaEffectEnemy - 0x610
+  m_strAreaEffectFriendly - 0x6f0
+  m_strAreaEffectSelf - 0x7d0
+CCitadel_Item_DivinersKevlar
+  m_bExecuted - 0xc40
+CCitadel_ArmorUpgrade_DoubleJump
+  m_nTickJumped - 0xc40
+CCitadel_ArmorUpgrade_AblativeCoat
+  m_iCurrentResistValue - 0xc40
+CItem_RestorativeLocket
+  m_nNumStacks - 0xce8
+CCitadel_Modifier_FrenzyAuraVData
+  m_KillModifier - 0x610
+CCitadel_WeaponUpgrade_WeaponEater
+  m_nWeaponPower - 0xd20
+CCitadel_WeaponUpgrade_InstantReload
+  m_bIsManualReloading - 0xc40
+CCitadel_Modifier_ThermalDetonator_ThinkerVData
+  m_GroundParticle - 0x610
+CCitadel_WeaponUpgrade_GlassCannon
+  m_nBonusClipGained - 0xc40
+CCitadel_WeaponUpgrade_BurstFire
+  m_nFastFireEndTime - 0xc40
+CCitadel_Item_WarpStone
+  m_nCastDelayParticleIndex - 0xc40
+CCitadel_UtilityUpgrade_RocketBooster
+  m_nTargetingParticleIndex - 0xcb4
+  m_flCastTime - 0xcb8
+  m_bCrashingDown - 0xcbc
+  m_vecCrashPosition - 0xcc0
+  m_vecCrashDirection - 0xccc
+CItemAOESilenceAuraVData
+  m_empWaveParticle - 0x610
+CCitadel_Modifier_Item_AOESilence
+  m_flStartRadius - 0xe0
+  m_flEndRadius - 0xe4
+  m_flSpreadDuration - 0xe8
+CCitadel_Modifier_FlameDashGroundAuraVData
+  m_GroundParticle - 0x610
+CCitadel_Modifier_Bull_Heal_Aura
+  m_playerAngles - 0xe0
+  m_ConeParticle - 0xec
+C_CitadelProjectile_ImmobilizeTrap
+  m_bShouldDraw - 0x878
+CAbilityLashUltimateVData
+  m_TargetPreviewParticle - 0x1500
+  m_LaunchParticle - 0x15e0
+  m_UltimateCastParticle - 0x16c0
+  m_UltimateCastEnemyParticle - 0x17a0
+  m_strThrowEnemyAnimGraphParam - 0x1880
+  m_GrappleEnemyModifier - 0x1888
+  m_GrabSound - 0x1898
+  m_MissSound - 0x18a8
+  m_ThrowSound - 0x18b8
+  m_flAirSpeedMax - 0x18c8
+  m_flFallSpeedMax - 0x18cc
+  m_flAirDrag - 0x18d0
+  m_flMaxPitchRangeScale - 0x18d4
+  m_flThrowAnimTossPoint - 0x18d8
+CCitadel_Ability_Lash_Ultimate
+  m_EGrappleState - 0xda2
+  m_flStateEnterTime - 0xda4
+  m_flNextStateTime - 0xda8
+  m_flBoostEndTime - 0xdc0
+C_Projectile_Stomp_Projectile
+  m_flWidth - 0x878
+  m_tDieTime - 0x87c
+CModifierVacuumAuraVData
+  m_FinishParticle - 0x610
+  m_strAmbientLoopingLocalPlayerSound - 0x6f0
+CModifierNikumanVData
+  m_SelfParticle - 0x610
+  m_AOEFriendParticle - 0x6f0
+  m_strAmbientLoopingLocalPlayerSound - 0x7d0
+C_Citadel_Ice_Path_Shard_Physics
+  m_ShardDesc - 0x7f0
+  m_qForward - 0x828
+  m_flStartTime - 0x834
+  m_flEndTime - 0x838
+C_Citadel_Projectile_Viscous_GooGrenade
+  m_nBounces - 0x878
+  m_tNextDetonateTime - 0x87c
+  m_vecProjectileHitTargets - 0x880
+C_Citadel_Projectile_Bebop_Hook
+  m_iChainEffect - 0x878
+CCitadel_Modifier_TenguLaserGroundAuraVData
+  m_GroundParticle - 0x610
+C_CitadelBoomerangProjectile
+  m_bReturning - 0x878
+CCitadel_Modifier_Cadence_AnthemAOEVData
+  m_AuraParticle - 0x610
+CCitadel_Modifier_Cadence_SleepAOEVData
+  m_AuraParticle - 0x610
+CAbilityCadenceSilenceContraptionsVData
+  m_SilenceContraptionsModifier - 0x1568
+CCitadel_Modifier_Cadence_GrandFinaleAOEVData
+  m_AuraParticle - 0x610
+CCitadel_Modifier_Cadence_Crescendo_AOE_VData
+  m_AuraParticle - 0x610
+CCitadel_Modifier_Cadence_Crescendo_AOE
+  m_nTicks - 0xe8
+CCitadel_Modifier_Tokamak_AllySmokeAOE_VData
+  m_AuraParticle - 0x610
+CCitadel_Modifier_Thumper_2_AuraVData
+  m_AoEParticle - 0x610
+CCitadel_Modifier_Thumper_PullAOE_VData
+  m_AuraParticle - 0x610
+CCitadel_Modifier_Rutger_Pulse_Aura_VData
+  m_empWaveParticle - 0x610
+CCitadel_Modifier_Rutger_Pulse_Aura
+  m_flStartRadius - 0xe0
+  m_flEndRadius - 0xe4
+  m_flSpreadDuration - 0xe8
+C_BarnLight
+  m_bEnabled - 0x7f0
+  m_nColorMode - 0x7f4
+  m_Color - 0x7f8
+  m_flColorTemperature - 0x7fc
+  m_flBrightness - 0x800
+  m_flBrightnessScale - 0x804
+  m_nDirectLight - 0x808
+  m_nBakedShadowIndex - 0x80c
+  m_nLuminaireShape - 0x810
+  m_flLuminaireSize - 0x814
+  m_flLuminaireAnisotropy - 0x818
+  m_LightStyleString - 0x820
+  m_flLightStyleStartTime - 0x828
+  m_QueuedLightStyleStrings - 0x830
+  m_LightStyleEvents - 0x848
+  m_LightStyleTargets - 0x860
+  m_StyleEvent - 0x878
+  m_hLightCookie - 0x918
+  m_flShape - 0x920
+  m_flSoftX - 0x924
+  m_flSoftY - 0x928
+  m_flSkirt - 0x92c
+  m_flSkirtNear - 0x930
+  m_vSizeParams - 0x934
+  m_flRange - 0x940
+  m_vShear - 0x944
+  m_nBakeSpecularToCubemaps - 0x950
+  m_vBakeSpecularToCubemapsSize - 0x954
+  m_nCastShadows - 0x960
+  m_nShadowMapSize - 0x964
+  m_nShadowPriority - 0x968
+  m_bContactShadow - 0x96c
+  m_nBounceLight - 0x970
+  m_flBounceScale - 0x974
+  m_flMinRoughness - 0x978
+  m_vAlternateColor - 0x97c
+  m_fAlternateColorBrightness - 0x988
+  m_nFog - 0x98c
+  m_flFogStrength - 0x990
+  m_nFogShadows - 0x994
+  m_flFogScale - 0x998
+  m_flFadeSizeStart - 0x99c
+  m_flFadeSizeEnd - 0x9a0
+  m_flShadowFadeSizeStart - 0x9a4
+  m_flShadowFadeSizeEnd - 0x9a8
+  m_bPrecomputedFieldsValid - 0x9ac
+  m_vPrecomputedBoundsMins - 0x9b0
+  m_vPrecomputedBoundsMaxs - 0x9bc
+  m_vPrecomputedOBBOrigin - 0x9c8
+  m_vPrecomputedOBBAngles - 0x9d4
+  m_vPrecomputedOBBExtent - 0x9e0
+C_RectLight
+  m_bShowLight - 0xa38
+C_OmniLight
+  m_flInnerAngle - 0xa38
+  m_flOuterAngle - 0xa3c
+  m_bShowLight - 0xa40
+C_LaneNode
+  m_nPlayerTeamEventIndex - 0x828
+C_CitadelTeam
+  m_hPayload - 0x5f0
+  m_nBossesAlive - 0x5f4
+  m_nBossesMax - 0x5f8
+  m_nFlexSlotsUnlocked - 0x5fc
+  m_vecFOWEntities - 0x600
+CUnitStatusOverlay
+  m_flUIScale - 0xa90
+CInWorldItemPanel
+  m_hTrackedEntity - 0xa50
+  m_nTrackedEntity - 0xa54
+C_RenderPortal
+  m_hLocalPortalLink - 0x7f0
+  m_hRemotePortalLink - 0x7f4
+  m_brushModelName - 0x7f8
+  m_flFadeStartDist - 0x800
+  m_flFadeEndDist - 0x804
+  m_flFadeStartAngle - 0x808
+  m_flFadeEndAngle - 0x80c
+  m_fadeToColor - 0x810
+CInfoDynamicShadowHint
+  m_bDisabled - 0x538
+  m_flRange - 0x53c
+  m_nImportance - 0x540
+  m_nLightChoice - 0x544
+  m_hLight - 0x548
+CInfoDynamicShadowHintBox
+  m_vBoxMins - 0x550
+  m_vBoxMaxs - 0x55c
+C_EnvSky
+  m_hSkyMaterial - 0x7f0
+  m_hSkyMaterialLightingOnly - 0x7f8
+  m_bStartDisabled - 0x800
+  m_vTintColor - 0x801
+  m_vTintColorLightingOnly - 0x805
+  m_flBrightnessScale - 0x80c
+  m_nFogType - 0x810
+  m_flFogMinStart - 0x814
+  m_flFogMinEnd - 0x818
+  m_flFogMaxStart - 0x81c
+  m_flFogMaxEnd - 0x820
+  m_bEnabled - 0x824
+C_LightEntity
+  m_CLightComponent - 0x7f0
+C_EnvParticleGlow
+  m_flAlphaScale - 0xda0
+  m_flRadiusScale - 0xda4
+  m_flSelfIllumScale - 0xda8
+  m_ColorTint - 0xdac
+  m_hTextureOverride - 0xdb0
+C_TextureBasedAnimatable
+  m_bLoop - 0x7f0
+  m_flFPS - 0x7f4
+  m_hPositionKeys - 0x7f8
+  m_hRotationKeys - 0x800
+  m_vAnimationBoundsMin - 0x808
+  m_vAnimationBoundsMax - 0x814
+  m_flStartTime - 0x820
+  m_flStartFrame - 0x824
+CBaseAnimGraph
+  m_bInitiallyPopulateInterpHistory - 0x868
+  m_bSuppressAnimEventSounds - 0x86a
+  m_bAnimGraphUpdateEnabled - 0x878
+  m_flMaxSlopeDistance - 0x87c
+  m_vLastSlopeCheckPos - 0x880
+  m_bAnimationUpdateScheduled - 0x88c
+  m_vecForce - 0x890
+  m_nForceBone - 0x89c
+  m_pClientsideRagdoll - 0x8a0
+  m_bBuiltRagdoll - 0x8a8
+  m_pRagdollPose - 0x8c0
+  m_bRagdollClientSide - 0x8c8
+  m_bHasAnimatedMaterialAttributes - 0x8d8
+CBaseProp
+  m_bModelOverrodeBlockLOS - 0x9f8
+  m_iShapeType - 0x9fc
+  m_bConformToCollisionBounds - 0xa00
+  m_mPreferredCatchTransform - 0xa04
+C_BreakableProp
+  m_CPropDataComponent - 0xa38
+  m_OnBreak - 0xa78
+  m_OnHealthChanged - 0xaa0
+  m_OnTakeDamage - 0xac8
+  m_impactEnergyScale - 0xaf0
+  m_iMinHealthDmg - 0xaf4
+  m_flPressureDelay - 0xaf8
+  m_flDefBurstScale - 0xafc
+  m_vDefBurstOffset - 0xb00
+  m_hBreaker - 0xb0c
+  m_PerformanceMode - 0xb10
+  m_flPreventDamageBeforeTime - 0xb14
+  m_bHasBreakPiecesOrCommands - 0xb18
+  m_explodeDamage - 0xb1c
+  m_explodeRadius - 0xb20
+  m_explosionDelay - 0xb28
+  m_explosionBuildupSound - 0xb30
+  m_explosionCustomEffect - 0xb38
+  m_explosionCustomSound - 0xb40
+  m_explosionModifier - 0xb48
+  m_hPhysicsAttacker - 0xb50
+  m_flLastPhysicsInfluenceTime - 0xb54
+  m_flDefaultFadeScale - 0xb58
+  m_hLastAttacker - 0xb5c
+  m_hFlareEnt - 0xb60
+  m_noGhostCollision - 0xb64
+C_DynamicProp
+  m_bUseHitboxesForRenderBox - 0xb68
+  m_bUseAnimGraph - 0xb69
+  m_pOutputAnimBegun - 0xb70
+  m_pOutputAnimOver - 0xb98
+  m_pOutputAnimLoopCycleOver - 0xbc0
+  m_OnAnimReachedStart - 0xbe8
+  m_OnAnimReachedEnd - 0xc10
+  m_iszIdleAnim - 0xc38
+  m_nIdleAnimLoopMode - 0xc40
+  m_bRandomizeCycle - 0xc44
+  m_bStartDisabled - 0xc45
+  m_bFiredStartEndOutput - 0xc46
+  m_bForceNpcExclude - 0xc47
+  m_bCreateNonSolid - 0xc48
+  m_bIsOverrideProp - 0xc49
+  m_iInitialGlowState - 0xc4c
+  m_nGlowRange - 0xc50
+  m_nGlowRangeMin - 0xc54
+  m_glowColor - 0xc58
+  m_nGlowTeam - 0xc5c
+  m_iCachedFrameCount - 0xc60
+  m_vecCachedRenderMins - 0xc64
+  m_vecCachedRenderMaxs - 0xc70
+C_ColorCorrectionVolume
+  m_LastEnterWeight - 0x7f8
+  m_LastEnterTime - 0x7fc
+  m_LastExitWeight - 0x800
+  m_LastExitTime - 0x804
+  m_bEnabled - 0x808
+  m_MaxWeight - 0x80c
+  m_FadeDuration - 0x810
+  m_Weight - 0x814
+  m_lookupFilename - 0x818
+C_FuncMonitor
+  m_targetCamera - 0x7f0
+  m_nResolutionEnum - 0x7f8
+  m_bRenderShadows - 0x7fc
+  m_bUseUniqueColorTarget - 0x7fd
+  m_brushModelName - 0x800
+  m_hTargetCamera - 0x808
+  m_bEnabled - 0x80c
+  m_bDraw3DSkybox - 0x80d
+C_PhysMagnet
+  m_aAttachedObjectsFromServer - 0x9f8
+  m_aAttachedObjects - 0xa10
+C_PointCommentaryNode
+  m_bActive - 0xa00
+  m_bWasActive - 0xa01
+  m_flEndTime - 0xa04
+  m_flStartTime - 0xa08
+  m_flStartTimeInCommentary - 0xa0c
+  m_iszCommentaryFile - 0xa10
+  m_iszTitle - 0xa18
+  m_iszSpeakers - 0xa20
+  m_iNodeNumber - 0xa28
+  m_iNodeNumberMax - 0xa2c
+  m_bListenedTo - 0xa30
+  m_hViewPosition - 0xa40
+  m_bRestartAfterRestore - 0xa44
+C_BaseDoor
+  m_bIsUsable - 0x7f0
+C_ClientRagdoll
+  m_bFadeOut - 0x9f8
+  m_bImportant - 0x9f9
+  m_flEffectTime - 0x9fc
+  m_gibDespawnTime - 0xa00
+  m_iCurrentFriction - 0xa04
+  m_iMinFriction - 0xa08
+  m_iMaxFriction - 0xa0c
+  m_iFrictionAnimState - 0xa10
+  m_bReleaseRagdoll - 0xa14
+  m_iEyeAttachment - 0xa15
+  m_bFadingOut - 0xa16
+  m_flScaleEnd - 0xa18
+  m_flScaleTimeStart - 0xa40
+  m_flScaleTimeEnd - 0xa68
+C_Precipitation
+  m_flDensity - 0x7f8
+  m_flParticleInnerDist - 0x808
+  m_pParticleDef - 0x810
+  m_tParticlePrecipTraceTimer - 0x838
+  m_bActiveParticlePrecipEmitter - 0x840
+  m_bParticlePrecipInitialized - 0x841
+  m_bHasSimulatedSinceLastSceneObjectUpdate - 0x842
+  m_nAvailableSheetSequencesMaxIndex - 0x844
+C_FireSprite
+  m_vecMoveDir - 0x900
+  m_bFadeFromAbove - 0x90c
+C_Fish
+  m_pos - 0x9f8
+  m_vel - 0xa04
+  m_angles - 0xa10
+  m_localLifeState - 0xa1c
+  m_deathDepth - 0xa20
+  m_deathAngle - 0xa24
+  m_buoyancy - 0xa28
+  m_wiggleTimer - 0xa30
+  m_wigglePhase - 0xa48
+  m_wiggleRate - 0xa4c
+  m_actualPos - 0xa50
+  m_actualAngles - 0xa5c
+  m_poolOrigin - 0xa68
+  m_waterLevel - 0xa74
+  m_gotUpdate - 0xa78
+  m_x - 0xa7c
+  m_y - 0xa80
+  m_z - 0xa84
+  m_angle - 0xa88
+  m_errorHistory - 0xa8c
+  m_errorHistoryIndex - 0xadc
+  m_errorHistoryCount - 0xae0
+  m_averageError - 0xae4
+C_PhysicsProp
+  m_bAwake - 0xb68
+C_BasePropDoor
+  m_eDoorState - 0xc90
+  m_modelChanged - 0xc94
+  m_bLocked - 0xc95
+  m_closedPosition - 0xc98
+  m_closedAngles - 0xca4
+  m_hMaster - 0xcb0
+  m_vWhereToSetLightingOrigin - 0xcb4
+C_PhysPropClientside
+  m_flTouchDelta - 0xb68
+  m_fDeathTime - 0xb6c
+  m_inertiaScale - 0xb70
+  m_vecDamagePosition - 0xb74
+  m_vecDamageDirection - 0xb80
+  m_nDamageType - 0xb8c
+C_RagdollProp
+  m_ragPos - 0xa00
+  m_ragAngles - 0xa18
+  m_flBlendWeight - 0xa30
+  m_hRagdollSource - 0xa34
+  m_iEyeAttachment - 0xa38
+  m_flBlendWeightCurrent - 0xa3c
+  m_parentPhysicsBoneIndices - 0xa40
+  m_worldSpaceBoneComputationOrder - 0xa58
+C_LocalTempEntity
+  flags - 0x9f8
+  die - 0x9fc
+  m_flFrameMax - 0xa00
+  x - 0xa04
+  y - 0xa08
+  fadeSpeed - 0xa0c
+  bounceFactor - 0xa10
+  hitSound - 0xa14
+  priority - 0xa18
+  tentOffset - 0xa1c
+  m_vecTempEntAngVelocity - 0xa28
+  tempent_renderamt - 0xa34
+  m_vecNormal - 0xa38
+  m_flSpriteScale - 0xa44
+  m_nFlickerFrame - 0xa48
+  m_flFrameRate - 0xa4c
+  m_flFrame - 0xa50
+  m_pszImpactEffect - 0xa58
+  m_pszParticleEffect - 0xa60
+  m_bParticleCollision - 0xa68
+  m_iLastCollisionFrame - 0xa6c
+  m_vLastCollisionOrigin - 0xa70
+  m_vecTempEntVelocity - 0xa7c
+  m_vecPrevAbsOrigin - 0xa88
+  m_vecTempEntAcceleration - 0xa94
+C_ShatterGlassShardPhysics
+  m_ShardDesc - 0xb78
+C_ItemCrate
+  m_eLootType - 0xb74
+CCitadel_Modifier_HeldItemPickupAuraVData
+  m_strFilterAbilityName - 0x610
+C_Citadel_Destroyable_Building
+  m_CCitadelAbilityComponent - 0xa00
+  m_vecWeakPoints - 0xb90
+  m_bDestroyed - 0xbe0
+  m_bActive - 0xbe1
+  m_bFinal - 0xbe2
+C_Citadel_DynamicProp
+  m_nPlayerTeamEvent - 0xc90
+  m_strDefaultSkin - 0xc98
+  m_strFriendlySkin - 0xca0
+  m_strEnemySkin - 0xca8
+  m_bIsWorld - 0xcb0
+C_Citadel_FissureWall
+  m_vStartPos - 0x9f8
+  m_vEndPos - 0xa04
+  m_flStartEmitTime - 0xa10
+  m_flEndEmitTime - 0xa14
+  m_bSolid - 0xa18
+  m_nTouchCount - 0xa1c
+CCitadel_MobileResupply
+  m_hAbility - 0xa00
+  m_bFloating - 0xa04
+C_Citadel_Bounce_Pad
+  m_flUpFactor - 0xa00
+  m_flBounceVelocity - 0xa04
+  m_flBarrelBounceVelocity - 0xa08
+  m_flBarrelUpFactor - 0xa0c
+  m_bSpeedOnLand - 0xa10
+CCitadel_GrandFinaleStage
+  m_vStartPos - 0x9f8
+  m_vEndPos - 0xa04
+  m_flStartEmitTime - 0xa10
+  m_flEndEmitTime - 0xa14
+  m_nTouchCount - 0xa18
+CPropAnimatingBreakable
+  m_stages - 0x9f8
+  m_OnTakeDamage - 0xa10
+  m_OnFinalBreak - 0xa38
+  m_OnStageAdvanced - 0xa60
+C_EconEntity
+  m_AttributeManager - 0xba0
+  m_bClientside - 0xce0
+  m_nDisableMode - 0xce4
+  m_bParticleSystemsCreated - 0xce8
+  m_bForceDestroyAttachedParticlesImmediately - 0xce9
+  m_vecAttachedParticles - 0xcf0
+  m_hViewmodelAttachment - 0xd08
+  m_iOldTeam - 0xd0c
+  m_bAttachmentDirty - 0xd10
+  m_iOldStyle - 0xd11
+  m_hOldProvidee - 0xd14
+  m_vecAttachedModels - 0xd18
+C_ItemWeaponParts
+  m_hTouchedPlayeres - 0xa18
+C_Citadel_BreakableProp
+  m_nHitIndex - 0x9f8
+C_Citadel_BreakblePropPickup
+  m_bActive - 0x9f8
+  m_sPickupName - 0xa00
+C_NPC_SimpleAnimatingAI
+  m_hEnemy - 0x9f8
+C_NPC_BaseDefenseSentry
+  m_vecUnitStatusOffset - 0xa00
+C_NPC_ShieldedSentry
+  m_CCitadelAbilityComponent - 0xa00
+  m_flAttackRange - 0xb94
+  m_flAimPitch - 0xb98
+C_NPC_TeslaCoil
+  m_CCitadelAbilityComponent - 0xa00
+C_NPC_FieldSentry
+  m_flAttackRange - 0xa04
+  m_flAimPitch - 0xa08
+C_RagdollPropAttached
+  m_boneIndexAttached - 0xa70
+  m_ragdollAttachedObjectIndex - 0xa74
+  m_attachmentPointBoneSpace - 0xa78
+  m_attachmentPointRagdollSpace - 0xa84
+  m_vecOffset - 0xa90
+  m_parentTime - 0xa9c
+  m_bHasParent - 0xaa0
+C_BaseCombatCharacter
+  m_hMyWearables - 0xb90
+  m_leftFootAttachment - 0xba8
+  m_rightFootAttachment - 0xba9
+  m_nWaterWakeMode - 0xbac
+  m_flWaterWorldZ - 0xbb0
+  m_flWaterNextTraceTime - 0xbb4
+  m_flFieldOfView - 0xbb8
+C_AI_BaseNPC
+  m_NPCState - 0xc20
+  m_bFadeCorpse - 0xc24
+  m_bImportantRagdoll - 0xc25
+C_CitadelItemPickup
+  m_eLootType - 0xa00
+  m_nCurrencyValue - 0xa04
+  m_nCurrencyType - 0xa08
+  m_iszModelName - 0xa10
+  m_flModelScale - 0xa18
+  m_hTargetPlayer - 0xa1c
+  m_flFallRate - 0xa20
+C_CitadelPayload
+  m_flProgress - 0xa00
+  m_nNumPushers - 0xa04
+C_AI_CitadelNPC
+  m_bBeamActive - 0xc44
+  m_vEyeBeamTarget - 0xc48
+  m_nPlayerTeamEvent - 0x1108
+  m_vecWeakPoints - 0x1158
+  m_bMinion - 0x11a8
+  m_hLookTarget - 0x11ac
+  m_CCitadelAbilityComponent - 0x11b0
+C_NPC_Trooper
+  m_iLane - 0x1340
+  m_hTargetedEnemy - 0x1344
+  m_flHealingChargeParticlePct - 0x1348
+  m_flVulnerableTime - 0x134c
+C_NPC_TrooperBoss
+  m_CCitadelPlayerClipComponent - 0x1388
+C_NPC_TrooperNeutral
+  m_bPlayingIdle - 0x1340
+  m_bShieldActive - 0x1341
+C_NPC_HeroCloneTrooper
+  m_hOwner - 0x1340
+C_NPC_Boss_Tier2
+  m_iLane - 0x1340
+  m_hTargetedEnemy - 0x1344
+  m_vecElectricBeamLookTarget - 0x1348
+  m_nElectricBeamCasts - 0x1360
+C_NPC_Boss_Tier3
+  m_iLane - 0x1340
+  m_angTargeting1 - 0x1348
+  m_angTargeting2 - 0x1360
+  m_nElectricBeamCasts - 0x1378
+  m_eAliveState - 0x137c
+  m_ePhase - 0x1380
+C_NPC_NanoRollermine
+  m_flForwardSpeed - 0x1358
+  m_hOwnerPawn - 0x135c
+C_PortraitWorldUnit
+  m_bSuppressIntroEffects - 0xc20
+  m_bIsAlternateLoadout - 0xc21
+  m_bSpawnBackgroundModels - 0xc22
+  m_bDeferredPortrait - 0xc23
+  m_bShowParticleAssetModifiers - 0xc24
+  m_bIgnorePortraitInfo - 0xc25
+  m_bFlyingCourier - 0xc26
+  m_nEffigyStatusEffect - 0xc28
+  m_effigySequenceName - 0xc30
+  m_flStartingAnimationCycle - 0xc38
+  m_flRareLoadoutAnimChance - 0xc3c
+  m_environment - 0xc50
+  m_nStartupBehavior - 0xc54
+  m_cameraName - 0xdc8
+  m_nPortraitParticle - 0xe00
+  m_nAmbientParticle - 0xe04
+  m_nCourierType - 0xe08
+  m_heroID - 0xe0c
+  m_heroAnimGraphEnumName - 0xe10

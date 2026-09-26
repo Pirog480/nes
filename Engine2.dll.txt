@@ -1,0 +1,120 @@
+EngineLoopState_t
+  m_nPlatWindowWidth - 0x18
+  m_nPlatWindowHeight - 0x1c
+  m_nRenderWidth - 0x20
+  m_nRenderHeight - 0x24
+EntComponentInfo_t
+  m_pName - 0x0
+  m_pCPPClassname - 0x8
+  m_pNetworkDataReferencedDescription - 0x10
+  m_pNetworkDataReferencedPtrPropDescription - 0x18
+  m_nRuntimeIndex - 0x20
+  m_nFlags - 0x24
+  m_pBaseClassComponentHelper - 0x60
+CScriptComponent
+  m_scriptClassName - 0x30
+ChangeAccessorFieldPathIndex_t
+  m_Value - 0x0
+EventFrameBoundary_t
+  m_flFrameTime - 0x0
+EventProfileStorageAvailable_t
+  m_nSplitScreenSlot - 0x0
+EventSetTime_t
+  m_LoopState - 0x0
+  m_nClientOutputFrames - 0x28
+  m_flRealTime - 0x30
+  m_flRenderTime - 0x38
+  m_flRenderFrameTime - 0x40
+  m_flRenderFrameTimeUnbounded - 0x48
+  m_flRenderFrameTimeUnscaled - 0x50
+  m_flTickRemainder - 0x58
+EventClientPollInput_t
+  m_LoopState - 0x0
+  m_flRealTime - 0x28
+EventClientProcessInput_t
+  m_LoopState - 0x0
+  m_flRealTime - 0x28
+  m_flTickInterval - 0x2c
+  m_flTickStartTime - 0x30
+EventClientProcessGameInput_t
+  m_LoopState - 0x0
+  m_flRealTime - 0x28
+  m_flFrameTime - 0x2c
+EventClientPreOutput_t
+  m_LoopState - 0x0
+  m_flRenderTime - 0x28
+  m_flRenderFrameTime - 0x30
+  m_flRenderFrameTimeUnbounded - 0x38
+  m_flRealTime - 0x40
+  m_bRenderOnly - 0x44
+EventClientSceneSystemThreadStateChange_t
+  m_bThreadsActive - 0x0
+EventClientOutput_t
+  m_LoopState - 0x0
+  m_flRenderTime - 0x28
+  m_flRealTime - 0x2c
+  m_flRenderFrameTimeUnbounded - 0x30
+  m_bRenderOnly - 0x34
+EventClientPostOutput_t
+  m_LoopState - 0x0
+  m_flRenderTime - 0x28
+  m_flRenderFrameTime - 0x30
+  m_flRenderFrameTimeUnbounded - 0x34
+  m_bRenderOnly - 0x38
+EventClientFrameSimulate_t
+  m_LoopState - 0x0
+  m_flRealTime - 0x28
+  m_flFrameTime - 0x2c
+  m_flWhenScheduleSendTickPacket - 0x30
+EventSimpleLoopFrameUpdate_t
+  m_LoopState - 0x0
+  m_flRealTime - 0x28
+  m_flFrameTime - 0x2c
+EventSimulate_t
+  m_LoopState - 0x0
+  m_bFirstTick - 0x28
+  m_bLastTick - 0x29
+EventAdvanceTick_t
+  m_nCurrentTick - 0x30
+  m_nCurrentTickThisFrame - 0x34
+  m_nTotalTicksThisFrame - 0x38
+  m_nTotalTicks - 0x3c
+EventPostAdvanceTick_t
+  m_nCurrentTick - 0x30
+  m_nCurrentTickThisFrame - 0x34
+  m_nTotalTicksThisFrame - 0x38
+  m_nTotalTicks - 0x3c
+EventClientPollNetworking_t
+  m_nTickCount - 0x0
+EventPostDataUpdate_t
+  m_nCount - 0x0
+EventPreDataUpdate_t
+  m_nCount - 0x0
+EventAppShutdown_t
+  m_nDummy0 - 0x0
+CNetworkVarChainer
+  m_PathIndex - 0x20
+CEntityComponentHelper
+  m_flags - 0x8
+  m_pInfo - 0x10
+  m_nPriority - 0x18
+  m_pNext - 0x20
+CEntityIdentity
+  m_nameStringableIndex - 0x14
+  m_name - 0x18
+  m_designerName - 0x20
+  m_flags - 0x30
+  m_worldGroupId - 0x38
+  m_fDataObjectTypes - 0x3c
+  m_PathIndex - 0x40
+  m_pPrev - 0x58
+  m_pNext - 0x60
+  m_pPrevByClass - 0x68
+  m_pNextByClass - 0x70
+CEntityInstance
+  m_iszPrivateVScripts - 0x8
+  m_pEntity - 0x10
+  m_CScriptComponent - 0x28
+  m_bVisibleinPVS - 0x30
+CEntityIOOutput
+  m_Value - 0x18
