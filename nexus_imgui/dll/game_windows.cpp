@@ -63,15 +63,17 @@ int       g_vpW = 0, g_vpH = 0;
 ULONGLONG g_lastReloadMs = 0;
 ULONGLONG g_lastCaptureDiagMs = 0;
 
-void LogCaptureStatus(const char* status, int count = 0)
+void LogCaptureStatus(const char* status, int count = 0, int alive = 0,
+                      int enemies = 0, int width = 0, int height = 0)
 {
     const ULONGLONG now = ::GetTickCount64();
     if (now - g_lastCaptureDiagMs < 2000)
         return;
     g_lastCaptureDiagMs = now;
-    NEXUS_LOG("game: capture %s, controllers=%zu, local=%p, pawn=%p, team=%d, players=%d",
+    NEXUS_LOG("game: capture %s, controllers=%zu, local=%p, pawn=%p, team=%d, players=%d alive=%d enemies=%d viewport=%dx%d",
               status, g_controllerIndices.size(), (void*)g_localController,
-              (void*)g_localPawn, g_localTeam, count);
+              (void*)g_localPawn, g_localTeam, count, alive, enemies, width,
+              height);
 }
 
 // ---------------------------------------------------------------------------
@@ -485,9 +487,18 @@ bool Capture(Snapshot& out)
     }
     out.count = count;
 
+    int alive = 0;
+    int enemies = 0;
+    for (int i = 0; i < count; ++i) {
+        const PlayerSnap& p = out.players[i];
+        alive += p.valid && p.alive ? 1 : 0;
+        enemies += p.valid && p.alive && p.isEnemy ? 1 : 0;
+    }
+
     out.weaponInReload = ReadWeaponReload(g_localPawn);
     out.valid          = out.camera.valid;
-    LogCaptureStatus(out.valid && count > 0 ? "ok" : "no-players", count);
+    LogCaptureStatus(out.valid && count > 0 ? "ok" : "no-players", count,
+                     alive, enemies, g_vpW, g_vpH);
     return count > 0;
 }
 
