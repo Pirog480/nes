@@ -170,6 +170,12 @@ void RenderFrame(IDXGISwapChain* sc)
     ImGui_ImplWin32_NewFrame();
     ImGui_ImplDX11_NewFrame();
     ImGui::NewFrame();
+    if (nexus::GetState().menuOpen) {
+        ImGui::GetIO().MouseDrawCursor = true;
+        ::ClipCursor(nullptr);
+    } else {
+        ImGui::GetIO().MouseDrawCursor = false;
+    }
 
     game::Snapshot snap;
     game::Capture(snap);        // reads the live game (stub: nothing)
