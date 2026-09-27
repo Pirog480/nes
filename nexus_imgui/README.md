@@ -157,8 +157,8 @@ tools/ppm2png.py         — PPM → PNG без зависимостей
 * модуль `client.dll` — `GetModuleHandleW`, размер — `SizeOfImage` из PE-заголовка;
 * указатель на entity list — RIP-паттернами (`kEntityListPatterns`, 3 кандидата,
   `rel=3, len=7`); найденный адрес хранит указатель, сам указатель читается оттуда;
-* двухуровневый обход Source 2: `chunk = list + 0x8 + 0x10*(i & 0x1FF)`,
-  `entry = chunk + 0x70*(i >> 9)`, сущность = `entry` (layout 0) или
+* двухуровневый обход Source 2: `chunk = list + 0x8 + 0x10*(i >> 9)`,
+  `entry = chunk + 0x70*(i & 0x1FF)`, сущность = `entry` (layout 0) или
   `*(entry+0x10)` (layout 1). Layout определяется автоматически на индексах
   1..511 поиском «похожего контроллера» (имя — printable-строка,
   `m_iConnected <= 3`, `m_bIsLocalPlayerController ∈ {0,1}`);

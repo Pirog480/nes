@@ -142,12 +142,17 @@ uintptr_t GetEntity(uintptr_t list, int idx, int layout)
     if (!list || idx < 0)
         return 0;
     uintptr_t chunk = 0;
+    // Source 2's entity list is chunked: the high index bits select a chunk
+    // pointer in the table; the low 9 bits select an entry inside that chunk.
+    // Keep these indices separate (swapping them yields readable but unrelated
+    // pointers and can make the layout probe report a false positive).
     const uintptr_t chunkSlot =
         list + off::kListChunkTable +
-        off::kListChunkStride * (uintptr_t)(idx & (int)off::kListChunkMask);
+        off::kListChunkStride * (uintptr_t)(idx >> 9);
     if (!Rd((const void*)chunkSlot, chunk) || !chunk)
         return 0;
-    const uintptr_t entry = chunk + off::kListEntryStride * (uintptr_t)(idx >> 9);
+    const uintptr_t entry =
+        chunk + off::kListEntryStride * (uintptr_t)(idx & (int)off::kListChunkMask);
     if (layout == 0)
         return Readable((const void*)entry, 8) ? entry : 0;
     uintptr_t e = 0;

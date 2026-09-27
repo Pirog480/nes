@@ -93,8 +93,8 @@ constexpr std::uint32_t  kInvalidHandle    = 0xFFFFFFFFu;
 
 // ---------------------------------------------------------------------------
 // Source 2 entity list traversal (constants, not offsets of a dumped class)
-//   chunk = read(list + 0x8 + 0x10 * (index & 0x1FF))
-//   entry = chunk + 0x70 * (index >> 9)
+//   chunk = read(list + 0x8 + 0x10 * (index >> 9))
+//   entry = chunk + 0x70 * (index & 0x1FF)
 //   entity = entry            (layout 0)
 //   entity = read(entry+0x10) (layout 1)
 // The layout is detected at runtime, see game_windows.cpp.
