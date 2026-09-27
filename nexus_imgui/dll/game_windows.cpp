@@ -20,6 +20,7 @@
 
 #include <cmath>
 #include <cstring>
+#include <vector>
 
 namespace game {
 namespace {
@@ -36,7 +37,8 @@ const char* const kEntityListPatterns[3] = {
 
 constexpr int kPatternRel  = 3;
 constexpr int kPatternLen  = 7;
-constexpr int kScanMax     = 2048; // entity indices walked per frame
+constexpr int kScanMax     = 2048; // entity indices covered by the rolling scan
+constexpr int kScanBatch   = 128;  // bounded discovery work per frame
 constexpr int kLayoutScan  = 512;  // indices used for the layout autodetect
 constexpr ULONGLONG kReloadIntervalMs = 90;
 
@@ -48,6 +50,10 @@ size_t    g_clientSize = 0;
 uintptr_t g_entityList = 0; // the live list pointer (not its storage)
 int       g_layout     = -1;
 bool      g_patternFailLogged = false;
+int       g_scanCursor = 0;
+bool      g_controllerCached[kScanMax] = {};
+std::vector<int> g_controllerIndices;
+std::vector<uintptr_t> g_activeControllers;
 
 uintptr_t g_localController = 0;
 uintptr_t g_localPawn       = 0;
@@ -55,6 +61,18 @@ int       g_localTeam       = -1;
 
 int       g_vpW = 0, g_vpH = 0;
 ULONGLONG g_lastReloadMs = 0;
+ULONGLONG g_lastCaptureDiagMs = 0;
+
+void LogCaptureStatus(const char* status, int count = 0)
+{
+    const ULONGLONG now = ::GetTickCount64();
+    if (now - g_lastCaptureDiagMs < 2000)
+        return;
+    g_lastCaptureDiagMs = now;
+    NEXUS_LOG("game: capture %s, controllers=%zu, local=%p, pawn=%p, team=%d, players=%d",
+              status, g_controllerIndices.size(), (void*)g_localController,
+              (void*)g_localPawn, g_localTeam, count);
+}
 
 // ---------------------------------------------------------------------------
 // guarded memory access (no SEH, just page-state checks)
@@ -202,6 +220,9 @@ bool EnsureReady()
     if (g_entityList && !Readable((const void*)g_entityList, 0x10)) {
         g_entityList = 0;
         g_layout     = -1;
+        g_scanCursor = 0;
+        g_controllerIndices.clear();
+        std::memset(g_controllerCached, 0, sizeof(g_controllerCached));
     }
     if (!g_entityList) {
         for (int i = 0; i < 3; ++i) {
@@ -363,29 +384,62 @@ bool Capture(Snapshot& out)
 
     const uintptr_t list = g_entityList;
 
-    // ---- local controller & pawn -------------------------------------------
-    g_localController = 0;
-    g_localPawn       = 0;
-    g_localTeam       = -1;
-    for (int i = 0; i < kScanMax; ++i) {
-        const uintptr_t ctrl = GetEntity(list, i, g_layout);
+    // Discover controllers incrementally: the old implementation queried up to
+    // 2048 entries twice on every Present. VirtualQuery per field made that
+    // path dominate frame time. A rolling scan bounds discovery to 128 slots;
+    // discovered indices are then revalidated and reused each frame.
+    for (int n = 0; n < kScanBatch; ++n) {
+        const int idx = g_scanCursor++;
+        if (g_scanCursor >= kScanMax)
+            g_scanCursor = 0;
+        const uintptr_t ctrl = GetEntity(list, idx, g_layout);
         if (!LooksController(ctrl))
             continue;
         int connected = 0;
-        Rd((const void*)(ctrl + off::kConnected), connected);
-        if (connected != 2)
+        if (!Rd((const void*)(ctrl + off::kConnected), connected) ||
+            connected != 2 || g_controllerCached[idx])
             continue;
-        unsigned char isLocal = 0;
-        if (!Rd((const void*)(ctrl + off::kIsLocalController), isLocal) || !isLocal)
-            continue;
-        g_localController = ctrl;
-        break;
+        g_controllerCached[idx] = true;
+        g_controllerIndices.push_back(idx);
     }
-    if (!g_localController)
+
+    std::vector<uintptr_t>& controllers = g_activeControllers;
+    controllers.clear();
+    controllers.reserve(g_controllerIndices.size());
+    for (auto it = g_controllerIndices.begin(); it != g_controllerIndices.end();) {
+        const int idx = *it;
+        const uintptr_t ctrl = GetEntity(list, idx, g_layout);
+        int connected = 0;
+        if (!LooksController(ctrl) ||
+            !Rd((const void*)(ctrl + off::kConnected), connected) ||
+            connected != 2) {
+            g_controllerCached[idx] = false;
+            it = g_controllerIndices.erase(it);
+            continue;
+        }
+        controllers.push_back(ctrl);
+        ++it;
+    }
+
+    g_localController = 0;
+    g_localPawn       = 0;
+    g_localTeam       = -1;
+    for (const uintptr_t ctrl : controllers) {
+        unsigned char isLocal = 0;
+        if (Rd((const void*)(ctrl + off::kIsLocalController), isLocal) && isLocal) {
+            g_localController = ctrl;
+            break;
+        }
+    }
+    if (!g_localController) {
+        LogCaptureStatus("local-controller-missing");
         return false;
+    }
     g_localPawn = ReadPawn(g_localController);
-    if (!g_localPawn)
+    if (!g_localPawn) {
+        LogCaptureStatus("local-pawn-missing");
         return false;
+    }
     unsigned char lt = 0;
     if (Rd((const void*)(g_localPawn + off::kTeamNum), lt))
         g_localTeam = lt;
@@ -422,14 +476,9 @@ bool Capture(Snapshot& out)
 
     // ---- players ------------------------------------------------------------
     int count = 0;
-    for (int i = 0; i < kScanMax && count < kMaxPlayers; ++i) {
-        const uintptr_t ctrl = GetEntity(list, i, g_layout);
-        if (!LooksController(ctrl))
-            continue;
-        int connected = 0;
-        Rd((const void*)(ctrl + off::kConnected), connected);
-        if (connected != 2)
-            continue;
+    for (const uintptr_t ctrl : controllers) {
+        if (count >= kMaxPlayers)
+            break;
         FillPlayer(ctrl, out.players[count]);
         if (out.players[count].valid)
             ++count;
@@ -438,6 +487,7 @@ bool Capture(Snapshot& out)
 
     out.weaponInReload = ReadWeaponReload(g_localPawn);
     out.valid          = out.camera.valid;
+    LogCaptureStatus(out.valid && count > 0 ? "ok" : "no-players", count);
     return count > 0;
 }
 
