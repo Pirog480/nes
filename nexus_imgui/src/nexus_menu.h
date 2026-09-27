@@ -77,12 +77,11 @@ struct State {
     float abilitySmooth[4] = {50, 50, 50, 50};
 
     // ---- misc tab ------------------------------------------------------------
-    bool  bunnyHop       = true;
-    bool  autoAccept     = false;
-    bool  fastReload     = false;
-    float fakeLag        = 20.0f;  // 0..100 ms
-    float antiAimAngle   = 90.0f;  // 0..180
-    int   aaMode         = 0;      // 0 static, 1 spin, 2 random
+    bool  bunnyHop           = true;
+    bool  autoAccept         = false;
+    bool  autoActiveReload   = false;
+    bool  fovChanger         = false;
+    float fovValue           = 90.0f; // 70..130
 
     // ---- settings tab --------------------------------------------------------
     int   theme          = 0;      // 0 dark, 1 light

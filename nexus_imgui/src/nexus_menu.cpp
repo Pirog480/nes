@@ -823,21 +823,12 @@ void DrawMiscTab()
     BeginCard("exploits", "Exploits");
     ToggleRow("Bunny Hop", &g_state.bunnyHop);
     ToggleRow("Auto Accept", &g_state.autoAccept);
-    ToggleRow("Fast Reload", &g_state.fastReload);
+    ToggleRow("Auto Active Reload", &g_state.autoActiveReload);
     EndCard();
 
-    BeginCard("network", "Network & Angles");
-    SliderRow("fake-lag", "Fake Lag", &g_state.fakeLag, 0, 100, "ms");
-    SliderRow("aa-angle", "Anti-Aim Angle", &g_state.antiAimAngle, 0, 180,
-              "\xc2\xb0");
-    EndCard();
-
-    BeginCard("aa-mode", "Anti-Aim Mode");
-    {
-        static const char* modes[3] = {"Static", "Spin", "Random"};
-        if (Segmented("aa-mode-sel", modes, 3, &g_state.aaMode))
-            CloseHeroPanel();
-    }
+    BeginCard("view", "View");
+    ToggleRow("FOV Changer", &g_state.fovChanger);
+    SliderRow("camera-fov", "FOV", &g_state.fovValue, 70, 130, "\xc2\xb0");
     EndCard();
 }
 
@@ -1235,8 +1226,7 @@ void ResetSettings()
     g_state.drawDistance   = d.drawDistance;
     g_state.allyColor      = d.allyColor;
     g_state.enemyColor     = d.enemyColor;
-    g_state.fakeLag        = d.fakeLag;
-    g_state.antiAimAngle   = d.antiAimAngle;
+    g_state.fovValue       = d.fovValue;
 
     g_state.theme       = d.theme;
     g_state.uiScale     = d.uiScale;

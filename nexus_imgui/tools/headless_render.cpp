@@ -9,9 +9,13 @@
 //      nexus_headless --tab heroes --hero 5 --out hero.ppm
 //      nexus_headless --tab settings --theme light --out settings_light.ppm
 //      nexus_headless --tab aim --fov both --toast --out extras.ppm
+//      nexus_headless --tab aim --fov both --closed --out fov.ppm
+//      nexus_headless --esp-demo --closed --fov normal --out esp.ppm
 // ============================================================================
 #include <imgui.h>
 
+#include "../src/esp.h"
+#include "../src/game.h"
 #include "../src/nexus_menu.h"
 
 #include <algorithm>
@@ -196,6 +200,66 @@ static bool WritePPM(const Framebuffer& fb, const char* path, int ss)
 }
 
 // ---------------------------------------------------------------------------
+// --esp-demo: a synthetic snapshot (no game, no backend) so the ESP can be
+// screenshotted headlessly. Camera at (0,0,64) looking along +X with a 90 deg
+// fov; two enemies and one ally, all with valid synthetic bones.
+// ---------------------------------------------------------------------------
+static void FillDemoBones(game::PlayerSnap& p)
+{
+    // a small humanoid, relative to the feet (origin)
+    static const float dy[game::BoneCount] = {0, 0, 0, 0, 0, -9, 9, -5, 5};
+    static const float dz[game::BoneCount] = {36, 46, 54, 62, 68, 54, 54, 18, 18};
+    for (int i = 0; i < game::BoneCount; ++i) {
+        p.bone[i]      = p.origin + game::Vec3(0, dy[i], dz[i]);
+        p.boneValid[i] = true;
+    }
+    game::ValidateBones(p); // must keep all nine
+}
+
+static game::PlayerSnap MakeDemoPlayer(const char* name, float x, float y,
+                                       int team, bool enemy, int hp, int hpMax)
+{
+    game::PlayerSnap p;
+    p.valid       = true;
+    p.alive       = true;
+    p.isLocal     = false;
+    p.isEnemy     = enemy;
+    p.team        = team;
+    p.health      = hp;
+    p.maxHealth   = hpMax;
+    p.origin      = game::Vec3(x, y, 0);
+    p.velocity    = game::Vec3(0, 0, 0);
+    p.viewOffsetZ = 64.0f;
+    std::snprintf(p.name, sizeof(p.name), "%s", name);
+    FillDemoBones(p);
+    return p;
+}
+
+static game::Snapshot MakeEspDemoSnapshot(int width, int height)
+{
+    game::Snapshot s;
+    s.Clear();
+    s.valid = true;
+
+    s.camera.valid  = true;
+    s.camera.pos    = game::Vec3(0, 0, 64);
+    s.camera.pitch  = 0.0f;
+    s.camera.yaw    = 0.0f;
+    s.camera.fovX   = 90.0f;
+    s.camera.width  = width;
+    s.camera.height = height;
+
+    s.weaponInReload = false;
+
+    // left half of the screen, right half, and one ally
+    s.players[0] = MakeDemoPlayer("Enemy One", 600, -460, 3, true, 187, 260);
+    s.players[1] = MakeDemoPlayer("Enemy Two", 1400, 1072, 3, true, 84, 240);
+    s.players[2] = MakeDemoPlayer("Ally", 700, 656, 2, false, 240, 240);
+    s.count      = 3;
+    return s;
+}
+
+// ---------------------------------------------------------------------------
 // main
 // ---------------------------------------------------------------------------
 int main(int argc, char** argv)
@@ -209,6 +273,7 @@ int main(int argc, char** argv)
     bool  toast = false;
     bool  minimized = false;
     bool  closed = false;
+    bool  espDemo = false;
     int   frames = 220;
     const char* out = "screenshot.ppm";
 
@@ -230,15 +295,19 @@ int main(int argc, char** argv)
         else if (is("--hero") && i + 1 < argc)
             hero = std::atoi(argv[++i]);
         else if (is("--fov") && i + 1 < argc) {
+            // "normal" => only the normal-aim circle, "psilent" => only the
+            // psilent one, "both" => both. (This used to be inverted.)
             const char* v = argv[++i];
-            fovN = std::strcmp(v, "psilent") == 0 || !std::strcmp(v, "both");
-            fovP = std::strcmp(v, "normal") == 0 || !std::strcmp(v, "both");
+            fovN = !std::strcmp(v, "normal") || !std::strcmp(v, "both");
+            fovP = !std::strcmp(v, "psilent") || !std::strcmp(v, "both");
         } else if (is("--toast"))
             toast = true;
         else if (is("--min"))
             minimized = true;
         else if (is("--closed"))
             closed = true;
+        else if (is("--esp-demo"))
+            espDemo = true;
         else if (is("--frames") && i + 1 < argc)
             frames = std::atoi(argv[++i]);
     }
@@ -281,6 +350,17 @@ int main(int argc, char** argv)
     st.normal.fovShown = st.normal.fovShown || fovN;
     st.psilent.fovShown = st.psilent.fovShown || fovP;
 
+    // ESP demo: Visuals tab with every ESP toggle on + a synthetic snapshot
+    game::Snapshot snap;
+    if (espDemo) {
+        st.activeTab = 1; // Visuals
+        st.esp       = true;
+        st.skeleton  = true;
+        st.healthBar = true;
+        st.nameDist  = true;
+        snap         = MakeEspDemoSnapshot(width, height);
+    }
+
     // frames (let animations settle, then optionally show a toast)
     for (int f = 0; f < frames; ++f) {
         io.AddMousePosEvent(-10000.0f, -10000.0f);
@@ -288,6 +368,10 @@ int main(int argc, char** argv)
         if (toast && f == frames - 25)
             nexus::ShowToast("Config saved successfully!");
         nexus::DrawMenu();
+        // ESP goes on the background draw list AFTER the menu painted it, so it
+        // ends up above the background/FOV circles but below the menu window.
+        if (espDemo)
+            nexus_esp::Render(snap);
         ImGui::EndFrame();
     }
     ImGui::Render();
