@@ -11,7 +11,7 @@
 | Темы `dark` / `light` (CSS-переменные) | `ApplyStyle()` — палитры `kDark` / `kLight` |
 | Акцентный цвет (свотчи) | `kAccentColors[]`, применяется к стилю и виджетам |
 | Glassmorphism (blur, backdrop-filter) | Полупрозрачные фоны + рамки (blur недоступен в ImGui — эмуляция) |
-| Анимированные фоновые «блобы» | Кольцевая заливка на background draw list (имитация blur 100px) |
+| Анимированные фоновые «блобы» | Удалены: фон существовал только для превью стекла, в игре закрывал кадр |
 | Шапка: brand, FPS, minimize, close, drag | `DrawHeader()` — перетаскивание шапки, пульсирующая точка, FPS реальный |
 | Сайдбар 180px с индикатором вкладок | `DrawSidebar()` — SVG-иконки перерисованы примитивами, индикатор с анимацией |
 | Карточки `.card` + `.card-title` | `BeginCard()/EndCard()` (child-окно со скруглением и hover-подсветкой) |
@@ -85,7 +85,7 @@ ImGui::Render();
 ```
 
 4. Очисточный цвет фона: `glClearColor` из `nexus::GetClearColor()`
-   (или не используйте — меню само рисует фон/блобы на background draw list).
+   (фон меню не заливает экран; в DLL виден кадр игры).
 5. Состояние всех настроек — `nexus::GetState()` (структура `nexus::State`).
 
 ## Устройство кода
@@ -111,8 +111,8 @@ tools/ppm2png.py         — PPM → PNG без зависимостей
 
 ## Известные отличия от оригинала
 
-* **Blur/glass**: в ImGui нет `backdrop-filter` и SVG-фильтров — фон
-  полупрозрачный, «блобы» имитируются концентрическими кольцами.
+* **Blur/glass**: в ImGui нет `backdrop-filter` и SVG-фильтров; полноэкранные
+  блобы удалены — в игре они закрывали кадр.
 * **FPS-счётчик**: в HTML был случайный (135–154), здесь — реальный FPS.
 * **Шрифты**: HTML использует системный стек 11–14 px; ImGui-порт рисует
   одним размером шрифта (масштабируется через `ui-scale`/`FontGlobalScale`).
@@ -157,8 +157,8 @@ tools/ppm2png.py         — PPM → PNG без зависимостей
 * модуль `client.dll` — `GetModuleHandleW`, размер — `SizeOfImage` из PE-заголовка;
 * указатель на entity list — RIP-паттернами (`kEntityListPatterns`, 3 кандидата,
   `rel=3, len=7`); найденный адрес хранит указатель, сам указатель читается оттуда;
-* двухуровневый обход Source 2: `chunk = list + 0x8 + 0x10*(i & 0x1FF)`,
-  `entry = chunk + 0x70*(i >> 9)`, сущность = `entry` (layout 0) или
+* двухуровневый обход Source 2: `chunk = list + 0x8 + 0x10*(i >> 9)`,
+  `entry = chunk + 0x70*(i & 0x1FF)`, сущность = `entry` (layout 0) или
   `*(entry+0x10)` (layout 1). Layout определяется автоматически на индексах
   1..511 поиском «похожего контроллера» (имя — printable-строка,
   `m_iConnected <= 3`, `m_bIsLocalPlayerController ∈ {0,1}`);
@@ -187,10 +187,9 @@ tools/ppm2png.py         — PPM → PNG без зависимостей
 health/maxHealth, name[64], origin, velocity, viewOffsetZ, boneValid[9]+bone[9],
 камера, `weaponInReload`). Рисуется в `GetBackgroundDrawList()`.
 
-**Порядок вызова критичен**: `nexus::DrawMenu()` заливает background-лист
-непрозрачной сценой, поэтому `nexus_esp::Render(snap)` вызывается **после**
-`DrawMenu()` — тогда ESP лежит поверх фона и FOV-кругов, но под окном меню
-(окна рисуются позже background-листа). Без этого ESP невидим.
+**Порядок вызова**: `nexus_esp::Render(snap)` выполняется после `DrawMenu()`;
+ESP рисуется поверх FOV-кругов на background draw list и под окном меню
+(окна рисуются позже background-листа).
 
 Настройки берутся из `nexus::GetState()`: `esp` (мастер), `skeleton`,
 `healthBar`, `nameDist`, `outlineOpacity` (альфа бокса), `drawDistance`
@@ -285,7 +284,13 @@ hwnd, `GetDevice` → device/context, RTV из back-буфера, `ImGui::Create
 `nexus_esp::Render` → `ImGui::Render` → свой RTV → `RenderDrawData` →
 восстановление RT/viewport → оригинальный `Present`. `ResizeBuffers`:
 освободить RTV → оригинал → пересоздать RTV. `WndProc` сначала отдаёт сообщения
-ImGui, а при открытом меню глотает ввод (клавиатура/мышь/`WM_INPUT`).
+ImGui, а при открытом меню глотает ввод (клавиатура/мышь/`WM_INPUT`). Скан
+контроллеров идёт порциями по 128 индексов за кадр с кешированием найденных
+индексов, а не двумя полными обходами 2048 сущностей на каждом Present. Раз в
+2 секунды логируется статус `Capture` (число игроков, живых, врагов и viewport)
+для диагностики. При открытии меню курсор
+ImGui отображается (`MouseDrawCursor`) и снимается ограничение `ClipCursor`;
+шапку можно перетаскивать, а меню центрируется заново при каждом открытии.
 
 Проверка без MSVC (кросс-сборка, только компиляция/линковка):
 
@@ -319,7 +324,7 @@ python -m ziglang c++ -target x86_64-windows-gnu -std=c++17 -shared \
   игры клиент пересчитывает их после нас, потребуется хук `CreateMove`/
   `SendMove` — здесь он сознательно не делается;
 * **unload не поддерживается** — только выход из игры;
-* ESP рисуется под окном меню (это ожидаемо: фон меню непрозрачный);
+* ESP рисуется под окном меню; за меню в DLL виден кадр игры;
 * `m_iDesiredFOV` читается как int и зажимается в 60..140, иначе 90.
 
 ## Headless-скриншоты и ESP-демо

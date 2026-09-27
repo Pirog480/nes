@@ -26,6 +26,13 @@
 #include <cmath>
 #include <string>
 
+#ifdef _WIN32
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
+#endif
+
 namespace nexus_aim {
 namespace {
 
@@ -69,10 +76,13 @@ struct KeyAlias {
 // generic ImGui::GetKeyName() comparison below.
 const KeyAlias kAliases[] = {
     {"MB1", ImGuiKey_MouseLeft},    {"MOUSE1", ImGuiKey_MouseLeft},
-    {"MB2", ImGuiKey_MouseRight},   {"MOUSE2", ImGuiKey_MouseRight},
+    {"M1", ImGuiKey_MouseLeft},     {"MB2", ImGuiKey_MouseRight},
+    {"MOUSE2", ImGuiKey_MouseRight},{"M2", ImGuiKey_MouseRight},
     {"MB3", ImGuiKey_MouseMiddle},  {"MOUSE3", ImGuiKey_MouseMiddle},
-    {"MB4", ImGuiKey_MouseX1},      {"MOUSE4", ImGuiKey_MouseX1},
+    {"M3", ImGuiKey_MouseMiddle},   {"MB4", ImGuiKey_MouseX1},
+    {"MOUSE4", ImGuiKey_MouseX1},   {"M4", ImGuiKey_MouseX1},
     {"MB5", ImGuiKey_MouseX2},      {"MOUSE5", ImGuiKey_MouseX2},
+    {"M5", ImGuiKey_MouseX2},
     {"RETURN", ImGuiKey_Enter},     {"ENTER", ImGuiKey_Enter},
     {"ESC", ImGuiKey_Escape},       {"ESCAPE", ImGuiKey_Escape},
     {"CTRL", ImGuiKey_LeftCtrl},    {"CONTROL", ImGuiKey_LeftCtrl},
@@ -175,7 +185,23 @@ void Tick(const Snapshot& snap)
 
     const ImGuiKey key = KeyFromName(st.activationKey.c_str());
     if (key == ImGuiKey_None)   return; // unknown binding => aim stays off
-    if (!ImGui::IsKeyDown(key)) return;
+    bool keyDown = ImGui::IsKeyDown(key);
+#ifdef _WIN32
+    // Some games use Raw Input and do not deliver ordinary button transitions
+    // consistently to the hooked WndProc. Query the physical mouse state too,
+    // so an MB1 activation binding works while the game has cursor capture.
+    if (key == ImGuiKey_MouseLeft)
+        keyDown = (::GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0;
+    else if (key == ImGuiKey_MouseRight)
+        keyDown = (::GetAsyncKeyState(VK_RBUTTON) & 0x8000) != 0;
+    else if (key == ImGuiKey_MouseMiddle)
+        keyDown = (::GetAsyncKeyState(VK_MBUTTON) & 0x8000) != 0;
+    else if (key == ImGuiKey_MouseX1)
+        keyDown = (::GetAsyncKeyState(VK_XBUTTON1) & 0x8000) != 0;
+    else if (key == ImGuiKey_MouseX2)
+        keyDown = (::GetAsyncKeyState(VK_XBUTTON2) & 0x8000) != 0;
+#endif
+    if (!keyDown) return;
 
     const Camera& cam = snap.camera;
     const Vec3    fwd = game::CameraForward(cam.pitch, cam.yaw);

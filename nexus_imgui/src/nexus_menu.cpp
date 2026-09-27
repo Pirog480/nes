@@ -90,6 +90,8 @@ float  g_heightAnim   = 520.0f;
 float  g_navIndPos    = -1.0f; // relative to sidebar top (scale-independent)
 ImVec2 g_menuPos(0, 0);
 bool   g_menuPosInit  = false;
+bool   g_wasOpen      = false;
+ImVec2 g_dragGrab(0, 0);
 float  g_fps          = 60.0f;
 float  g_fovNAlpha    = 0.0f;
 float  g_fovPAlpha    = 0.0f;
@@ -233,52 +235,6 @@ void FillWidgetTheme(float alpha_factor)
     g_theme.border        = A(p.border);
     g_theme.borderGlow    = A(p.borderGlow);
     g_theme.shadow        = A(p.shadow);
-}
-
-// ---------------------------------------------------------------------------
-// background scene: base color + animated blurred blobs
-// ---------------------------------------------------------------------------
-
-void Blob(ImDrawList* dl, ImVec2 center, float r, const ImVec4& color)
-{
-    const int   N  = 16;
-    const float re = r + std::min(100.0f, r * 0.4f);
-    const float aL = 1.0f - std::pow(0.5f, 1.0f / N); // -> ~0.5 total
-    for (int i = 0; i < N; ++i) {
-        const float t  = (float)i / (N - 1);
-        const float rr = re * (1.0f - 0.97f * t);
-        dl->AddCircleFilled(center, rr, Alpha(color, aL), 32);
-    }
-}
-
-void DrawBackgroundScene()
-{
-    const Palette& p  = Pal();
-    auto*          dl = ImGui::GetBackgroundDrawList();
-    const ImVec2   ds = ImGui::GetIO().DisplaySize;
-    const float    t  = (float)ImGui::GetTime();
-
-    dl->AddRectFilled(ImVec2(0, 0), ds, Col(p.bgApp));
-
-    {
-        const float u = t * 6.2831853f / 25.0f;
-        Blob(dl, ImVec2(200 + std::sin(u) * 30, 100 - std::cos(u * 0.7f) * 40),
-             300, RGB(0x4e, 0x00, 0xc2));
-    }
-    {
-        const float u = t * 6.2831853f / 20.0f;
-        Blob(dl,
-             ImVec2(ds.x - 150 + std::cos(u) * 25,
-                    ds.y - 100 + std::sin(u) * 35),
-             250, RGB(0xc2, 0x00, 0x5e));
-    }
-    {
-        const float u = t * 6.2831853f / 30.0f;
-        Blob(dl,
-             ImVec2(ds.x * 0.5f + std::sin(u * 1.1f) * 35,
-                    ds.y * 0.5f + std::cos(u * 0.9f) * 30),
-             200, RGB(0x00, 0x6e, 0xc2));
-    }
 }
 
 // ---------------------------------------------------------------------------
@@ -427,6 +383,17 @@ void DrawHeader(float win_w)
     const float close_x = win_w - b - pad - btn;
     const float min_x   = close_x - gap - btn;
 
+    // Drag zone is submitted first so buttons submitted below take precedence.
+    ImGui::SetCursorPos(ImVec2(b, b));
+    ImGui::InvisibleButton("##hdr_drag", ImVec2(win_w - 2.0f * b, h));
+    const bool dragHovered = ImGui::IsItemHovered();
+    if (ImGui::IsItemActivated())
+        g_dragGrab = ImGui::GetMousePos() - ImGui::GetWindowPos();
+    if (ImGui::IsItemActive())
+        g_menuPos = ImGui::GetMousePos() - g_dragGrab;
+    if (dragHovered || ImGui::IsItemActive())
+        ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeAll);
+
     // fps counter
     {
         char fps[32];
@@ -476,15 +443,6 @@ void DrawHeader(float win_w)
         dl->AddText(font, fs,
                     ImVec2(dc.x + dr + S(8.0f), wpos.y + b + (h - fs) * 0.5f),
                     Col(g_theme.textPrimary), "NEXUS");
-    }
-
-    // drag area — submitted last so real buttons win the hover contest
-    ImGui::SetCursorPos(ImVec2(b, b));
-    ImGui::InvisibleButton("##hdr_drag", ImVec2(win_w - 2.0f * b, h));
-    if (ImGui::IsItemActive() &&
-        ImGui::IsMouseDragging(ImGuiMouseButton_Left)) {
-        g_menuPos.x += ImGui::GetIO().MouseDelta.x;
-        g_menuPos.y += ImGui::GetIO().MouseDelta.y;
     }
 
     // header separator
@@ -1093,12 +1051,14 @@ void DrawMenu()
         if (toggle)
             ToggleMenu();
     }
+    if (g_state.menuOpen && !g_wasOpen)
+        g_menuPosInit = false;
+    g_wasOpen = g_state.menuOpen;
 
     if (io.DeltaTime > 0.0f)
         g_fps += (1.0f / io.DeltaTime - g_fps) * 0.06f;
 
     // ---- background --------------------------------------------------------
-    DrawBackgroundScene();
     DrawFovCircles();
 
     // ---- menu window -------------------------------------------------------
