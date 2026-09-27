@@ -155,9 +155,10 @@ tools/ppm2png.py         — PPM → PNG без зависимостей
 ### Доступ к сущностям
 
 * модуль `client.dll` — `GetModuleHandleW`, размер — `SizeOfImage` из PE-заголовка;
-* указатель на entity list — RIP-паттернами (`kEntityListPatterns`, 3 кандидата,
-  `rel=3, len=7`); найденный адрес хранит указатель, сам указатель читается оттуда;
-* двухуровневый обход Source 2: `chunk = list + 0x8 + 0x10*(i >> 9)`,
+* сначала используется `CGameEntitySystem::GetBaseEntity` и singleton из
+  сигнатур, сверенных с Andromeda-Base; если эти сигнатуры не совпали, включается
+  raw-list fallback по трём RIP-паттернам;
+* двухуровневый обход Source 2 fallback: `chunk = list + 0x8 + 0x10*(i >> 9)`,
   `entry = chunk + 0x70*(i & 0x1FF)`, сущность = `entry` (layout 0) или
   `*(entry+0x10)` (layout 1). Layout определяется автоматически на индексах
   1..511 поиском «похожего контроллера» (имя — printable-строка,

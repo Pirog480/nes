@@ -34,6 +34,13 @@ const char* const kEntityListPatterns[3] = {
     "48 8B 0D ?? ?? ?? ?? 48 8B 01 FF 50 ??",
     "48 8B 05 ?? ?? ?? ?? 48 8B 08 48 85 C9 74 ?? 48 8B 01",
 };
+// Andromeda's old, engine-owned accessor path. Prefer GetBaseEntity when both
+// the entity-system singleton and function resolve; keep the raw-list walker as
+// a fallback for builds where these signatures have changed.
+const char* const kGameEntitySystemPattern =
+    "48 8B 0D ?? ?? ?? ?? 8B D0 E8 ?? ?? ?? ?? 44 8B 83 C0 00 00 00";
+const char* const kGetBaseEntityPattern =
+    "4C 8D 49 ? 81 FA ? ? ? ? 77";
 
 constexpr int kPatternRel  = 3;
 constexpr int kPatternLen  = 7;
@@ -48,6 +55,14 @@ constexpr ULONGLONG kReloadIntervalMs = 90;
 uintptr_t g_clientBase = 0;
 size_t    g_clientSize = 0;
 uintptr_t g_entityList = 0; // the live list pointer (not its storage)
+uintptr_t g_entitySystemSlot = 0;
+bool      g_entitySystemSlotSearched = false;
+uintptr_t g_entitySystem = 0;
+uintptr_t g_getBaseEntityFn = 0;
+bool      g_getBaseEntitySearched = false;
+bool      g_entityApiMode = false;
+bool      g_entityApiFallbackLogged = false;
+bool      g_layoutFailLogged = false;
 int       g_layout     = -1;
 bool      g_patternFailLogged = false;
 int       g_scanCursor = 0;
@@ -62,6 +77,7 @@ int       g_localTeam       = -1;
 int       g_vpW = 0, g_vpH = 0;
 ULONGLONG g_lastReloadMs = 0;
 ULONGLONG g_lastCaptureDiagMs = 0;
+ULONGLONG g_lastLayoutProbeMs = 0;
 
 void LogCaptureStatus(const char* status, int count = 0, int alive = 0,
                       int enemies = 0, int width = 0, int height = 0)
@@ -136,10 +152,54 @@ template <typename T> bool Wr(void* addr, const T& v)
 
 // ---------------------------------------------------------------------------
 // entity list traversal
+bool InitEntitySystemApi()
+{
+    if (!g_entitySystemSlotSearched) {
+        g_entitySystemSlotSearched = true;
+        g_entitySystemSlot = pattern::FindRip(
+            g_clientBase, g_clientSize, kGameEntitySystemPattern, 3, 7);
+    }
+    if (g_entitySystemSlot) {
+        uintptr_t system = 0;
+        if (Rd((const void*)g_entitySystemSlot, system) && system &&
+            Readable((const void*)system, sizeof(uintptr_t)))
+            g_entitySystem = system;
+        else
+            g_entitySystem = 0;
+    }
+    if (!g_getBaseEntitySearched) {
+        g_getBaseEntitySearched = true;
+        g_getBaseEntityFn = pattern::Find(g_clientBase, g_clientSize,
+                                         kGetBaseEntityPattern);
+    }
+
+    if (!g_entitySystem || !g_getBaseEntityFn ||
+        !Readable((const void*)g_getBaseEntityFn, 16))
+        return false;
+    return true;
+}
+
+void ResetControllerCache()
+{
+    g_scanCursor = 0;
+    g_controllerIndices.clear();
+    g_activeControllers.clear();
+    std::memset(g_controllerCached, 0, sizeof(g_controllerCached));
+}
+
 // ---------------------------------------------------------------------------
 uintptr_t GetEntity(uintptr_t list, int idx, int layout)
 {
-    if (!list || idx < 0)
+    if (idx < 0)
+        return 0;
+    if (g_entityApiMode && g_entitySystem && g_getBaseEntityFn) {
+        using GetBaseEntityFn = uintptr_t (*)(uintptr_t, int);
+        const auto fn = reinterpret_cast<GetBaseEntityFn>(g_getBaseEntityFn);
+        const uintptr_t entity = fn(g_entitySystem, idx);
+        if (entity && Readable((const void*)entity, 8))
+            return entity;
+    }
+    if (!list || (layout != 0 && layout != 1))
         return 0;
     uintptr_t chunk = 0;
     // Source 2's entity list is chunked: the high index bits select a chunk
@@ -223,6 +283,29 @@ bool EnsureReady()
                   (void*)g_clientBase, g_clientSize);
     }
 
+    // Prefer the CGameEntitySystem accessor used by the working Andromeda
+    // project. It handles entry layout internally and avoids probing random
+    // readable addresses as possible controllers.
+    if (InitEntitySystemApi()) {
+        if (!g_entityApiMode) {
+            ResetControllerCache();
+            g_entityApiMode = true;
+            NEXUS_LOG("game: CGameEntitySystem::GetBaseEntity API ready");
+        }
+        g_layout = 2; // GetEntity dispatches through the engine accessor.
+        return true;
+    }
+    if (g_entityApiMode) {
+        g_entityApiMode = false;
+        g_layout = -1;
+        ResetControllerCache();
+        NEXUS_LOG("game: entity-system API unavailable; using raw-list fallback");
+    } else if (!g_entityApiFallbackLogged) {
+        g_entityApiFallbackLogged = true;
+        NEXUS_LOG("game: Andromeda entity API signatures: system-slot=%p, GetBaseEntity=%p; trying raw-list fallback",
+                  (void*)g_entitySystemSlot, (void*)g_getBaseEntityFn);
+    }
+
     // ---- entity list pointer ------------------------------------------------
     if (g_entityList && !Readable((const void*)g_entityList, 0x10)) {
         g_entityList = 0;
@@ -261,9 +344,18 @@ bool EnsureReady()
 
     // ---- layout autodetect --------------------------------------------------
     if (g_layout < 0) {
-        g_layout = DetectLayout(g_entityList);
-        if (g_layout < 0)
+        const ULONGLONG now = ::GetTickCount64();
+        if (g_lastLayoutProbeMs != 0 && now - g_lastLayoutProbeMs < 1000)
             return false;
+        g_lastLayoutProbeMs = now;
+        g_layout = DetectLayout(g_entityList);
+        if (g_layout < 0) {
+            if (!g_layoutFailLogged) {
+                g_layoutFailLogged = true;
+                NEXUS_LOG("game: raw entity-list layout probe failed");
+            }
+            return false;
+        }
         NEXUS_LOG("game: entity list layout = %d", g_layout);
     }
     return true;
